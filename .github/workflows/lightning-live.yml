@@ -66,4 +66,8 @@ jobs:
         if: success() && (inputs.chain || 'true') == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run lightning-live.yml --ref "${GITHUB_REF_NAME}"
+        run: |
+          gh workflow run lightning-live.yml --ref "${GITHUB_REF_NAME}"
+          # GitHub's cron has been unreliable for this repo, so also kick the hourly
+          # data update (which refreshes current conditions and sends the morning report).
+          gh workflow run pipeline.yml --ref "${GITHUB_REF_NAME}" -f job=update || true

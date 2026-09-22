@@ -14,7 +14,7 @@ import sys
 from datetime import date, datetime, timedelta
 
 from . import emailer, nws, procore, report, xano
-from .config import AREA_NAME, AREA_SCOPE, START_DATE, settings
+from .config import AREA_NAME, AREA_SCOPE, START_DATE, TZ, settings
 from .daily import build_day
 from .geo import load_area
 from .http import SourceError
@@ -97,14 +97,47 @@ def cmd_current(_args) -> int:
     return 0
 
 
+REPORT_AFTER = (7, 30)  # local time the morning report becomes due
+
+
 def cmd_update(args) -> int:
     today = today_local()
+    try:
+        cmd_current(args)
+    except Exception as exc:  # noqa: BLE001 - current conditions must not block the daily log
+        print(f"current conditions failed: {exc}", file=sys.stderr)
     records = load_daily()
     extra = gaps(records, today - timedelta(days=1))[:args.catch_up]
     days = extra + [today]
     build_days(days)
     _mark("update", True, f"built {len(days)} days")
-    return 0
+    return morning_duties(today)
+
+
+def morning_duties(today: date) -> int:
+    """Once it is past 07:30 local, reconcile the last 3 days and send yesterday's report.
+
+    Runs from every update, so the morning report does not depend on one
+    particular scheduled run firing; state in status.json and the delivery log
+    make it happen once per day."""
+    now_l = now_utc().astimezone(TZ)
+    if (now_l.hour, now_l.minute) < REPORT_AFTER:
+        return 0
+    yesterday = (today - timedelta(days=1)).isoformat()
+    st = read_json(STATUS_FILE, {})
+    if st.get("reconcile", {}).get("for_date") != yesterday:
+        build_days([today - timedelta(days=i) for i in (3, 2, 1)])
+        _mark("reconcile", True, "last 3 days rebuilt")
+        st = read_json(STATUS_FILE, {})
+        st["reconcile"]["for_date"] = yesterday
+        write_json(STATUS_FILE, st)
+    if st.get("report", {}).get("for_date") == yesterday and st["report"].get("last_result") == "ok":
+        return 0
+    rc = cmd_report(argparse.Namespace(date=yesterday, force=False))
+    st = read_json(STATUS_FILE, {})
+    st.setdefault("report", {})["for_date"] = yesterday
+    write_json(STATUS_FILE, st)
+    return rc
 
 
 def cmd_backfill(args) -> int:
@@ -201,22 +234,32 @@ def cmd_config_check(_args) -> int:
         v = os.environ.get(n, "").strip()
         print(f"{n:24} {'set' if v else 'MISSING'}")
     print(f"report recipients: {len(s.report_recipients)}")
-    if s.xano_meta_url:
-        base = s.xano_meta_url.rstrip("/")
-        print("xano url looks like:", base.split("//")[-1].split(".")[0][:4] + "…" + base[-10:])
-    if s.xano_configured:
+    if s.xano_meta_url and s.xano_token:
+        from .xano import meta_base
+        base = meta_base(s.xano_meta_url)
+        host = base.split("//")[1].split("/")[0]
+        print("xano instance:", host[:4] + "…" + host[-12:])
         h = {"Authorization": f"Bearer {s.xano_token}"}
-        base = s.xano_meta_url.rstrip("/")
-        for label, url in [("workspace", f"{base}/workspace/{s.xano_workspace_id}"),
-                           ("table", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}"),
-                           ("table schema", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/schema"),
-                           ("table content", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content?page=1&per_page=1")]:
+
+        def show(label, url):
             try:
                 r = request("GET", url, headers=h, attempts=1)
-                body = r.text[:400].replace(s.xano_token, "***")
-                print(f"xano {label:14} HTTP {r.status_code} {body}")
+                print(f"xano {label:12} HTTP {r.status_code}")
+                return r.json() if r.status_code == 200 else None
             except Exception as exc:  # noqa: BLE001
-                print(f"xano {label:14} ERROR {exc}")
+                print(f"xano {label:12} ERROR {exc}")
+                return None
+
+        ws = show("workspaces", f"{base}/workspace")
+        items = ws if isinstance(ws, list) else (ws or {}).get("items", []) if isinstance(ws, dict) else []
+        for w in items[:10]:
+            print(f"  workspace id={w.get('id')} name={w.get('name')!r}")
+            tb = show("tables", f"{base}/workspace/{w.get('id')}/table?per_page=100")
+            titems = tb if isinstance(tb, list) else (tb or {}).get("items", []) if isinstance(tb, dict) else []
+            for t in titems[:50]:
+                print(f"    table id={t.get('id')} name={t.get('name')!r}")
+        if s.xano_workspace_id and s.xano_table_id:
+            show("our table", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content?page=1&per_page=1")
     if s.resend_api_key:
         try:
             r = request("GET", "https://api.resend.com/domains", headers={"Authorization": f"Bearer {s.resend_api_key}"}, attempts=1)

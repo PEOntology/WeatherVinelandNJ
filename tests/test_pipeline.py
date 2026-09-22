@@ -62,3 +62,20 @@ def test_check_stale(tmp_store):
     cli._mark("update", True)
     cli._mark("current", True)
     assert cli.main(["check-stale"]) == 0
+
+
+def test_morning_report_once_after_730(tmp_store, monkeypatch):
+    from datetime import datetime, timezone
+    calls = {"report": 0, "build": []}
+    monkeypatch.setattr(cli, "cmd_report", lambda a: calls.__setitem__("report", calls["report"] + 1) or 0)
+    monkeypatch.setattr(cli, "build_days", lambda days: calls["build"].append(days) or {})
+    today = date(2026, 9, 23)
+    monkeypatch.setattr(cli, "now_utc", lambda: datetime(2026, 9, 23, 11, 0, tzinfo=timezone.utc))  # 07:00 EDT
+    cli.morning_duties(today)
+    assert calls["report"] == 0 and not calls["build"]
+    monkeypatch.setattr(cli, "now_utc", lambda: datetime(2026, 9, 23, 11, 45, tzinfo=timezone.utc))  # 07:45 EDT
+    cli.morning_duties(today)
+    assert calls["report"] == 1 and len(calls["build"]) == 1
+    cli._mark("report", True)
+    cli.morning_duties(today)  # later hourly runs the same day do nothing
+    assert calls["report"] == 1 and len(calls["build"]) == 1

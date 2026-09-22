@@ -11,8 +11,15 @@ from .http import SourceError, request
 from .store import XANO_IDS, read_json, write_json
 
 
+def meta_base(url: str) -> str:
+    """Metadata API root from whatever Xano URL was configured (dashboard link, instance URL, or api:meta)."""
+    from urllib.parse import urlparse
+    u = urlparse(url if "://" in url else "https://" + url)
+    return f"{u.scheme or 'https'}://{u.netloc}/api:meta"
+
+
 def _url(s: Settings, suffix: str = "") -> str:
-    return f"{s.xano_meta_url.rstrip('/')}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content{suffix}"
+    return f"{meta_base(s.xano_meta_url)}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content{suffix}"
 
 
 def upsert_day(s: Settings, rec: dict, events: list[dict] | None) -> str | None:
