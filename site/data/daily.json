@@ -4,7 +4,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-22T18:23:53+00:00",
+ "generated_at": "2026-09-22T18:37:14+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -3019,7 +3019,7 @@
    "date": "2026-08-03",
    "area": "Vineland, NJ",
    "coverage": "City of Vineland municipal boundary (Census place 3476070)",
-   "status": "incomplete",
+   "status": "complete",
    "day_ended": true,
    "rain_estimated": {
     "value_in": 2.79,
@@ -3043,9 +3043,26 @@
     "source": "Xweather detected lightning (Lightning Enterprise)",
     "label": "Detected lightning events within Vineland",
     "status": "unavailable",
-    "reason": "GET https://data.api.xweather.com/lightning/within -> HTTP 401: {\"success\":false,\"error\":{\"code\":\"insufficient_scope\",\"description\":\"The request requires a different account subscription level.\"},\"response\":[]}"
+    "reason": "Xweather Lightning Enterprise add-on not active"
    },
-   "retrieved_at": "2026-09-22T18:23:52+00:00"
+   "lightning_glm": {
+    "status": "complete",
+    "flashes": 10,
+    "partial_flashes": null,
+    "first_local": "2026-08-03T15:56:00-04:00",
+    "last_local": "2026-08-03T16:47:00-04:00",
+    "files_found": 4313,
+    "files_expected": 4320,
+    "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
+    "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
+   },
+   "lightning_flash": {
+    "source": "Xweather lightning/flash live feed (polled continuously)",
+    "label": "Detected lightning flashes within Vineland (ground network; strikes and in-cloud pulses combined)",
+    "status": "unavailable",
+    "reason": "no live polling for this day"
+   },
+   "retrieved_at": "2026-09-22T18:36:44+00:00"
   },
   {
    "date": "2026-08-04",
