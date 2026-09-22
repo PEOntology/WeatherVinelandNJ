@@ -21,3 +21,13 @@ jobs:
           python-version: "3.12"
       - run: pip install requests numpy
       - run: python -m weather.cli xweather-check
+      - name: NOAA SWDI NLDN tiles (public daily cloud-to-ground counts)
+        if: always()
+        run: |
+          B="https://www.ncei.noaa.gov/swdiws"
+          box="bbox=-75.10,39.37,-74.88,39.58"
+          for rng in 20260803:20260804 20260601:20260701 20260901:20260922 20260501:20260502; do
+            echo "== nldn-tiles $rng"; curl -sS -m 60 "$B/csv/nldn-tiles/$rng?$box" | head -25
+          done
+          echo "== summary"; curl -sS -m 60 "$B/csv/nldn-tiles/20260501:20260922?$box&stat=count" | head -10
+          echo "== datasets"; curl -sS -m 60 "$B/csv/nldn-tiles/20260920:20260922?$box" | head -5
