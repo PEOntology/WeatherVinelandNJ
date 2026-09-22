@@ -1,0 +1,39 @@
+name: Fetch site assets
+
+# Copies the "Built by" photo into the site so it is served from our own
+# domain (the source site may block hotlinking).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photo
+        run: |
+          mkdir -p site/assets
+          curl -fsSL -A "Mozilla/5.0" -e "https://www.datacenterland.us/login" \
+            "https://www.datacenterland.us/assets/eric-quidort.jpg" -o /tmp/photo
+          file /tmp/photo
+          file /tmp/photo | grep -Eiq 'jpeg|png|webp' || { echo "::error::not an image"; exit 1; }
+          python3 - <<'PY'
+          import os; print("bytes", os.path.getsize("/tmp/photo"))
+          PY
+          cp /tmp/photo site/assets/eric-quidort.jpg
+      - name: Commit
+        run: |
+          git config user.name "weather-bot"
+          git config user.email "weather-bot@users.noreply.github.com"
+          git add site/assets/eric-quidort.jpg
+          git diff --cached --quiet && exit 0
+          git commit -q -m "assets: built-by photo"
+          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); done
+      - name: Deploy site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "${GITHUB_REF_NAME}"
