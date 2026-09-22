@@ -28,8 +28,8 @@ LIVE_DIR = STATE_DIR / "xweather_flash"
 QUERY_POINT = "39.4753,-75.0041"
 RADIUS = "8mi"
 WINDOW_S = 300  # the feeds only reach back 5 minutes
-# Every 4 minutes keeps a 1-minute overlap inside the 5-minute window (~360 requests/day per feed).
-POLL_S = int(os.environ.get("LIVE_POLL_SECONDS", "240"))
+# Every 3.5 minutes leaves 90 s of margin inside the 5-minute window for run hand-offs (~410 requests/day).
+POLL_S = int(os.environ.get("LIVE_POLL_SECONDS", "210"))
 PAGE = 1000
 # Individual strikes/pulses with cloud-to-ground vs in-cloud type come from the main lightning
 # endpoint, which appears to be billed at a higher rate than lightning/flash; opt in explicitly.
