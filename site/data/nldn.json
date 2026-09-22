@@ -1,0 +1,2057 @@
+{
+ "days": {
+  "2026-05-01": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-02": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-03": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-04": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-05": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-06": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-07": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-08": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-09": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-10": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-11": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-12": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-13": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-14": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-15": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-16": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-17": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-18": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-19": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-20": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 6,
+   "cg_city_estimate": 0.4,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 3,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 2,
+     "share_in_city": 0.03
+    }
+   ]
+  },
+  "2026-05-21": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-22": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-23": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-24": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-25": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-26": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-27": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 5,
+   "cg_city_estimate": 0.8,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 3,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-05-28": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-29": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-30": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-05-31": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-01": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-02": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-03": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-04": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-05": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-06": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-07": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 1,
+   "cg_city_estimate": 0.1,
+   "cells": [
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-06-08": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-09": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-10": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 23,
+   "cg_city_estimate": 7.4,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 7,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 3,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 4,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 6,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-06-11": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-12": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-13": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-14": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-15": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 1,
+   "cg_city_estimate": 0.0,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    }
+   ]
+  },
+  "2026-06-16": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-17": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-18": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-19": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-20": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-21": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-22": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 1,
+   "cg_city_estimate": 0.0,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    }
+   ]
+  },
+  "2026-06-23": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-24": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-25": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-26": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-27": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-28": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-29": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-06-30": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-01": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-02": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-03": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-04": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-05": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 6,
+   "cg_city_estimate": 1.4,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-06": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 349,
+   "cg_city_estimate": 79.6,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 80,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 62,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 36,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 67,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 29,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 21,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 16,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 38,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-07": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-08": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-09": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 86,
+   "cg_city_estimate": 23.2,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 6,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 9,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 10,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 15,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 10,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 8,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 24,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 4,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-10": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "unavailable",
+   "reason": "day not in NOAA monthly file"
+  },
+  "2026-07-11": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 11,
+   "cg_city_estimate": 2.6,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 2,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 7,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-07-12": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-13": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-14": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-15": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-16": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-17": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-18": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 174,
+   "cg_city_estimate": 54.6,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 38,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 20,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 38,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 29,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 2,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 35,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 11,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-19": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 11,
+   "cg_city_estimate": 1.8,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 7,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 3,
+     "share_in_city": 0.46
+    }
+   ]
+  },
+  "2026-07-20": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-21": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 10,
+   "cg_city_estimate": 2.9,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 4,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 2,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-07-22": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-23": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-24": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-25": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-26": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-27": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 38,
+   "cg_city_estimate": 0.5,
+   "cells": [
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 36,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 2,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-28": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-29": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 18,
+   "cg_city_estimate": 3.7,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 4,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 6,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-07-30": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-07-31": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-01": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-02": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-03": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 7,
+   "cg_city_estimate": 1.6,
+   "cells": [
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 7,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-08-04": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-05": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-06": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-07": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-08": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 4,
+   "cg_city_estimate": 0.8,
+   "cells": [
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 3,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-08-09": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-10": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 4,
+   "cg_city_estimate": 0.5,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 1,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    }
+   ]
+  },
+  "2026-08-11": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-12": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-13": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-14": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-15": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-16": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-17": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 4,
+   "cg_city_estimate": 1.2,
+   "cells": [
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 3,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-08-18": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-19": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-20": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 67,
+   "cg_city_estimate": 20.2,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 8,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 3,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 3,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 24,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 6,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 5,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 14,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 4,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-08-21": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-22": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-23": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 4,
+   "cg_city_estimate": 1.2,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 1,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 2,
+     "share_in_city": 0.23
+    }
+   ]
+  },
+  "2026-08-24": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-25": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-26": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-27": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 38,
+   "cg_city_estimate": 8.4,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 6,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 6,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 4,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 5,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 5,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 9,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 2,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-08-28": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 16,
+   "cg_city_estimate": 3.7,
+   "cells": [
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 1,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 13,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 2,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-08-29": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-30": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-08-31": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-01": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-02": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 329,
+   "cg_city_estimate": 72.8,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 9,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 33,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 59,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 26,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 55,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 100,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 28,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 19,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-09-03": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 78,
+   "cg_city_estimate": 20.8,
+   "cells": [
+    {
+     "lon": -75.1,
+     "lat": 39.4,
+     "count": 11,
+     "share_in_city": 0.02
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.5,
+     "count": 4,
+     "share_in_city": 0.27
+    },
+    {
+     "lon": -75.1,
+     "lat": 39.6,
+     "count": 13,
+     "share_in_city": 0.03
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.4,
+     "count": 22,
+     "share_in_city": 0.46
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 8,
+     "share_in_city": 0.75
+    },
+    {
+     "lon": -75.0,
+     "lat": 39.6,
+     "count": 5,
+     "share_in_city": 0.01
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.4,
+     "count": 12,
+     "share_in_city": 0.23
+    },
+    {
+     "lon": -74.9,
+     "lat": 39.5,
+     "count": 3,
+     "share_in_city": 0.11
+    }
+   ]
+  },
+  "2026-09-04": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 2,
+   "cg_city_estimate": 1.5,
+   "cells": [
+    {
+     "lon": -75.0,
+     "lat": 39.5,
+     "count": 2,
+     "share_in_city": 0.75
+    }
+   ]
+  },
+  "2026-09-05": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-06": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-07": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-08": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-09": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-10": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-11": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-12": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-13": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-14": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-15": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-16": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-17": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-18": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-19": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-20": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "complete",
+   "cg_overlapping_cells": 0,
+   "cg_city_estimate": 0,
+   "cells": []
+  },
+  "2026-09-21": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "unavailable",
+   "reason": "day not in NOAA monthly file"
+  },
+  "2026-09-22": {
+   "source": "NOAA NCEI Severe Weather Data Inventory: Vaisala NLDN lightning tiles (0.1 deg, daily)",
+   "label": "Cloud-to-ground strikes in NOAA grid cells overlapping Vineland (UTC day)",
+   "day_basis": "UTC",
+   "status": "unavailable",
+   "reason": "day not in NOAA monthly file"
+  }
+ },
+ "generated_at": "2026-09-22T20:05:03+00:00",
+ "cells": [
+  {
+   "lon": -75.1,
+   "lat": 39.4,
+   "share_in_city": 0.022
+  },
+  {
+   "lon": -75.1,
+   "lat": 39.5,
+   "share_in_city": 0.266
+  },
+  {
+   "lon": -75.1,
+   "lat": 39.6,
+   "share_in_city": 0.026
+  },
+  {
+   "lon": -75.0,
+   "lat": 39.4,
+   "share_in_city": 0.458
+  },
+  {
+   "lon": -75.0,
+   "lat": 39.5,
+   "share_in_city": 0.746
+  },
+  {
+   "lon": -75.0,
+   "lat": 39.6,
+   "share_in_city": 0.007
+  },
+  {
+   "lon": -74.9,
+   "lat": 39.4,
+   "share_in_city": 0.233
+  },
+  {
+   "lon": -74.9,
+   "lat": 39.5,
+   "share_in_city": 0.114
+  }
+ ],
+ "note": "Counts are UTC days. 'cg_city_estimate' weights each cell by its share inside the city; 'cg_overlapping_cells' is the raw total of every cell touching the city."
+}
