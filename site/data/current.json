@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-22T20:54:33+00:00",
+ "retrieved_at": "2026-09-22T21:07:14+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,7 +18,7 @@
    "name": "This Afternoon",
    "temp_f": 64,
    "short": "Chance Rain Showers",
-   "precip_pct": 45,
+   "precip_pct": 33,
    "wind": "NE 10 mph"
   },
   {
