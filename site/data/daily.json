@@ -4,7 +4,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-22T18:22:49+00:00",
+ "generated_at": "2026-09-22T18:23:53+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -3043,9 +3043,9 @@
     "source": "Xweather detected lightning (Lightning Enterprise)",
     "label": "Detected lightning events within Vineland",
     "status": "unavailable",
-    "reason": "lightning source not configured"
+    "reason": "GET https://data.api.xweather.com/lightning/within -> HTTP 401: {\"success\":false,\"error\":{\"code\":\"insufficient_scope\",\"description\":\"The request requires a different account subscription level.\"},\"response\":[]}"
    },
-   "retrieved_at": "2026-09-22T18:08:52+00:00"
+   "retrieved_at": "2026-09-22T18:23:52+00:00"
   },
   {
    "date": "2026-08-04",
