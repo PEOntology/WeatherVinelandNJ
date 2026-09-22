@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20260922c">
+<link rel="stylesheet" href="style.css?v=20260922e">
 </head>
 <body>
 <header class="top">
@@ -87,6 +87,13 @@
 
   <section class="panel">
     <h2>Lightning</h2>
+    <h3>Ground strikes: NOAA / Vaisala NLDN (one-time import from May 1, 2026)</h3>
+    <dl class="spec">
+      <dt>Source</dt><dd>NOAA NCEI Severe Weather Data Inventory monthly files <code>nldn-tiles-YYYYMM.csv.gz</code>: the daily count of Vaisala National Lightning Detection Network <strong>cloud-to-ground</strong> strikes in each 0.1&deg; grid cell (about 9 &times; 11 km).</dd>
+      <dt>For the city</dt><dd>Eight cells overlap Vineland. The <em>city estimate</em> weights each cell's count by the share of that cell inside the city boundary (together they cover 1.88 cells' worth of area &mdash; the city's 69 sq mi). The raw total for all overlapping cells is also stored; it can include strikes just outside the city.</dd>
+      <dt>Day basis</dt><dd>NOAA's days are <strong>UTC</strong> (8 PM&ndash;8 PM Eastern in summer, 7 PM&ndash;7 PM in winter), so they are labelled as UTC days and not mixed with the local-day rainfall.</dd>
+      <dt>Missing vs. zero</dt><dd>The files list only cells with strikes. A day present in the national file with no strikes in our cells is recorded as zero; a day absent from the file is <em>unavailable</em>.</dd>
+    </dl>
     <h3>Satellite-detected lightning (every day since May 1, 2026)</h3>
     <dl class="spec">
       <dt>Source</dt><dd>NOAA GOES-19 (GOES-East) Geostationary Lightning Mapper, Level-2 product (<code>GLM-L2-LCFA</code>) from NOAA's public archive on AWS (<code>noaa-goes19</code>). The instrument watches the Americas continuously and records optical lightning flashes; one file covers 20 seconds.</dd>
@@ -99,8 +106,8 @@
       <dt>Source</dt><dd>Vaisala Xweather <code>lightning/flash</code> feed, from ground-based sensors. The feed only reaches back 5 minutes, so it is checked every 90 seconds and flashes inside the city boundary are kept.</dd>
       <dt>Coverage check</dt><dd>Every check time is logged. Any gap longer than the feed's 5-minute window is measured, and the day is marked <em>incomplete</em> with the minutes that were not monitored.</dd>
     </dl>
-    <h3>Cloud-to-ground strike counts</h3>
-    <p>Separate cloud-to-ground and in-cloud counts with exact strike locations require Xweather's historical lightning archive. The system is built to use it and will add those counts, back to May 1, 2026, once archive access is active on our account.</p>
+    <h3>Exact strike locations</h3>
+    <p>Individual strike locations with cloud-to-ground / in-cloud classification for past dates require Xweather's historical lightning entitlement on its current <code>/lightning</code> endpoint (the older <code>lightning/archive</code> route was deprecated in April 2025). The system can import that once, back to May 1, 2026, when access is confirmed.</p>
   </section>
 
   <section class="panel">
@@ -134,7 +141,7 @@
   </section>
 </main>
 <footer class="wrap foot muted small"><a href="./">Dashboard</a> &middot; constructionweather.us</footer>
-<script src="methodology.js?v=20260922c"></script>
+<script src="methodology.js?v=20260922e"></script>
 
 <dialog id="photo-viewer" class="photo-viewer" aria-label="Eric Quidort">
   <form method="dialog"><button class="close" aria-label="Close">&times;</button></form>

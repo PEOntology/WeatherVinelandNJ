@@ -1,7 +1,7 @@
 "use strict";
 
 const $ = (s) => document.querySelector(s);
-const state = { records: [], meta: {}, range: "all", byDate: new Map(), logLimit: 31, ltSource: "glm" };
+const state = { records: [], meta: {}, range: "all", byDate: new Map(), logLimit: 31, ltSource: "nldn", nldn: {} };
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const inches = (v) => (v == null ? null : v.toFixed(2));
@@ -21,13 +21,16 @@ function rainText(p, withLabel) {
 const ltOk = (lt) => lt && lt.status !== "unavailable";
 // Satellite (NOAA GOES GLM) total-lightning flashes and Xweather live-feed flashes.
 const glmN = (r) => r.lightning_glm?.flashes ?? null;
+// NOAA NLDN tiles (one-time import): cloud-to-ground strikes, area-weighted to the city, UTC days.
+const nl = (r) => state.nldn[r.date];
+const nldnN = (r) => (nl(r)?.status === "complete" ? nl(r).cg_city_estimate : null);
 const liveN = (r) => r.lightning_flash?.flashes ?? null;
 const countText = (p) => {
   if (!p || p.status === "unavailable") return '<span class="na-text">n/a</span>';
   if (p.flashes == null) return `${p.partial_flashes ?? 0} <span class="na-text">(partial)</span>`;
   return String(p.flashes);
 };
-const hadLightning = (r) => glmN(r) > 0 || liveN(r) > 0 || (ltOk(r.lightning) && r.lightning.total > 0);
+const hadLightning = (r) => glmN(r) > 0 || nldnN(r) >= 0.5 || liveN(r) > 0 || (ltOk(r.lightning) && r.lightning.total > 0);
 const statusPill = (s) => `<span class="st ${esc(s)}">${esc(s[0].toUpperCase() + s.slice(1))}</span>`;
 
 // Data is read straight from the repository (updated every few minutes by the collectors),
@@ -44,7 +47,8 @@ async function getJSON(url) {
 }
 
 async function init() {
-  const [daily, current, status] = await Promise.allSettled([getJSON("data/daily.json"), getJSON("data/current.json"), getJSON("data/status.json")]);
+  const [daily, current, status, nldnDoc] = await Promise.allSettled([getJSON("data/daily.json"), getJSON("data/current.json"), getJSON("data/status.json"), getJSON("data/nldn.json")]);
+  if (nldnDoc.status === "fulfilled") state.nldn = nldnDoc.value.days || {};
   if (daily.status === "fulfilled") {
     state.meta = daily.value;
     state.records = daily.value.records || [];
@@ -171,6 +175,9 @@ function monthStats(prefix) {
     glm: rows.reduce((a, r) => a + (glmN(r) ?? 0), 0),
     glmDays: rows.filter((r) => glmN(r) > 0).length,
     glmMissing: rows.filter((r) => glmN(r) == null).length,
+    cgN: rows.reduce((a, r) => a + (nldnN(r) ?? 0), 0),
+    cgDays: rows.filter((r) => nldnN(r) >= 0.5).length,
+    cgMissing: rows.filter((r) => nldnN(r) == null).length,
   };
 }
 
@@ -184,7 +191,9 @@ function renderTiles() {
   const tiles = [
     { label: last ? `Rain, ${fmtDay(last.date)}` : "Latest day", value: last ? rainText(last.rain_estimated, true) : "–", sub: last ? statusPill(last.status) : "" },
     { label: `Rain, ${mName} to date`, value: `${m.rain.toFixed(2)} in`, sub: `${m.rainDays} rain days${miss(m.rainMissing)}` },
-    { label: `Lightning flashes, ${mName}`, value: m.days && m.glmMissing === m.days ? '<span class="na-text">–</span>' : m.glm.toLocaleString(), sub: `${m.glmDays} lightning days · satellite${miss(m.glmMissing)}` },
+    m.cgMissing < m.days
+      ? { label: `Ground strikes, ${mName}`, value: Math.round(m.cgN).toLocaleString(), sub: `${m.cgDays} strike days · NOAA, UTC days${miss(m.cgMissing)}` }
+      : { label: `Lightning flashes, ${mName}`, value: m.days && m.glmMissing === m.days ? '<span class="na-text">–</span>' : m.glm.toLocaleString(), sub: `${m.glmDays} lightning days · satellite${miss(m.glmMissing)}` },
     { label: "Rain since May 1", value: `${all.rain.toFixed(2)} in`, sub: `${all.days} days logged${miss(all.rainMissing)}` },
   ];
   $("#tiles").innerHTML = tiles.map((t) => `<div class="tile"><div class="label">${esc(t.label)}</div><div class="value">${t.value}</div><div class="sub">${t.sub}</div></div>`).join("");
@@ -271,10 +280,18 @@ function renderCharts() {
   const span = (p) => (p?.first_local ? `<div class="muted">${fmtTime(p.first_local)}–${fmtTime(p.last_local)} local</div>` : "");
   const ground = rows.some((r) => ltOk(r.lightning));
   document.querySelectorAll(".lt-glm").forEach((e) => (e.hidden = state.ltSource !== "glm"));
+  document.querySelectorAll(".lt-nldn").forEach((e) => (e.hidden = state.ltSource !== "nldn"));
   document.querySelectorAll(".lt-x").forEach((e) => (e.hidden = state.ltSource !== "xweather"));
   document.querySelectorAll(".lt-cgic").forEach((e) => (e.hidden = state.ltSource !== "xweather" || !ground));
   document.querySelectorAll(".lt-live").forEach((e) => (e.hidden = state.ltSource !== "xweather" || ground));
-  if (state.ltSource === "glm") {
+  if (state.ltSource === "nldn") {
+    $("#lt-chart").dataset.label = "Daily cloud-to-ground strikes, NOAA grid cells over Vineland";
+    drawChart($("#lt-chart"), rows,
+      [{ get: nldnN, color: c("--cg"), missing: (r) => nldnN(r) == null }],
+      (t) => (t < 10 && t > 0 ? t.toFixed(1) : Math.round(t).toLocaleString()),
+      (r) => nldnN(r) == null ? unavailable(r)
+        : `<b>${esc(fmtDay(r.date))} (UTC day)</b><div class="row"><span><span class="sw" style="background:var(--cg)"></span>Ground strikes, city estimate</span><span>${nldnN(r)}</span></div><div class="row muted"><span>In overlapping cells</span><span>${nl(r).cg_overlapping_cells}</span></div>`);
+  } else if (state.ltSource === "glm") {
     $("#lt-chart").dataset.label = "Daily satellite-detected lightning flashes";
     drawChart($("#lt-chart"), rows,
       [{ get: glmN, color: c("--glm"), missing: (r) => glmN(r) == null }],
@@ -330,12 +347,12 @@ function renderCalendar() {
 function renderMonths() {
   const months = [...new Set(state.records.map((r) => r.date.slice(0, 7)))];
   const ground = state.records.some((r) => ltOk(r.lightning));
-  const head = `<thead><tr><th>Month</th><th class="num">Est. rain (in)</th><th class="num">Rain days</th><th class="num">Satellite lightning flashes</th><th class="num">Lightning days</th>${ground ? '<th class="num">Cloud-to-ground</th><th class="num">In-cloud</th>' : ""}<th class="num">Days missing data</th></tr></thead>`;
+  const head = `<thead><tr><th>Month</th><th class="num">Est. rain (in)</th><th class="num">Rain days</th><th class="num">Ground strikes*</th><th class="num">Satellite lightning flashes</th><th class="num">Lightning days</th>${ground ? '<th class="num">Cloud-to-ground</th><th class="num">In-cloud</th>' : ""}<th class="num">Days missing data</th></tr></thead>`;
   const body = months.map((ym) => {
     const s = monthStats(ym);
     const [y, mo] = ym.split("-").map(Number);
     const noGlm = s.glmMissing === s.days;
-    return `<tr><td>${MONTHS[mo - 1]} ${y}</td><td class="num">${s.rain.toFixed(2)}</td><td class="num">${s.rainDays}</td><td class="num">${noGlm ? "–" : s.glm.toLocaleString()}</td><td class="num">${noGlm ? "–" : s.glmDays}</td>${ground ? `<td class="num">${s.cg}</td><td class="num">${s.ic}</td>` : ""}<td class="num">${Math.max(s.rainMissing, s.glmMissing)}</td></tr>`;
+    return `<tr><td>${MONTHS[mo - 1]} ${y}</td><td class="num">${s.rain.toFixed(2)}</td><td class="num">${s.rainDays}</td><td class="num">${s.cgMissing === s.days ? "–" : Math.round(s.cgN).toLocaleString()}</td><td class="num">${noGlm ? "–" : s.glm.toLocaleString()}</td><td class="num">${noGlm ? "–" : s.glmDays}</td>${ground ? `<td class="num">${s.cg}</td><td class="num">${s.ic}</td>` : ""}<td class="num">${Math.max(s.rainMissing, s.glmMissing)}</td></tr>`;
   }).join("");
   $("#months").innerHTML = head + `<tbody>${body}</tbody>`;
 }
@@ -353,14 +370,13 @@ function filteredLog() {
 
 function renderLog() {
   const rows = filteredLog();
-  const head = `<thead><tr><th>Date</th><th class="num">Est. rain (in)</th><th class="num">KMIV rain (in)</th><th class="num">Satellite flashes</th><th class="num">Xweather flashes</th><th class="num">Cloud-to-ground</th><th>First / last</th><th>Status</th></tr></thead>`;
+  const head = `<thead><tr><th>Date</th><th class="num">Est. rain (in)</th><th class="num">KMIV rain (in)</th><th class="num">Ground strikes*</th><th class="num">Satellite flashes</th><th class="num">Xweather flashes</th><th>First / last</th><th>Status</th></tr></thead>`;
   const body = rows.slice(0, state.logLimit).map((r) => {
     const lt = r.lightning, g = r.lightning_glm;
     const span = ltOk(lt) && lt.total ? lt : g?.first_local ? g : null;
     return `<tr data-date="${r.date}" tabindex="0"><td>${esc(fmtDay(r.date, { weekday: "short", month: "short", day: "numeric", year: "numeric" }))}</td>
       <td class="num">${rainText(r.rain_estimated)}</td><td class="num">${rainText(r.rain_station)}</td>
-      <td class="num">${countText(g)}</td><td class="num">${countText(r.lightning_flash)}</td>
-      <td class="num">${ltOk(lt) ? lt.cg : '<span class="na-text">n/a</span>'}</td>
+      <td class="num">${nldnN(r) == null ? '<span class="na-text">n/a</span>' : nldnN(r)}</td><td class="num">${countText(g)}</td><td class="num">${countText(r.lightning_flash)}</td>
       <td>${span ? `${fmtTime(span.first_local)} / ${fmtTime(span.last_local)}` : "–"}</td><td>${statusPill(r.status)}</td></tr>`;
   }).join("");
   $("#log").innerHTML = head + `<tbody>${body || '<tr><td colspan="8" class="na-text">No matching days.</td></tr>'}</tbody>`;
@@ -372,14 +388,14 @@ function renderLog() {
 
 function toCSV(rows) {
   const cols = ["date", "status", "est_rain_in", "est_rain_status", "kmiv_rain_in", "kmiv_status",
-    "satellite_flashes", "satellite_status", "satellite_first_local", "satellite_last_local",
+    "ground_strikes_city_estimate_utc_day", "ground_strikes_overlapping_cells_utc_day", "satellite_flashes", "satellite_status", "satellite_first_local", "satellite_last_local",
     "xweather_live_flashes", "xweather_live_status",
     "lightning_cg", "lightning_ic", "lightning_status", "first_event_local", "last_event_local", "coverage", "retrieved_at"];
   const q = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v);
   const lines = rows.map((r) => {
     const lt = r.lightning || {}, g = r.lightning_glm || {}, x = r.lightning_flash || {};
     return [r.date, r.status, r.rain_estimated?.value_in, r.rain_estimated?.status, r.rain_station?.value_in, r.rain_station?.status,
-      g.flashes, g.status, g.first_local, g.last_local, x.flashes, x.status,
+      nldnN(r), nl(r)?.cg_overlapping_cells, g.flashes, g.status, g.first_local, g.last_local, x.flashes, x.status,
       ltOk(lt) ? lt.cg : "", ltOk(lt) ? lt.ic : "", lt.status, lt.first_local, lt.last_local, r.coverage, r.retrieved_at].map(q).join(",");
   });
   return [cols.join(","), ...lines].join("\n");
@@ -399,6 +415,8 @@ function openDetail(date) {
     <dl><dt>Vineland area average</dt><dd>${rainText(re, true)}</dd><dt>Hours of data</dt><dd>${re?.hours_found ?? "–"} of ${re?.hours_expected ?? "–"}</dd><dt>Source</dt><dd>${esc(re?.source)}</dd>${reason(re)}</dl>
     <h4>Nearby station (not in Vineland)</h4>
     <dl><dt>${esc(rs?.name || "Millville Municipal Airport")}</dt><dd>${rainText(rs, true)}</dd><dt>Source</dt><dd>${esc(rs?.source || "")}</dd>${reason(rs)}</dl>
+    <h4>Ground strikes (NOAA / Vaisala NLDN)</h4>
+    ${nldnN(r) != null ? `<dl><dt>City estimate</dt><dd>${nldnN(r)} cloud-to-ground strikes</dd><dt>In overlapping cells</dt><dd>${nl(r).cg_overlapping_cells}</dd><dt>Day basis</dt><dd>UTC day (8 PM–8 PM Eastern in summer)</dd><dt>Grid</dt><dd>0.1° cells (~9 × 11 km); estimate weights each cell by its share inside the city</dd></dl>` : `<dl><dt>Status</dt><dd class="na-text">Not available for this day</dd></dl>`}
     <h4>Satellite lightning (NOAA GOES)</h4>
     ${r.lightning_glm && r.lightning_glm.status !== "unavailable" ? `<dl><dt>Flashes in Vineland</dt><dd>${countText(r.lightning_glm)}</dd><dt>First / last</dt><dd>${fmtTime(r.lightning_glm.first_local)} / ${fmtTime(r.lightning_glm.last_local)}</dd><dt>Satellite files</dt><dd>${r.lightning_glm.files_found} of ${r.lightning_glm.files_expected}${(r.lightning_glm.files_expected - r.lightning_glm.files_found) > 0 ? ` <span class="muted">(${Math.round((r.lightning_glm.files_expected - r.lightning_glm.files_found) * 20 / 60 * 10) / 10} min not covered)</span>` : ""}</dd><dt>Measures</dt><dd>Total lightning, ~8 km resolution; no ground-strike split</dd></dl>` : `<dl><dt>Status</dt><dd class="na-text">Data unavailable</dd>${reason(r.lightning_glm)}</dl>`}
     ${r.lightning_flash && r.lightning_flash.status !== "unavailable" ? `<h4>Xweather live feed</h4><dl><dt>Flashes in Vineland</dt><dd>${countText(r.lightning_flash)}</dd><dt>Not monitored</dt><dd>${r.lightning_flash.uncovered_minutes} min</dd></dl>` : ""}

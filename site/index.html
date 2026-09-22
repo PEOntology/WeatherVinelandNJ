@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20260922d">
+<link rel="stylesheet" href="style.css?v=20260922e">
 </head>
 <body>
 <header class="top">
@@ -87,16 +87,19 @@
     <figure class="chart">
       <figcaption>
         <strong>Lightning</strong>
-        <span class="muted lt-glm">&middot; satellite-detected flashes per day inside city limits (NOAA GOES; total lightning, no ground-strike split)</span>
+        <span class="muted lt-nldn">&middot; cloud-to-ground strikes per UTC day, NOAA grid cells over Vineland (area-weighted city estimate)</span>
+        <span class="muted lt-glm" hidden>&middot; satellite-detected flashes per day inside city limits (NOAA GOES; total lightning, no ground-strike split)</span>
         <span class="muted lt-x" hidden>&middot; Xweather ground network, inside city limits</span>
         <span class="legend">
-          <span class="lt-glm"><span class="key k-glm"></span> Satellite flashes</span>
+          <span class="lt-nldn"><span class="key k-cg"></span> Ground strikes</span>
+          <span class="lt-glm" hidden><span class="key k-glm"></span> Satellite flashes</span>
           <span class="lt-cgic" hidden><span class="key k-cg"></span> Cloud-to-ground <span class="key k-ic"></span> In-cloud</span>
           <span class="lt-live" hidden><span class="key k-cg"></span> Ground-network flashes</span>
           <span><span class="key k-na"></span> No data</span>
         </span>
         <span class="seg seg-sm" role="group" aria-label="Lightning source" id="lt-source">
-          <button data-src="glm" aria-pressed="true">Satellite</button>
+          <button data-src="nldn" aria-pressed="true">Ground strikes</button>
+          <button data-src="glm">Satellite</button>
           <button data-src="xweather">Xweather</button>
         </span>
       </figcaption>
@@ -116,6 +119,7 @@
   <section aria-labelledby="month-h" class="panel">
     <h2 id="month-h">Monthly totals</h2>
     <div class="table-scroll"><table id="months" class="data"></table></div>
+    <p class="note">* Ground strikes are summed over UTC days (8 PM&ndash;8 PM Eastern in summer).</p>
   </section>
 
   <section aria-labelledby="log-h" class="panel">
@@ -139,6 +143,7 @@
       </div>
     </div>
     <div class="table-scroll"><table id="log" class="data"></table></div>
+    <p class="note">* Ground strikes: NOAA / Vaisala NLDN cloud-to-ground counts for UTC days, estimated for the city from 0.1&deg; grid cells. See <a href="methodology.html">methodology</a>.</p>
     <button id="more" class="btn more" hidden></button>
   </section>
 
@@ -178,7 +183,7 @@
 </dialog>
 
 <footer class="wrap foot muted small"><a href="methodology.html">Methodology</a> &middot; constructionweather.us &middot; Sources: NOAA MRMS, NOAA GOES GLM, NWS, Iowa Environmental Mesonet, Xweather</footer>
-<script src="app.js?v=20260922d"></script>
+<script src="app.js?v=20260922e"></script>
 
 <dialog id="photo-viewer" class="photo-viewer" aria-label="Eric Quidort">
   <form method="dialog"><button class="close" aria-label="Close">&times;</button></form>
