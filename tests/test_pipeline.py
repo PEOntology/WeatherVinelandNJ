@@ -52,7 +52,7 @@ def test_backfill_then_report(tmp_store, monkeypatch):
     sent = []
     monkeypatch.setenv("RESEND_API_KEY", "k")
     monkeypatch.setenv("REPORT_RECIPIENTS", "a@example.com, b@example.com")
-    monkeypatch.setattr(emailer, "send", lambda s, to, subj, html, text, key: (sent.append((to, key)) or (True, "id1")))
+    monkeypatch.setattr(emailer, "send", lambda s, to, subj, html, text, key, **kw: (sent.append((to, key)) or (True, "id1")))
     assert cli.main(["report", "--date", "2026-05-01"]) == 0
     assert cli.main(["report", "--date", "2026-05-01"]) == 0  # second run must not re-send
     assert [t for t, _ in sent] == ["a@example.com", "b@example.com"]

@@ -20,28 +20,38 @@ def recipient_hash(addr: str) -> str:
     return hashlib.sha256(addr.strip().lower().encode()).hexdigest()[:16]
 
 
-def send(s: Settings, to: str, subject: str, html: str, text: str, key: str) -> tuple[bool, str]:
+def send(s: Settings, to: str, subject: str, html: str, text: str, key: str,
+         unsubscribe_url: str | None = None) -> tuple[bool, str]:
+    payload = {"from": s.report_from, "to": [to], "subject": subject, "html": html, "text": text}
+    if unsubscribe_url:
+        payload["headers"] = {"List-Unsubscribe": f"<{unsubscribe_url}>"}
     resp = request(
         "POST",
         API,
         headers={"Authorization": f"Bearer {s.resend_api_key}", "Idempotency-Key": key},
-        json={"from": s.report_from, "to": [to], "subject": subject, "html": html, "text": text},
+        json=payload,
     )
     if resp.status_code in (200, 201):
         return True, resp.json().get("id", "")
     return False, f"HTTP {resp.status_code}: {resp.text[:200]}"
 
 
-def send_daily(s: Settings, day: str, subject: str, html: str, text: str, force: bool = False) -> dict:
+def send_daily(s: Settings, day: str, subject: str, render, recipients, force: bool = False) -> dict:
+    """recipients: [(address, unsubscribe_url or None)]; render(unsubscribe_url) -> (html, text)."""
     log = read_json(DELIVERY_LOG, {})
     sent = log.setdefault(day, {})
     result = {"sent": 0, "skipped": 0, "failed": []}
-    for addr in s.report_recipients:
+    seen = set()
+    for addr, unsub in recipients:
         h = recipient_hash(addr)
+        if h in seen:
+            continue
+        seen.add(h)
         if sent.get(h, {}).get("ok") and not force:
             result["skipped"] += 1
             continue
-        ok, info = send(s, addr, subject, html, text, key=f"daily-{day}-{h}")
+        html, text = render(unsub)
+        ok, info = send(s, addr, subject, html, text, key=f"daily-{day}-{h}", unsubscribe_url=unsub)
         sent[h] = {"ok": ok, "at": now_utc().isoformat(timespec="seconds"), "id" if ok else "error": info}
         if ok:
             result["sent"] += 1

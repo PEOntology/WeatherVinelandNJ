@@ -88,7 +88,7 @@ def month_to_date(records: dict[str, dict], day: date) -> dict:
     }
 
 
-def text_report(rec: dict, mtd: dict) -> str:
+def text_report(rec: dict, mtd: dict, unsubscribe_url: str | None = None) -> str:
     lines = [
         f"Vineland, NJ weather log - {rec['date']}  [{rec['status'].upper()}]",
         f"Coverage: {rec['coverage']}",
@@ -106,10 +106,12 @@ def text_report(rec: dict, mtd: dict) -> str:
         "This is a weather record, not a real-time lightning safety alert.",
         f"Dashboard: {SITE_URL}/#{rec['date']}",
     ]
+    if unsubscribe_url:
+        lines.append(f"Unsubscribe: {unsubscribe_url}")
     return "\n".join(lines)
 
 
-def html_report(rec: dict, mtd: dict, current: dict | None = None) -> str:
+def html_report(rec: dict, mtd: dict, current: dict | None = None, unsubscribe_url: str | None = None) -> str:
     lt = rec["lightning"]
     status_color = {"complete": "#1b6e3a", "provisional": "#8a5a00", "incomplete": "#9a3412", "unavailable": "#9a3412"}
     rows = [
@@ -159,6 +161,7 @@ def html_report(rec: dict, mtd: dict, current: dict | None = None) -> str:
 {cur}
 <p style="margin:24px 0"><a href="{SITE_URL}/#{rec['date']}" style="background:#1c5cab;color:#fff;padding:10px 16px;border-radius:4px;text-decoration:none;font-size:14px">Open dashboard</a></p>
 <p style="font-size:12px;color:#666;line-height:1.5">Coverage: {escape(rec['coverage'])}. Lightning counts are detected events within the city boundary, not confirmed strikes at any jobsite. This is a weather record, not a real-time lightning safety alert. Missing data is shown as unavailable, never as zero.</p>
+{f'<p style="font-size:12px;color:#888;margin-top:16px"><a href="{unsubscribe_url}" style="color:#888">Unsubscribe</a> from the daily report.</p>' if unsubscribe_url else ''}
 </div></body></html>"""
 
 

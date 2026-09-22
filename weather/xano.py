@@ -53,9 +53,9 @@ API_GROUP = "weather_public"
 ENDPOINT_XS = """query "subscription" verb=POST {
   input {
     text action
-    text email
-    text token
-    text website
+    text email?
+    text token?
+    text website?
   }
 
   stack {
@@ -314,7 +314,11 @@ def setup_public_api(s: Settings) -> str | None:
     apis = _items(_get(s, f"/workspace/{ws}/apigroup/{gid}/api?page=1&per_page=100"))
     existing = next((a for a in apis if a.get("name") == "subscription"), None)
     print("existing endpoint:", bool(existing))
-    if not existing:
+    if existing:
+        r = request("PUT", f"{base}/workspace/{ws}/apigroup/{gid}/api/{existing['id']}", attempts=1,
+                    headers={**_h(s), "Content-Type": "text/x-xanoscript"}, data=ENDPOINT_XS)
+        print(f"update endpoint: HTTP {r.status_code} {r.text[:300]}")
+    else:
         attempts = [
             ("xs content-type", dict(url=f"{base}/workspace/{ws}/apigroup/{gid}/api",
                                      headers={**_h(s), "Content-Type": "text/x-xanoscript"}, data=ENDPOINT_XS)),

@@ -242,25 +242,30 @@ def cmd_report(args) -> int:
     subject = f"Vineland weather log {day:%a %b %d, %Y}"
     if rec["status"] != "complete":
         subject += f" [{rec['status']}]"
+    from . import subscriptions
+    recipients = [(a, None) for a in s.report_recipients]
+    recipients += [(r["email"], subscriptions.unsubscribe_url(r["token"])) for r in subscriptions.active_subscribers(s)]
+    render = lambda unsub: (report.html_report(rec, mtd, cur, unsub), report.text_report(rec, mtd, unsub))  # noqa: E731
     if getattr(args, "test", False):
         # Test send: labelled, not recorded in the delivery log, no Procore sync.
-        if not s.resend_configured:
+        if not (s.resend_api_key and recipients):
             print("email not configured")
             return 1
         stamp = now_utc().strftime("%Y%m%d%H%M")
-        results = [emailer.send(s, to, "[Test] " + subject, html, text, key=f"test-{day}-{emailer.recipient_hash(to)}-{stamp}")
-                   for to in s.report_recipients]
+        results = [emailer.send(s, to, "[Test] " + subject, *render(unsub),
+                                key=f"test-{day}-{emailer.recipient_hash(to)}-{stamp}", unsubscribe_url=unsub)
+                   for to, unsub in recipients]
         ok = sum(1 for good, _ in results if good)
         print(f"test email: {ok}/{len(results)} sent", [info if not good else "ok" for good, info in results])
         return 0 if ok == len(results) else 1
     problems = []
-    if s.resend_configured:
-        res = emailer.send_daily(s, day.isoformat(), subject, html, text, force=args.force)
+    if s.resend_api_key and recipients:
+        res = emailer.send_daily(s, day.isoformat(), subject, render, recipients, force=args.force)
         print("email:", res)
         if res["failed"]:
             problems.append(f"{len(res['failed'])} e-mail failures")
     else:
-        print("email: not configured (RESEND_API_KEY / REPORT_RECIPIENTS)")
+        print("email: not configured (RESEND_API_KEY / recipients)")
     try:
         print("procore:", procore.sync_day(s, rec, html))
     except SourceError as exc:
@@ -371,8 +376,13 @@ def cmd_xano_setup(_args) -> int:
     print("subscription endpoint:", url)
     if url:
         from .http import request as _req
-        r = _req("POST", url, json={"action": "probe", "email": "", "token": "", "website": ""}, attempts=1)
-        print(f"endpoint test: HTTP {r.status_code} {r.text[:200]}")
+        for body in ({"action": "probe"}, {"action": "probe", "email": "", "token": "", "website": ""}):
+            r = _req("POST", url, json=body, attempts=1)
+            print(f"endpoint test {sorted(body)}: HTTP {r.status_code} {r.text[:200]}")
+        # CORS preflight as a browser on the site would send it
+        r = _req("OPTIONS", url, attempts=1, headers={"Origin": "https://constructionweather.us",
+                 "Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "content-type"})
+        print(f"cors preflight: HTTP {r.status_code} allow-origin={r.headers.get('access-control-allow-origin')}")
         write_json(SITE_DATA / "public_config.json", {"subscribe_url": url})
     records = load_daily()
     if records:
@@ -387,6 +397,19 @@ def cmd_xano_setup(_args) -> int:
         # This job can't commit state/xano_ids.json, so remove the test row; the pipeline writes the real ones.
         d = request("DELETE", _x._content_url(s, f"/{row_id}"), headers=_x._h(s), attempts=1)
         print(f"removed test row: HTTP {d.status_code}")
+    return 0
+
+
+def cmd_subscriptions(_args) -> int:
+    from . import subscriptions
+    s = settings()
+    try:
+        res = subscriptions.process(s)
+    except Exception as exc:  # noqa: BLE001
+        print(f"subscriptions: {exc}", file=sys.stderr)
+        return 1
+    if res["requests"]:
+        print("subscriptions:", res)
     return 0
 
 
@@ -497,6 +520,7 @@ def main(argv=None) -> int:
     sub.add_parser("config-check").set_defaults(fn=cmd_config_check)
     sub.add_parser("xano-setup").set_defaults(fn=cmd_xano_setup)
     sub.add_parser("xano-sync").set_defaults(fn=cmd_xano_sync)
+    sub.add_parser("subscriptions").set_defaults(fn=cmd_subscriptions)
     lv = sub.add_parser("lightning-live")
     lv.add_argument("--minutes", type=float, default=70)
     lv.set_defaults(fn=cmd_lightning_live)
