@@ -142,6 +142,13 @@ def cmd_update(args) -> int:
     days = extra + [today]
     build_days(days)
     _mark("update", True, f"built {len(days)} days")
+    if xano.available(settings()) and read_json(STATUS_FILE, {}).get("xano_sync", {}).get("last_result") != "ok":
+        try:  # first run with Xano configured: copy everything collected so far, once
+            cmd_xano_sync(args)
+            _mark("xano_sync", True, "initial copy of all data")
+        except Exception as exc:  # noqa: BLE001 - retried on the next update
+            print(f"xano initial sync failed: {exc}", file=sys.stderr)
+            _mark("xano_sync", False, str(exc))
     return morning_duties(today)
 
 
