@@ -187,8 +187,12 @@ def cmd_lightning_live(args) -> int:
     return 0 if res["polls"] else 1
 
 
-def cmd_xweather_check(_args) -> int:
-    """Report which Xweather products this account's subscription allows."""
+def cmd_xweather_check(args) -> int:
+    """Probe which Xweather lightning endpoints/formats this subscription answers.
+
+    Prints status, error code, result count and a trimmed first record for each variant."""
+    import json as _json
+
     from .http import request
     s = settings()
     if not s.xweather_configured:
@@ -197,26 +201,43 @@ def cmd_xweather_check(_args) -> int:
     area = load_area()
     min_lat, min_lon, max_lat, max_lon = area.bbox
     box = f"{min_lat:.4f},{min_lon:.4f},{max_lat:.4f},{max_lon:.4f}"
-    yesterday = int((now_utc() - timedelta(days=1)).timestamp())
-    may = int(datetime(2026, 5, 15, 18, tzinfo=now_utc().tzinfo).timestamp())
+    ctr = "39.4753,-75.0041"  # centre of the smallest circle covering the city (11.5 km)
+    # Known storm window over Vineland (GOES saw flashes 19:56-20:47Z on 2026-08-03).
+    t0 = int(datetime(2026, 8, 3, 19, 30, tzinfo=now_utc().tzinfo).timestamp())
+    t1 = t0 + 2 * 3600
+    iso0, iso1 = "2026-08-03T19:30:00Z", "2026-08-03T21:30:00Z"
+    win = {"from": t0, "to": t1}
     checks = [
-        ("basic observations", "observations/kmiv", {}),
-        ("live lightning (last 5 min, city box)", "lightning/within", {"p": box}),
-        ("live lightning (closest, 50 mi)", "lightning/closest", {"p": "39.4864,-75.0260", "radius": "50mi"}),
-        ("lightning summary (live)", "lightning/summary/closest", {"p": "39.4864,-75.0260", "radius": "50mi"}),
-        ("historical lightning (yesterday)", "lightning/within", {"p": box, "from": yesterday, "to": yesterday + 3600}),
-        ("historical lightning (May 15)", "lightning/within", {"p": box, "from": may, "to": may + 3600}),
-        ("lightning archive (May 15)", "lightning/archive", {"p": "39.4864,-75.0260", "from": may, "to": may + 3600}),
+        ("archive/closest", "lightning/archive/closest", {"p": ctr, "radius": "8mi", **win}),
+        ("archive/within box", "lightning/archive/within", {"p": box, **win}),
+        ("archive ?p=ctr", "lightning/archive", {"p": ctr, "radius": "8mi", **win}),
+        ("archive/:id ctr", f"lightning/archive/{ctr}", {"radius": "8mi", **win}),
+        ("archive/closest iso", "lightning/archive/closest", {"p": ctr, "radius": "8mi", "from": iso0, "to": iso1}),
+        ("archive/search", "lightning/archive/search", {"p": ctr, "radius": "8mi", **win}),
+        ("analytics/:id ctr", f"lightning/analytics/{ctr}", {"radius": "8mi", **win}),
+        ("analytics/closest", "lightning/analytics/closest", {"p": ctr, "radius": "8mi", **win}),
+        ("analytics/within box", "lightning/analytics/within", {"p": box, **win}),
+        ("density/:id ctr", f"lightning/density/{ctr}", win),
+        ("summary/closest hist", "lightning/summary/closest", {"p": ctr, "radius": "8mi", **win}),
+        ("lightning/closest hist", "lightning/closest", {"p": ctr, "radius": "8mi", **win}),
+        ("lightning/:id hist", f"lightning/{ctr}", {"radius": "8mi", **win}),
     ]
     for label, path, params in checks:
-        params = {**params, "client_id": s.xweather_client_id, "client_secret": s.xweather_client_secret, "limit": 1}
+        params = {**params, "client_id": s.xweather_client_id, "client_secret": s.xweather_client_secret,
+                  "limit": 1000}
         try:
             r = request("GET", f"{s.xweather_base}/{path}", params=params, attempts=1)
-            body = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
-            err = (body.get("error") or {})
-            print(f"{label:45} HTTP {r.status_code}  {err.get('code') or 'ok'}  {(err.get('description') or '')[:90]}")
+            body = r.json() if "json" in r.headers.get("content-type", "") else {}
+            err = body.get("error") or {}
+            resp = body.get("response")
+            n = len(resp) if isinstance(resp, list) else (1 if resp else 0)
+            first = resp[0] if isinstance(resp, list) and resp else resp
+            print(f"{label:24} HTTP {r.status_code} {err.get('code') or 'ok'} n={n} "
+                  f"{(err.get('description') or '')[:80]}")
+            if first:
+                print("    first:", _json.dumps(first)[:700])
         except Exception as exc:  # noqa: BLE001 - diagnostic output only
-            print(f"{label:45} ERROR {exc}")
+            print(f"{label:24} ERROR {exc}")
     return 0
 
 

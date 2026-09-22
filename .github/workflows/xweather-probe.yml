@@ -1,0 +1,23 @@
+name: Xweather probe
+
+# Diagnostic only: reports which Xweather lightning endpoints the account's
+# subscription answers. Separate from the data pipeline so it never waits on it.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
+      XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests numpy
+      - run: python -m weather.cli xweather-check
