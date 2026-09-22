@@ -58,8 +58,64 @@ async function init() {
   renderCalendar();
   renderMonths();
   renderLog();
+  renderIntegrations(status.value?.integrations);
   bind();
+  bindSignup();
   openFromHash();
+}
+
+/* ---------- integrations ---------- */
+function renderIntegrations(int) {
+  const el = $("#procore-steps");
+  if (!el) return;
+  if (!int) { el.innerHTML = '<li class="na-text">Status not available yet.</li>'; return; }
+  const p = int.procore;
+  const cur = p.current_step;
+  el.innerHTML = p.steps.map((st, i) => {
+    const cls = st.done ? "done" : i === cur ? "current" : "todo";
+    const label = st.done ? "Done" : i === cur ? "Next" : "Pending";
+    return `<li class="step ${cls}"><span class="step-dot" aria-hidden="true">${st.done ? "✓" : i + 1}</span><div><div class="step-name">${esc(st.name)} <span class="visually-hidden">(${label})</span></div><div class="step-detail">${esc(st.detail)}</div></div></li>`;
+  }).join("");
+  const badge = $("#procore-badge");
+  const doneN = p.steps.filter((x) => x.done).length;
+  badge.textContent = p.current_step >= p.steps.length ? "Live" : `${doneN} of ${p.steps.length} steps`;
+  badge.className = "int-badge " + (p.current_step >= p.steps.length ? "ok" : "wip");
+  const row = (ok, name, yes, no) => `<li><span class="st ${ok ? "complete" : "provisional"}">${ok ? yes : no}</span> ${esc(name)}</li>`;
+  $("#int-list").innerHTML = [
+    row(int.email?.configured, "Daily email report", "Active", "Setting up"),
+    row(int.xano?.configured, "Xano private archive", "Active", "Not connected"),
+    row(int.xweather?.live_feed, "Xweather live lightning", "Active", "Not connected"),
+    row(int.xweather?.history_archive, "Xweather cloud-to-ground history", "Active", "Awaiting archive access"),
+    row(true, "NOAA radar rainfall & GOES satellite lightning", "Active", ""),
+  ].join("");
+}
+
+/* ---------- email sign-up ---------- */
+function bindSignup() {
+  const form = $("#signup-form");
+  if (!form) return;
+  const msg = $("#signup-msg");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    msg.className = "signup-msg";
+    if (!/^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$/.test(email)) {
+      msg.textContent = "Please enter a valid email address."; msg.classList.add("err"); form.email.focus(); return;
+    }
+    const btn = form.querySelector("button");
+    btn.disabled = true; msg.textContent = "Sending…";
+    try {
+      const cfg = await getJSON("data/public_config.json");
+      const r = await fetch(cfg.subscribe_url, { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "subscribe", email, website: form.website.value }) });
+      if (!r.ok) throw new Error(r.status);
+      form.reset();
+      msg.textContent = "Thanks! Check your inbox for a confirmation link (it can take up to 15 minutes). Reports start the morning after you confirm.";
+      msg.classList.add("ok");
+    } catch (err) {
+      msg.textContent = "Sorry, that didn't go through. Please try again in a minute."; msg.classList.add("err");
+    } finally { btn.disabled = false; }
+  });
 }
 
 function renderFreshness(status, daily) {

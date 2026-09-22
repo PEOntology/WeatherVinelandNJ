@@ -304,3 +304,70 @@ code { font-size: 12.5px; background: var(--surface-2); padding: 1px 4px; border
 .photo-viewer .pv-caption strong { color: #0f1720; font-size: 17px; }
 .photo-viewer .close { position: absolute; top: 8px; right: 10px; z-index: 2; width: 36px; height: 36px; border-radius: 50%;
   border: 0; background: rgb(255 255 255 / 0.9); color: #0f1720; font-size: 24px; line-height: 1; cursor: pointer; }
+
+/* ---------- email sign-up ---------- */
+.signup { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px 28px; align-items: center; }
+.signup h2 { margin-bottom: 6px; }
+.signup-copy p { margin: 0; font-size: 14px; }
+.signup-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
+.signup-form input[type="email"] { flex: 1 1 220px; min-width: 0; font: inherit; font-size: 16px; padding: 11px 12px;
+  border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
+.signup-form input[type="email"]:focus { outline: 2px solid var(--brand); outline-offset: 1px; border-color: transparent; }
+.btn-primary { font: 600 15px "IBM Plex Sans", system-ui, sans-serif; padding: 11px 18px; border: 0; border-radius: 8px;
+  background: #1c5cab; color: #fff; cursor: pointer; min-height: 44px; }
+.btn-primary:hover { background: #184f95; }
+.btn-primary:disabled { opacity: 0.6; cursor: progress; }
+.signup-msg { flex-basis: 100%; margin: 0; font-size: 13.5px; min-height: 1em; }
+.signup-msg.ok { color: var(--good); }
+.signup-msg.err { color: var(--bad); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* ---------- integrations ---------- */
+.int-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; }
+.int-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: var(--surface); }
+.int-title { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; font-size: 16px; }
+.int-badge { font: 600 11.5px "IBM Plex Mono", monospace; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 999px; }
+.int-badge.wip { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.int-badge.ok { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.stepper { list-style: none; margin: 12px 0 0; padding: 0; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 8px 0; position: relative; }
+.step:not(:last-child)::before { content: ""; position: absolute; left: 13px; top: 34px; bottom: -6px; width: 2px; background: var(--border); }
+.step.done:not(:last-child)::before { background: var(--good); }
+.step-dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 600 13px "IBM Plex Mono", monospace;
+  border: 2px solid var(--border); color: var(--muted); background: var(--surface); position: relative; z-index: 1; }
+.step.done .step-dot { background: var(--good); border-color: var(--good); color: #fff; }
+.step.current .step-dot { border-color: var(--brand); color: var(--brand); }
+.step-name { font-weight: 600; font-size: 14px; }
+.step.todo .step-name { color: var(--text-2); }
+.step-detail { font-size: 13px; color: var(--muted); }
+.int-list { list-style: none; margin: 8px 0 0; padding: 0; font-size: 14px; }
+.int-list li { padding: 7px 0; border-bottom: 1px solid var(--grid); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.int-list li:last-child { border-bottom: 0; }
+
+/* ---------- tablet & phone ---------- */
+@media (max-width: 1024px) {
+  .forecast { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .now-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+}
+@media (max-width: 900px) {
+  .signup, .int-grid { grid-template-columns: 1fr; }
+  .now-grid { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .panel-head { align-items: flex-start; }
+  .filters { width: 100%; }
+  .filters input[type="search"] { flex: 1 1 100%; }
+}
+@media (max-width: 560px) {
+  .panel { padding: 14px; border-radius: 10px; }
+  .tile .value { font-size: 22px; }
+  .tiles { gap: 8px; }
+  .forecast { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .seg button { padding: 6px 9px; }
+  .filters select, .filters .btn { flex: 1 1 auto; }
+  .signup-form .btn-primary { width: 100%; }
+  dialog { padding: 18px; }
+  table.data td, table.data th { padding: 7px 8px; }
+}
+@media (hover: none) {
+  .seg button, .btn, select, input[type="search"] { min-height: 40px; }
+}

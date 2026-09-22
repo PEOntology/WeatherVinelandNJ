@@ -39,6 +39,9 @@ jobs:
       XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
       XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID || secrets.XANO_WORKSPACE_ID }}
       NWS_USER_AGENT: ${{ vars.NWS_USER_AGENT }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      REPORT_FROM: ${{ vars.REPORT_FROM }}
+      SITE_URL: ${{ vars.SITE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -65,7 +68,8 @@ jobs:
           ok=0
           for i in $(seq 1 "${{ inputs.chunks || '7' }}"); do
             if python -m weather.cli lightning-live --minutes 10; then ok=1; fi
-            python -m weather.cli current || true   # keep the site's current conditions fresh
+            python -m weather.cli current || true         # keep the site's current conditions fresh
+            python -m weather.cli subscriptions || true   # website sign-ups / confirmations / unsubscribes
             save
           done
           [ "$ok" = 1 ]

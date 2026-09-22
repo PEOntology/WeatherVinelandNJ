@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20260922c">
+<link rel="stylesheet" href="style.css?v=20260922d">
 </head>
 <body>
 <header class="top">
@@ -55,6 +55,20 @@
   <section aria-labelledby="sum-h">
     <h2 id="sum-h" class="visually-hidden">Summary</h2>
     <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="panel signup" aria-labelledby="signup-h">
+    <div class="signup-copy">
+      <h2 id="signup-h">Get the daily report by email</h2>
+      <p class="muted">Yesterday's rainfall and lightning for Vineland, every morning around 7:30&nbsp;AM ET. We'll send a confirmation link first, and every email has a one-click unsubscribe.</p>
+    </div>
+    <form id="signup-form" class="signup-form" novalidate>
+      <label class="visually-hidden" for="signup-email">Email address</label>
+      <input id="signup-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" required>
+      <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="btn-primary">Subscribe</button>
+      <p id="signup-msg" class="signup-msg" role="status" aria-live="polite"></p>
+    </form>
   </section>
 
   <section aria-labelledby="hist-h" class="panel">
@@ -128,6 +142,21 @@
     <button id="more" class="btn more" hidden></button>
   </section>
 
+  <section class="panel" aria-labelledby="int-h" id="integrations">
+    <div class="panel-head"><h2 id="int-h">Integrations</h2><p class="muted small" id="int-updated"></p></div>
+    <div class="int-grid">
+      <div class="int-card int-procore">
+        <div class="int-title"><strong>Procore</strong> <span class="int-badge" id="procore-badge"></span></div>
+        <p class="muted small">Automatically adds each day's rainfall and lightning to the project's Daily Log and files the report in Documents. It never sets weather delays or completes a log.</p>
+        <ol class="stepper" id="procore-steps"></ol>
+      </div>
+      <div class="int-card">
+        <div class="int-title"><strong>Other connections</strong></div>
+        <ul class="int-list" id="int-list"></ul>
+      </div>
+    </div>
+  </section>
+
   <section class="panel about" aria-labelledby="about-h">
     <h2 id="about-h">About this data</h2>
     <ul>
@@ -149,7 +178,7 @@
 </dialog>
 
 <footer class="wrap foot muted small"><a href="methodology.html">Methodology</a> &middot; constructionweather.us &middot; Sources: NOAA MRMS, NOAA GOES GLM, NWS, Iowa Environmental Mesonet, Xweather</footer>
-<script src="app.js?v=20260922c"></script>
+<script src="app.js?v=20260922d"></script>
 
 <dialog id="photo-viewer" class="photo-viewer" aria-label="Eric Quidort">
   <form method="dialog"><button class="close" aria-label="Close">&times;</button></form>
