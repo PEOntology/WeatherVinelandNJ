@@ -153,4 +153,5 @@ def summarize(per_hour: list[dict], n_hours: int) -> dict:
         "files_expected": expected,
         "source": f"NOAA {SATELLITE.upper().replace('GOES', 'GOES-')} Geostationary Lightning Mapper (GLM L2)",
         "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)",
+        "_flashes": flashes,  # [[ts, lat, lon], ...]; removed from the public record, sent to Xano
     }

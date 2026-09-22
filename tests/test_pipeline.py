@@ -22,7 +22,8 @@ def tmp_store(tmp_path, monkeypatch):
     monkeypatch.setattr(daily.mrms, "day_rainfall", lambda area, day: {"value_in": 0.25, "partial_in": None,
                         "hours_expected": 24, "hours_found": 24, "status": "complete", "source": "mock", "label": "x"})
     monkeypatch.setattr(daily.glm, "day_lightning", lambda area, day: {"status": "complete", "flashes": 4,
-                        "partial_flashes": None, "first_local": None, "last_local": None})
+                        "partial_flashes": None, "first_local": None, "last_local": None,
+                        "_flashes": [[1777640400, 39.48, -75.02]]})
     monkeypatch.setattr(daily.xweather_live, "LIVE_DIR", tmp_path / "live")
     monkeypatch.setattr(daily.iem, "month_precip", lambda y, m: {f"{y}-{m:02d}-01": 0.3})
     for k in list(__import__("os").environ):
@@ -42,6 +43,8 @@ def test_backfill_then_report(tmp_store, monkeypatch):
     assert recs["2026-05-02"]["rain_station"]["status"] == "unavailable"
     assert r1["lightning"]["status"] == "unavailable"  # no Xweather creds -> not zero
     assert r1["lightning_glm"]["flashes"] == 4
+    raw = store.DAILY_FILE.read_text()
+    assert '"_flashes"' not in raw and '"_glm_flashes"' not in raw  # flash coordinates never land in the public file
     assert r1["lightning_flash"]["status"] == "unavailable"
     assert r1["status"] == "complete"  # satellite lightning + rain + station all present
     assert recs["2026-05-02"]["status"] == "incomplete"  # station missing

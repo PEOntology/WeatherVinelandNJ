@@ -94,6 +94,7 @@ def build_day(s: Settings, area: Area, day: date, station_cache: dict | None = N
     settled = now >= end + SETTLE
     lightning, events = build_lightning(s, area, day)
     lightning_glm = build_glm(s, area, day)
+    glm_flashes = lightning_glm.pop("_flashes", None)
     lightning_flash = xweather_live.day_summary(day)
     rain = build_rain(area, day)
     station = build_station(day, station_cache if station_cache is not None else {})
@@ -115,4 +116,6 @@ def build_day(s: Settings, area: Area, day: date, station_cache: dict | None = N
         "retrieved_at": now.isoformat(timespec="seconds"),
     }
     record["status"] = overall_status([primary_lightning(record), rain, station], settled)
+    if glm_flashes is not None:
+        record["_glm_flashes"] = glm_flashes  # popped by the caller; never published
     return record, events

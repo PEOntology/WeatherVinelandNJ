@@ -49,14 +49,19 @@ def poll_once(s: Settings, area: Area) -> list[dict]:
             lat, lon, ts = loc.get("lat"), loc.get("long"), ob.get("timestamp")
             if None in (lat, lon, ts) or not area.contains(float(lat), float(lon)):
                 continue
-            out.append({"id": str(rec.get("id") or f"{ts}:{lat}:{lon}"), "ts": int(ts)})
+            out.append({"id": str(rec.get("id") or f"{ts}:{lat}:{lon}"), "ts": int(ts),
+                        "lat": float(lat), "lon": float(lon)})
         if len(page) < PAGE:
             return out
         skip += PAGE
 
 
-def record_poll(polled_at: datetime, flashes: list[dict]) -> None:
-    """Merge one poll's flashes into their local-day files and log the poll time."""
+def record_poll(polled_at: datetime, flashes: list[dict]) -> list[dict]:
+    """Merge one poll's flashes into their local-day files and log the poll time.
+
+    Only ids and times go into the (public) repo files; returns the flashes not
+    seen before, with coordinates, for the private Xano archive."""
+    new_flashes = []
     by_day: dict[str, list[dict]] = {}
     for f in flashes:
         by_day.setdefault(_local_day(f["ts"]), []).append(f)
@@ -65,10 +70,13 @@ def record_poll(polled_at: datetime, flashes: list[dict]) -> None:
         path = day_path(day)
         data = read_json(path, {"flashes": {}, "polls": []})
         for f in new:
+            if f["id"] not in data["flashes"]:
+                new_flashes.append(f)
             data["flashes"][f["id"]] = f["ts"]
         if day == _local_day(int(polled_at.timestamp())):
             data["polls"].append(int(polled_at.timestamp()))
         write_json(path, data)
+    return new_flashes
 
 
 def _local_day(ts: int) -> str:
@@ -78,16 +86,28 @@ def _local_day(ts: int) -> str:
 
 
 def run(s: Settings, area: Area, minutes: float) -> dict:
+    from . import xano
+    from .store import XANO_LIVE_FLASHES
+
     stop = time.monotonic() + minutes * 60
     polls = errors = 0
+    pending: list[dict] = []  # flashes waiting for Xano (retried each poll; coordinates never hit the repo)
     while time.monotonic() < stop:
         t0 = now_utc()
         try:
-            record_poll(t0, poll_once(s, area))
+            pending += record_poll(t0, poll_once(s, area))
             polls += 1
         except SourceError as exc:
             errors += 1
             print(f"poll failed: {exc}", flush=True)
+        if pending and xano.available(s):
+            try:
+                xano.add_flashes(s, "xweather_live",
+                                 [{"key": f"xw:{f['id']}", "ts": f["ts"], "lat": f["lat"], "lon": f["lon"]}
+                                  for f in pending], XANO_LIVE_FLASHES)
+                pending = []
+            except Exception as exc:  # noqa: BLE001 - keep polling; retry next time
+                print(f"xano flash write failed (will retry): {exc}", flush=True)
         time.sleep(max(1.0, POLL_S - (now_utc() - t0).total_seconds()))
     return {"polls": polls, "errors": errors}
 

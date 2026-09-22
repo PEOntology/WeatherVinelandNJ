@@ -14,7 +14,7 @@ on:
       job:
         description: "Job to run"
         type: choice
-        options: [current, update, reconcile, report, backfill, check-stale, xweather-check]
+        options: [current, update, reconcile, report, backfill, check-stale, xweather-check, xano-sync]
         default: update
       start:
         description: "backfill: first date (YYYY-MM-DD)"

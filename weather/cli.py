@@ -18,7 +18,8 @@ from .config import AREA_NAME, AREA_SCOPE, START_DATE, TZ, settings
 from .daily import build_day
 from .geo import load_area
 from .http import SourceError
-from .store import (CURRENT_FILE, EVENTS_DIR, STATUS_FILE, load_daily, private_events_path,
+from .store import (CURRENT_FILE, DAILY_FILE, EVENTS_DIR, GLM_CACHE, STATUS_FILE, XANO_GLM_FLASHES,
+                    XANO_LIVE_FLASHES, load_daily, private_events_path,
                     read_json, save_daily, write_json)
 from .timeutil import daterange, now_utc, parse_date, today_local
 
@@ -59,6 +60,7 @@ def build_days(days: list[date]) -> dict[str, dict]:
     cache: dict = {}
     for d in days:
         rec, events = build_day(s, area, d, cache)
+        glm_flashes = rec.pop("_glm_flashes", None)
         records[rec["date"]] = rec
         print(f"{rec['date']}: {rec['status']} rain={rec['rain_estimated'].get('value_in')} "
               f"kmiv={rec['rain_station'].get('value_in')} lightning={rec['lightning'].get('status')}"
@@ -71,10 +73,33 @@ def build_days(days: list[date]) -> dict[str, dict]:
                            [{k: e[k] for k in ("ts", "lat", "lon", "type")} for e in events])
         try:
             xano.upsert_day(s, rec, events)
+            if glm_flashes:
+                xano.add_flashes(s, "glm", glm_rows(glm_flashes), XANO_GLM_FLASHES)
         except Exception as exc:  # noqa: BLE001 - the private archive must never break the public log
             print(f"  xano: {exc}", file=sys.stderr)
         save_daily(records, _meta(area))  # save as we go so a crash keeps progress
+    sync_site_docs(("daily", "status"))
     return records
+
+
+def glm_rows(flashes) -> list[dict]:
+    return [{"key": f"glm:{ts}:{lat}:{lon}", "ts": ts, "lat": lat, "lon": lon} for ts, lat, lon in flashes]
+
+
+def sync_site_docs(keys=("daily", "current", "status")) -> None:
+    """Mirror the website's data files into Xano's site_data table."""
+    s = settings()
+    if not xano.available(s):
+        return
+    files = {"daily": DAILY_FILE, "current": CURRENT_FILE, "status": STATUS_FILE}
+    for k in keys:
+        doc = read_json(files[k], None)
+        if doc is None:
+            continue
+        try:
+            xano.put_site_doc(s, k, doc)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  xano site_data {k}: {exc}", file=sys.stderr)
 
 
 def gaps(records: dict[str, dict], last: date) -> list[date]:
@@ -91,9 +116,15 @@ def gaps(records: dict[str, dict], last: date) -> list[date]:
 
 
 def cmd_current(_args) -> int:
-    cur = nws.current(settings())
+    s = settings()
+    cur = nws.current(s)
     write_json(CURRENT_FILE, cur)
     _mark("current", not cur["errors"], "; ".join(cur["errors"]))
+    try:
+        xano.add_observation(s, cur)
+    except Exception as exc:  # noqa: BLE001
+        print(f"  xano observation: {exc}", file=sys.stderr)
+    sync_site_docs(("current", "status"))
     return 0
 
 
@@ -181,6 +212,7 @@ def cmd_report(args) -> int:
     except SourceError as exc:
         problems.append(f"procore: {exc}")
     _mark("report", not problems, "; ".join(problems) or f"reported {day}")
+    sync_site_docs(("status",))
     return 1 if problems else 0
 
 
@@ -297,6 +329,36 @@ def cmd_xano_setup(_args) -> int:
     return 0
 
 
+def cmd_xano_sync(_args) -> int:
+    """Copy everything already collected into Xano (daily rows, all flashes, site documents)."""
+    from pathlib import Path
+
+    from . import xweather_live
+    s = settings()
+    if not xano.available(s):
+        print("Xano not configured")
+        return 1
+    xano.setup(s)
+    records = load_daily()
+    for k in sorted(records):
+        xano.upsert_day(s, records[k], None)
+    print(f"daily rows: {len(records)}")
+    hours = read_json(GLM_CACHE, {})
+    flashes = [f for h in hours.values() for f in h.get("flashes", [])]
+    print(f"satellite flashes added: {xano.add_flashes(s, 'glm', glm_rows(flashes), XANO_GLM_FLASHES)} of {len(flashes)}")
+    live = []
+    for path in sorted(Path(xweather_live.LIVE_DIR).glob("*.json")):
+        for fid, ts in read_json(path, {}).get("flashes", {}).items():
+            live.append({"key": f"xw:{fid}", "ts": ts})  # older live flashes were stored without coordinates
+    print(f"live flashes added: {xano.add_flashes(s, 'xweather_live', live, XANO_LIVE_FLASHES)} of {len(live)}")
+    cur = read_json(CURRENT_FILE, None)
+    if cur:
+        xano.add_observation(s, cur)
+    sync_site_docs()
+    print("site documents synced")
+    return 0
+
+
 def cmd_xweather_check(args) -> int:
     """Probe which Xweather lightning endpoints/formats this subscription answers.
 
@@ -372,6 +434,7 @@ def main(argv=None) -> int:
     sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)
     sub.add_parser("config-check").set_defaults(fn=cmd_config_check)
     sub.add_parser("xano-setup").set_defaults(fn=cmd_xano_setup)
+    sub.add_parser("xano-sync").set_defaults(fn=cmd_xano_sync)
     lv = sub.add_parser("lightning-live")
     lv.add_argument("--minutes", type=float, default=70)
     lv.set_defaults(fn=cmd_lightning_live)

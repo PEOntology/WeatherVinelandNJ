@@ -34,6 +34,10 @@ jobs:
     env:
       XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
       XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+      # Flash coordinates go only to the private Xano archive.
+      XANO_META_URL: ${{ vars.XANO_META_URL || secrets.XANO_META_URL }}
+      XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
+      XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID || secrets.XANO_WORKSPACE_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,7 +51,7 @@ jobs:
           git config user.name "weather-bot"
           git config user.email "weather-bot@users.noreply.github.com"
           save() {
-            git add state/xweather_flash
+            git add state/xweather_flash state/xano_flashes_live.json 2>/dev/null || git add state/xweather_flash
             git diff --cached --quiet && return 0
             git commit -q -m "data: live lightning $(date -u +%Y-%m-%dT%H:%MZ)"
             for i in 1 2 3 4 5; do

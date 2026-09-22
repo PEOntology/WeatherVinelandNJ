@@ -13,6 +13,9 @@ EVENTS_DIR = SITE_DATA / "events"  # only written when the license permits
 DELIVERY_LOG = STATE_DIR / "deliveries.json"
 PROCORE_LOG = STATE_DIR / "procore_sync.json"
 XANO_IDS = STATE_DIR / "xano_ids.json"
+# Flashes already written to Xano (separate files so the live collector and pipeline never edit the same one).
+XANO_GLM_FLASHES = STATE_DIR / "xano_flashes_glm.json"
+XANO_LIVE_FLASHES = STATE_DIR / "xano_flashes_live.json"
 # Final (Pass 2) hourly area-average values, so re-runs don't re-download them.
 MRMS_CACHE = STATE_DIR / "mrms_hourly_mm.json"
 # Settled hourly GLM flash lists inside the city (public NOAA data).
