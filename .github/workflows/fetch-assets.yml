@@ -31,7 +31,7 @@ jobs:
           git add site/assets/eric-quidort.jpg
           git diff --cached --quiet && exit 0
           git commit -q -m "assets: built-by photo"
-          for i in 1 2 3 4; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); done
+          for i in 1 2 3 4; do git pull -q --rebase --autostash origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((2**i)); done
       - name: Deploy site
         env:
           GH_TOKEN: ${{ github.token }}

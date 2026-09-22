@@ -52,12 +52,12 @@ jobs:
           git config user.name "weather-bot"
           git config user.email "weather-bot@users.noreply.github.com"
           save() {
-            git add state/xweather_flash site/data/current.json site/data/status.json
-            git add state/xano_flashes_live.json state/xano_ids.json 2>/dev/null || true
+            # everything this job writes; `git add` of a directory never fails on missing files
+            git add state site/data
             git diff --cached --quiet && return 0
             git commit -q -m "data: live lightning $(date -u +%Y-%m-%dT%H:%MZ)"
             for i in 1 2 3 4 5; do
-              git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && return 0
+              git pull -q --rebase --autostash -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && return 0
               sleep $((2**i))
             done
             echo "::warning::push failed; data kept for next chunk"
