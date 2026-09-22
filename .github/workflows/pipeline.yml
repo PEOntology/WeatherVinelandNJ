@@ -14,7 +14,7 @@ on:
       job:
         description: "Job to run"
         type: choice
-        options: [current, update, reconcile, report, backfill, check-stale]
+        options: [current, update, reconcile, report, backfill, check-stale, xweather-check]
         default: update
       start:
         description: "backfill: first date (YYYY-MM-DD)"
@@ -104,7 +104,7 @@ jobs:
           esac
 
       - name: Commit data
-        if: always() && steps.pick.outputs.job != 'check-stale'
+        if: always() && steps.pick.outputs.job != 'check-stale' && steps.pick.outputs.job != 'xweather-check'
         run: |
           git config user.name "weather-bot"
           git config user.email "weather-bot@users.noreply.github.com"

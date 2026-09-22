@@ -173,6 +173,39 @@ def cmd_check_stale(args) -> int:
     return 0
 
 
+def cmd_xweather_check(_args) -> int:
+    """Report which Xweather products this account's subscription allows."""
+    from .http import request
+    s = settings()
+    if not s.xweather_configured:
+        print("Xweather credentials not configured")
+        return 1
+    area = load_area()
+    min_lat, min_lon, max_lat, max_lon = area.bbox
+    box = f"{min_lat:.4f},{min_lon:.4f},{max_lat:.4f},{max_lon:.4f}"
+    yesterday = int((now_utc() - timedelta(days=1)).timestamp())
+    may = int(datetime(2026, 5, 15, 18, tzinfo=now_utc().tzinfo).timestamp())
+    checks = [
+        ("basic observations", "observations/kmiv", {}),
+        ("live lightning (last 5 min, city box)", "lightning/within", {"p": box}),
+        ("live lightning (closest, 50 mi)", "lightning/closest", {"p": "39.4864,-75.0260", "radius": "50mi"}),
+        ("lightning summary (live)", "lightning/summary/closest", {"p": "39.4864,-75.0260", "radius": "50mi"}),
+        ("historical lightning (yesterday)", "lightning/within", {"p": box, "from": yesterday, "to": yesterday + 3600}),
+        ("historical lightning (May 15)", "lightning/within", {"p": box, "from": may, "to": may + 3600}),
+        ("lightning archive (May 15)", "lightning/archive", {"p": "39.4864,-75.0260", "from": may, "to": may + 3600}),
+    ]
+    for label, path, params in checks:
+        params = {**params, "client_id": s.xweather_client_id, "client_secret": s.xweather_client_secret, "limit": 1}
+        try:
+            r = request("GET", f"{s.xweather_base}/{path}", params=params, attempts=1)
+            body = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
+            err = (body.get("error") or {})
+            print(f"{label:45} HTTP {r.status_code}  {err.get('code') or 'ok'}  {(err.get('description') or '')[:90]}")
+        except Exception as exc:  # noqa: BLE001 - diagnostic output only
+            print(f"{label:45} ERROR {exc}")
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="weather")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -190,6 +223,7 @@ def main(argv=None) -> int:
     r.add_argument("--force", action="store_true")
     r.set_defaults(fn=cmd_report)
     sub.add_parser("reconcile").set_defaults(fn=cmd_reconcile)
+    sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)
     c = sub.add_parser("check-stale")
     c.add_argument("--max-hours", type=float, default=3)
     c.set_defaults(fn=cmd_check_stale)
