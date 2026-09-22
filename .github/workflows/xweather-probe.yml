@@ -26,8 +26,13 @@ jobs:
         run: |
           B="https://www.ncei.noaa.gov/swdiws"
           box="bbox=-75.10,39.37,-74.88,39.58"
-          for rng in 20260803:20260804 20260601:20260701 20260901:20260922 20260501:20260502; do
-            echo "== nldn-tiles $rng"; curl -sS -m 60 "$B/csv/nldn-tiles/$rng?$box" | head -25
-          done
-          echo "== summary"; curl -sS -m 60 "$B/csv/nldn-tiles/20260501:20260922?$box&stat=count" | head -10
-          echo "== datasets"; curl -sS -m 60 "$B/csv/nldn-tiles/20260920:20260922?$box" | head -5
+          get() { echo "== $1"; curl -sS -m 60 -w "\n[HTTP %{http_code}, %{size_download} bytes]\n" "$1" | head -30; }
+          get "$B/csv/nx3tvs/20060505:20060506?bbox=-91,30,-90,31"
+          get "$B/csv/nldn-tiles/20230801:20230802"
+          get "$B/csv/nldn-tiles/20230801:20230802?$box"
+          get "$B/csv/nldn-tiles/20260801:20260802?$box"
+          get "$B/csv/nldn-tiles/20260803:20260804?tile=-75.0,39.5"
+          get "$B/csv/nldn-tiles/20260801:20260831?$box&stat=count"
+          get "$B/csv/nldn-tiles/20250801:20250802?$box"
+          get "$B/csv/nldn-tiles/periodOfRecord"
+          get "$B/xml/nldn-tiles/20260803:20260804?$box"

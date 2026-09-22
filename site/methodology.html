@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weather Log Methodology</title>
+<meta name="description" content="How the Vineland, NJ rainfall and lightning records are produced, checked and validated.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Cpath d=%27M9 1 3 9h4l-1 6 6-8H8z%27 fill=%27%23eda100%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <div>
+      <p class="eyebrow">Construction Weather &middot; Vineland, NJ</p>
+      <h1>Methodology</h1>
+    </div>
+    <nav class="topnav"><a href="./">&larr; Dashboard</a></nav>
+  </div>
+</header>
+
+<main class="wrap doc">
+  <section class="panel">
+    <h2>In short</h2>
+    <ul class="checks">
+      <li><strong>Every number comes from a named public or licensed source.</strong> Nothing is typed in by hand, and each day's record lists its source and when it was retrieved.</li>
+      <li><strong>Area is the official city boundary.</strong> The polygon is the U.S. Census Bureau boundary for the City of Vineland (place 3476070), not a circle or a zip code.</li>
+      <li><strong>Days are local calendar days.</strong> Each day runs midnight to midnight, America/New_York, including 23- and 25-hour daylight-saving days.</li>
+      <li><strong>Missing data is never reported as zero.</strong> Every day carries a status, and partial days are labelled as partial.</li>
+      <li><strong>The work can be repeated.</strong> The processing code is public, and any day can be recomputed from the same public archives.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Area covered</h2><p class="muted small" id="area-stats"></p></div>
+    <figure class="map-fig">
+      <div id="map" class="map" role="img" aria-label="Map of the Vineland city boundary with the radar grid cells used for rainfall and the Millville reference station"></div>
+      <figcaption class="legend small">
+        <span><span class="key k-bound"></span> City boundary (Census)</span>
+        <span><span class="key k-cell"></span> Radar rainfall grid cells averaged (0.01&deg;)</span>
+        <span><span class="key k-stn"></span> Millville Airport gauge (KMIV)</span>
+        <span><span class="key k-glmbox"></span> Size of one satellite lightning pixel (~8 km)</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="panel">
+    <h2>Rainfall</h2>
+    <h3>Estimated rainfall for Vineland (primary)</h3>
+    <dl class="spec">
+      <dt>Source</dt><dd>NOAA Multi-Radar/Multi-Sensor (MRMS) <em>MultiSensor QPE 1-hour Pass 2</em>. This is radar-derived precipitation that NOAA corrects against rain gauges, published on a ~1 km grid (0.01&deg;), from NOAA's public archive on AWS (<code>noaa-mrms-pds</code>).</dd>
+      <dt>Area value</dt><dd>For each hour we average every grid cell whose centre lies inside the city boundary (<span data-fill="cells">185</span> cells), then add the hours of the local day together. The hourly periods never overlap, and we never add up rolling "past 24 hours" totals.</dd>
+      <dt>Completeness</dt><dd>A day needs every hourly file: 24, or 23/25 on clock-change days. If an hour is missing, the day is shown as <em>incomplete</em> with the partial total labelled as partial. An hour where fewer than 90% of the city's cells have valid radar coverage is treated as missing.</dd>
+      <dt>Corrections</dt><dd>Hours that come from the faster, uncorrected Pass 1 product are marked <em>provisional</em>. The last three days are rebuilt every morning so late corrections are picked up.</dd>
+    </dl>
+    <h3>Nearby measured reference</h3>
+    <dl class="spec">
+      <dt>Source</dt><dd>Daily precipitation measured by the rain gauge at Millville Municipal Airport (KMIV), via the Iowa Environmental Mesonet ASOS archive.</dd>
+      <dt>Why it's shown</dt><dd>It is an independent, physically measured check on the radar estimate. It is about 8 miles south-southwest of the centre of Vineland, just outside the city, so on days with scattered thunderstorms the two can differ legitimately.</dd>
+    </dl>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Validation: radar estimate vs. measured gauge</h2><p class="muted small">Computed live from the published daily records</p></div>
+    <div class="tiles" id="val-tiles"></div>
+    <figure class="chart">
+      <figcaption><strong>Daily rainfall: Vineland estimate vs. Millville gauge</strong> <span class="muted">&middot; inches, one dot per day; dashed line = perfect agreement</span></figcaption>
+      <div class="chart-box" id="scatter"></div>
+    </figure>
+    <p class="note" id="val-note"></p>
+    <div id="tip" class="tip" role="status" hidden></div>
+  </section>
+
+  <section class="panel">
+    <h2>Lightning</h2>
+    <h3>Satellite-detected lightning (every day since May 1, 2026)</h3>
+    <dl class="spec">
+      <dt>Source</dt><dd>NOAA GOES-19 (GOES-East) Geostationary Lightning Mapper, Level-2 product (<code>GLM-L2-LCFA</code>) from NOAA's public archive on AWS (<code>noaa-goes19</code>). The instrument watches the Americas continuously and records optical lightning flashes; one file covers 20 seconds.</dd>
+      <dt>Counting</dt><dd>We read every file for the local day (~4,320), keep flashes whose centre falls inside the city boundary, and count them. The day record stores how many files were read, for example "4,313 of 4,320".</dd>
+      <dt>Completeness</dt><dd>A day is <em>complete</em> when at least 98% of its files were read. Otherwise it is <em>incomplete</em>, and the count is shown as partial.</dd>
+      <dt>What it measures</dt><dd><strong>Total lightning.</strong> The satellite sees cloud-to-ground and in-cloud flashes together and cannot separate them. Each pixel is about 8 km (5 mi) across, so a flash's position is known to within a few km. Published evaluations put GLM's detection rate at roughly 70&ndash;90% of flashes, higher at night than during the day. Treat these counts as an area-level record of lightning activity over the city, not as strikes at a specific site.</dd>
+    </dl>
+    <h3>Xweather ground-network flashes (live from Sep 22, 2026)</h3>
+    <dl class="spec">
+      <dt>Source</dt><dd>Vaisala Xweather <code>lightning/flash</code> feed, from ground-based sensors. The feed only reaches back 5 minutes, so it is checked every 90 seconds and flashes inside the city boundary are kept.</dd>
+      <dt>Coverage check</dt><dd>Every check time is logged. Any gap longer than the feed's 5-minute window is measured, and the day is marked <em>incomplete</em> with the minutes that were not monitored.</dd>
+    </dl>
+    <h3>Cloud-to-ground strike counts</h3>
+    <p>Separate cloud-to-ground and in-cloud counts with exact strike locations require Xweather's historical lightning archive. The system is built to use it and will add those counts, back to May 1, 2026, once archive access is active on our account.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Status labels</h2>
+    <dl class="spec">
+      <dt><span class="st complete">Complete</span></dt><dd>Every source for the day was fully available and the day is final.</dd>
+      <dt><span class="st provisional">Provisional</span></dt><dd>The day is still in progress or ended less than 6 hours ago; values can still change.</dd>
+      <dt><span class="st incomplete">Incomplete</span></dt><dd>At least one source is missing part of the day. Partial values are labelled.</dd>
+      <dt><span class="st unavailable">Unavailable</span></dt><dd>No source could be read for the day.</dd>
+    </dl>
+  </section>
+
+  <section class="panel">
+    <h2>Limitations</h2>
+    <ul>
+      <li>Radar rainfall is an estimate for the whole city area. Rain at any one site can be higher or lower, especially under thunderstorms.</li>
+      <li>Lightning counts describe activity over the city. They are not evidence that lightning struck a particular jobsite, and this is not a real-time lightning safety or all-clear system.</li>
+      <li>Current conditions come from the nearest official station (Millville Airport) and are kept separate from the historical record.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Reproduce or audit</h2>
+    <ul>
+      <li>Processing code, schedules and full change history: <a href="https://github.com/PEOntology/WeatherVinelandNJ">github.com/PEOntology/WeatherVinelandNJ</a></li>
+      <li>Daily records as published (JSON, including per-day source, file counts and retrieval time): <a href="data/daily.json">data/daily.json</a>. A CSV download is on the dashboard.</li>
+      <li>City boundary used: <a href="https://tigerweb.geo.census.gov/">U.S. Census TIGERweb</a>, place GEOID 3476070</li>
+      <li>Raw sources: <a href="https://registry.opendata.aws/noaa-mrms-pds/">NOAA MRMS on AWS</a> &middot; <a href="https://registry.opendata.aws/noaa-goes/">NOAA GOES on AWS</a> &middot; <a href="https://mesonet.agron.iastate.edu/request/download.phtml?network=NJ_ASOS">Iowa Environmental Mesonet (KMIV)</a> &middot; <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a> &middot; <a href="https://www.xweather.com/docs/weather-api/endpoints/lightning-flash">Xweather</a></li>
+    </ul>
+    <p class="muted small" id="gen"></p>
+  </section>
+</main>
+<footer class="wrap foot muted small"><a href="./">Dashboard</a> &middot; constructionweather.us</footer>
+<script src="methodology.js"></script>
+</body>
+</html>

@@ -193,3 +193,35 @@ dialog dd { margin: 0; }
   .k-cg, .k-ic, .dot { forced-color-adjust: none; }
 }
 .btn.more { margin-top: 12px; cursor: pointer; }
+
+/* ---------- methodology ---------- */
+.topnav a, .toplink { color: var(--header-text); font-size: 14px; text-decoration: none; border: 1px solid rgb(255 255 255 / 0.35); border-radius: 6px; padding: 6px 12px; }
+.topnav a:hover, .toplink:hover { background: rgb(255 255 255 / 0.1); }
+.doc h3 { font-size: 15px; margin: 16px 0 6px; }
+.doc p, .doc li { font-size: 14px; color: var(--text-2); }
+.doc ul { padding-left: 18px; margin: 0; }
+.doc li { margin-bottom: 6px; }
+.doc a { color: var(--accent); }
+.checks li::marker { content: "✓  "; color: var(--good); }
+dl.spec { display: grid; grid-template-columns: 140px 1fr; gap: 6px 16px; margin: 0; font-size: 14px; }
+dl.spec dt { color: var(--muted); }
+dl.spec dd { margin: 0; color: var(--text-2); }
+code { font-size: 12.5px; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; }
+.map-fig { margin: 0; }
+.map svg { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.m-bound { fill: color-mix(in srgb, var(--rain) 8%, transparent); stroke: var(--text); stroke-width: 1.5; }
+.m-cell { fill: var(--rain); opacity: 0.8; }
+.m-stn { fill: var(--cg); stroke: var(--surface); stroke-width: 2; }
+.m-glm { fill: none; stroke: var(--glm); stroke-width: 2; stroke-dasharray: 4 3; }
+.m-label { fill: var(--text-2); font-size: 12px; }
+.k-bound { border: 2px solid var(--text); background: transparent; }
+.k-cell { background: var(--rain); border-radius: 50%; }
+.k-stn { background: var(--cg); border-radius: 50%; }
+.k-glmbox { border: 2px dashed var(--glm); background: transparent; }
+.one2one { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.dot-pt { fill: var(--rain); stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+.dot-pt:hover { stroke: var(--text); }
+#scatter svg { max-width: 560px; }
+@media (max-width: 800px) { dl.spec { grid-template-columns: 1fr; gap: 2px; } dl.spec dd { margin-bottom: 8px; } }
+.top-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.about a, .foot a { color: var(--accent); }
