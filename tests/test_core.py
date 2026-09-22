@@ -196,3 +196,11 @@ def test_live_flash_coverage(tmp_path, monkeypatch):
     (tmp_path / "2026-05-01.json").write_text(json.dumps(data))
     out = xl.day_summary(date(2026, 5, 1))
     assert out["status"] == "incomplete" and out["flashes"] is None and out["uncovered_minutes"] >= 55
+
+
+def test_token_prefix_is_stripped(monkeypatch):
+    from weather.config import Settings
+    jwt = "eyJhbGciOiJSUzI1NiJ9.eyJ4YW5vIjp7fX0.sig-_part"
+    for raw in (f"xano api- {jwt}", f"Bearer {jwt}", f'"{jwt}"', f"  {jwt}\n", jwt):
+        monkeypatch.setenv("XANO_API_TOKEN", raw)
+        assert Settings().xano_token == jwt

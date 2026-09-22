@@ -41,6 +41,21 @@ def _env(name: str, default: str | None = None) -> str | None:
     return value.strip() if isinstance(value, str) and value.strip() else default
 
 
+def _token(name: str) -> str | None:
+    """A pasted API token, tolerating labels/prefixes copied along with it
+    (e.g. "xano api- eyJ...", "Bearer eyJ...", quotes, stray whitespace)."""
+    import re
+
+    value = _env(name)
+    if not value:
+        return None
+    value = value.strip().strip('"').strip("'")
+    m = re.search(r"eyJ[\w-]+\.[\w-]+\.[\w-]+", value)  # a JWT anywhere in the string
+    if m:
+        return m.group(0)
+    return re.sub(r"^(bearer\s+|xano\s*api\s*-?\s*)", "", value, flags=re.I).strip()
+
+
 def _flag(name: str, default: bool = False) -> bool:
     value = _env(name)
     if value is None:
@@ -90,7 +105,7 @@ class Settings:
 
     # Xano (private archive). Uses the Metadata API content endpoints.
     xano_meta_url: str | None = field(default_factory=lambda: _env("XANO_META_URL"))
-    xano_token: str | None = field(default_factory=lambda: _env("XANO_API_TOKEN"))
+    xano_token: str | None = field(default_factory=lambda: _token("XANO_API_TOKEN"))
     xano_workspace_id: str | None = field(default_factory=lambda: _env("XANO_WORKSPACE_ID"))
     xano_table_id: str | None = field(default_factory=lambda: _env("XANO_TABLE_ID"))
 
