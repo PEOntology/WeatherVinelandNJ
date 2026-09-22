@@ -6,66 +6,9 @@
   "last_success": "2026-09-22T20:13:31+00:00"
  },
  "backfill": {
-  "last_run": "2026-09-22T18:37:14+00:00",
+  "last_run": "2026-09-22T20:18:02+00:00",
   "last_result": "ok",
-  "detail": "2026-08-03..2026-08-03",
-  "last_success": "2026-09-22T18:37:14+00:00"
- },
- "lightning_live": {
-  "last_run": "2026-09-22T20:13:31+00:00",
-  "last_result": "ok",
-  "detail": "7 polls, 0 errors",
-  "last_success": "2026-09-22T20:13:31+00:00"
- },
- "integrations": {
-  "procore": {
-   "mode": "off",
-   "env": "sandbox",
-   "steps": [
-    {
-     "name": "Integration built",
-     "detail": "Daily Log weather entry + report upload into Documents; no automatic delay flags or log completion",
-     "done": true
-    },
-    {
-     "name": "Procore developer app",
-     "detail": "Private app with a Developer Managed Service Account (client credentials)",
-     "done": false
-    },
-    {
-     "name": "Company, project & folder selected",
-     "detail": "Target project and Documents folder chosen by a Procore admin",
-     "done": false
-    },
-    {
-     "name": "Sandbox dry run",
-     "detail": "Payloads generated and reviewed without writing to Procore",
-     "done": false
-    },
-    {
-     "name": "Sandbox live test",
-     "detail": "One day written to the sandbox project and verified",
-     "done": false
-    },
-    {
-     "name": "Production",
-     "detail": "Daily reports flowing into the live project",
-     "done": false
-    }
-   ],
-   "current_step": 1,
-   "days_synced": 0,
-   "last_synced": null
-  },
-  "email": {
-   "configured": false
-  },
-  "xano": {
-   "configured": true
-  },
-  "xweather": {
-   "live_feed": true,
-   "history_archive": false
-  }
+  "detail": "2026-05-01..2026-09-22",
+  "last_success": "2026-09-22T20:18:02+00:00"
  }
 }
