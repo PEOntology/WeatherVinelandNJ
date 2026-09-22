@@ -244,12 +244,15 @@ def cmd_config_check(_args) -> int:
         def show(label, url):
             try:
                 r = request("GET", url, headers=h, attempts=1)
-                print(f"xano {label:12} HTTP {r.status_code}")
+                print(f"xano {label:12} HTTP {r.status_code} {'' if r.status_code == 200 else r.text[:200]}")
                 return r.json() if r.status_code == 200 else None
             except Exception as exc:  # noqa: BLE001
                 print(f"xano {label:12} ERROR {exc}")
                 return None
 
+        show("auth/me app", "https://app.xano.com/api:meta/auth/me")
+        show("auth/me inst", f"{base}/auth/me")
+        show("instances", "https://app.xano.com/api:meta/instance")
         ws = show("workspaces", f"{base}/workspace")
         items = ws if isinstance(ws, list) else (ws or {}).get("items", []) if isinstance(ws, dict) else []
         for w in items[:10]:
