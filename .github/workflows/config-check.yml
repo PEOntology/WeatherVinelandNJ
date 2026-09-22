@@ -1,0 +1,31 @@
+name: Config check
+
+# Diagnostic: shows which secrets/variables are present (never their values)
+# and tests Xano and Resend access.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
+      XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+      REPORT_FROM: ${{ vars.REPORT_FROM }}
+      ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+      XANO_META_URL: ${{ vars.XANO_META_URL || secrets.XANO_META_URL }}
+      XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
+      XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID || secrets.XANO_WORKSPACE_ID }}
+      XANO_TABLE_ID: ${{ vars.XANO_TABLE_ID || secrets.XANO_TABLE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests numpy
+      - run: python -m weather.cli config-check

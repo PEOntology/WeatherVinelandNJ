@@ -189,6 +189,44 @@ def cmd_lightning_live(args) -> int:
     return 0 if res["polls"] else 1
 
 
+def cmd_config_check(_args) -> int:
+    """Report which settings are present (never their values) and test Xano and Resend access."""
+    import os
+
+    from .http import request
+    s = settings()
+    names = ["XWEATHER_CLIENT_ID", "XWEATHER_CLIENT_SECRET", "RESEND_API_KEY", "REPORT_RECIPIENTS", "REPORT_FROM",
+             "ALERT_EMAIL", "XANO_META_URL", "XANO_API_TOKEN", "XANO_WORKSPACE_ID", "XANO_TABLE_ID"]
+    for n in names:
+        v = os.environ.get(n, "").strip()
+        print(f"{n:24} {'set' if v else 'MISSING'}")
+    print(f"report recipients: {len(s.report_recipients)}")
+    if s.xano_meta_url:
+        base = s.xano_meta_url.rstrip("/")
+        print("xano url looks like:", base.split("//")[-1].split(".")[0][:4] + "…" + base[-10:])
+    if s.xano_configured:
+        h = {"Authorization": f"Bearer {s.xano_token}"}
+        base = s.xano_meta_url.rstrip("/")
+        for label, url in [("workspace", f"{base}/workspace/{s.xano_workspace_id}"),
+                           ("table", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}"),
+                           ("table schema", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/schema"),
+                           ("table content", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content?page=1&per_page=1")]:
+            try:
+                r = request("GET", url, headers=h, attempts=1)
+                body = r.text[:400].replace(s.xano_token, "***")
+                print(f"xano {label:14} HTTP {r.status_code} {body}")
+            except Exception as exc:  # noqa: BLE001
+                print(f"xano {label:14} ERROR {exc}")
+    if s.resend_api_key:
+        try:
+            r = request("GET", "https://api.resend.com/domains", headers={"Authorization": f"Bearer {s.resend_api_key}"}, attempts=1)
+            doms = [(d.get("name"), d.get("status")) for d in (r.json().get("data") or [])] if r.status_code == 200 else r.text[:200]
+            print(f"resend domains HTTP {r.status_code}: {doms}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"resend ERROR {exc}")
+    return 0
+
+
 def cmd_xweather_check(args) -> int:
     """Probe which Xweather lightning endpoints/formats this subscription answers.
 
@@ -262,6 +300,7 @@ def main(argv=None) -> int:
     r.set_defaults(fn=cmd_report)
     sub.add_parser("reconcile").set_defaults(fn=cmd_reconcile)
     sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)
+    sub.add_parser("config-check").set_defaults(fn=cmd_config_check)
     lv = sub.add_parser("lightning-live")
     lv.add_argument("--minutes", type=float, default=70)
     lv.set_defaults(fn=cmd_lightning_live)
