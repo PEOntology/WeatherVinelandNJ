@@ -1,0 +1,136 @@
+name: Weather pipeline
+
+# All times are UTC; the code itself works in America/New_York local days.
+# GitHub may delay or drop scheduled runs under load, so every run also
+# catches up missed days and the stale check alerts if updates stop.
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # current conditions
+    - cron: "7 * * * *"      # today's provisional log + catch-up of gaps
+    - cron: "30 11 * * *"    # reconcile last 3 days, then daily e-mail + Procore (07:30 EDT / 06:30 EST)
+    - cron: "50 */3 * * *"   # stale-data check
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job to run"
+        type: choice
+        options: [current, update, reconcile, report, backfill, check-stale]
+        default: update
+      start:
+        description: "backfill: first date (YYYY-MM-DD)"
+        default: "2026-05-01"
+      end:
+        description: "backfill: last date (blank = today)"
+        default: ""
+      date:
+        description: "report: date to send (blank = yesterday)"
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: weather-data
+  cancel-in-progress: false
+
+env:
+  XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
+  XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+  PUBLISH_LIGHTNING_EVENTS: ${{ vars.PUBLISH_LIGHTNING_EVENTS }}
+  NWS_USER_AGENT: ${{ vars.NWS_USER_AGENT }}
+  RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+  REPORT_FROM: ${{ vars.REPORT_FROM }}
+  REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+  ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+  PROCORE_MODE: ${{ vars.PROCORE_MODE }}
+  PROCORE_ENV: ${{ vars.PROCORE_ENV }}
+  PROCORE_CLIENT_ID: ${{ secrets.PROCORE_CLIENT_ID }}
+  PROCORE_CLIENT_SECRET: ${{ secrets.PROCORE_CLIENT_SECRET }}
+  PROCORE_COMPANY_ID: ${{ vars.PROCORE_COMPANY_ID }}
+  PROCORE_PROJECT_ID: ${{ vars.PROCORE_PROJECT_ID }}
+  PROCORE_FOLDER_ID: ${{ vars.PROCORE_FOLDER_ID }}
+  XANO_META_URL: ${{ vars.XANO_META_URL }}
+  XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
+  XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID }}
+  XANO_TABLE_ID: ${{ vars.XANO_TABLE_ID }}
+  SITE_URL: ${{ vars.SITE_URL }}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick job
+        id: pick
+        run: |
+          case "${{ github.event.schedule }}" in
+            "*/15 * * * *") job=current ;;
+            "7 * * * *")    job=update ;;
+            "30 11 * * *")  job=reconcile ;;
+            "50 */3 * * *") job=check-stale ;;
+            *)              job="${{ inputs.job }}" ;;
+          esac
+          echo "job=$job" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Boundary
+        if: hashFiles('data/vineland_boundary.geojson') == ''
+        run: python scripts/fetch_boundary.py || echo "::warning::Boundary download failed; using approximate rectangle"
+
+      - name: Run ${{ steps.pick.outputs.job }}
+        id: main
+        run: |
+          job="${{ steps.pick.outputs.job }}"
+          case "$job" in
+            backfill)
+              args="--start ${{ inputs.start }}"
+              [ -n "${{ inputs.end }}" ] && args="$args --end ${{ inputs.end }}"
+              python -m weather.cli backfill $args ;;
+            report)
+              if [ -n "${{ inputs.date }}" ]; then python -m weather.cli report --date "${{ inputs.date }}"; else python -m weather.cli report; fi ;;
+            *)
+              python -m weather.cli "$job" ;;
+          esac
+
+      - name: Commit data
+        if: always() && steps.pick.outputs.job != 'check-stale'
+        run: |
+          git config user.name "weather-bot"
+          git config user.email "weather-bot@users.noreply.github.com"
+          git add site/data state data
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -q -m "data: ${{ steps.pick.outputs.job }} $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4; do
+            git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((2**i))
+          done
+          exit 1
+
+      - name: Upload site
+        if: always() && steps.pick.outputs.job != 'check-stale'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: run
+    if: always() && needs.run.result != 'skipped' && github.event.schedule != '50 */3 * * *' && inputs.job != 'check-stale'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
