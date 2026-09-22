@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timedelta
 
-from . import iem, mrms, xweather
+from . import glm, iem, mrms, xweather, xweather_live
 from .config import AREA_NAME, AREA_SCOPE, Settings
 from .geo import Area
 from .http import SourceError
@@ -34,12 +34,31 @@ def build_lightning(s: Settings, area: Area, day: date) -> tuple[dict, list[dict
     }
     if not s.xweather_configured:
         return {**base, "status": "unavailable", "reason": "lightning source not configured"}, None
+    if not s.xweather_enterprise:
+        return {**base, "status": "unavailable", "reason": "Xweather Lightning Enterprise add-on not active"}, None
     start, end = local_day_bounds(day)
     try:
         events = xweather.fetch_events(s, area, start, end)
     except SourceError as exc:
         return {**base, "status": "unavailable", "reason": str(exc)[:300]}, None
     return {**base, "status": "complete", **lightning_summary(events)}, events
+
+
+def build_glm(s: Settings, area: Area, day: date) -> dict:
+    if not s.glm_enabled:
+        return {"status": "unavailable", "reason": "satellite lightning disabled"}
+    try:
+        return glm.day_lightning(area, day)
+    except SourceError as exc:
+        return {"status": "unavailable", "reason": str(exc)[:300], "source": "NOAA GOES GLM"}
+
+
+def primary_lightning(rec: dict) -> dict:
+    """The lightning component that decides the day's status: licensed strikes if we have them,
+    otherwise the satellite record (the only source covering every day)."""
+    if rec["lightning"]["status"] != "unavailable":
+        return rec["lightning"]
+    return rec.get("lightning_glm") or rec["lightning"]
 
 
 def build_rain(area: Area, day: date) -> dict:
@@ -74,21 +93,26 @@ def build_day(s: Settings, area: Area, day: date, station_cache: dict | None = N
     _, end = local_day_bounds(day)
     settled = now >= end + SETTLE
     lightning, events = build_lightning(s, area, day)
+    lightning_glm = build_glm(s, area, day)
+    lightning_flash = xweather_live.day_summary(day)
     rain = build_rain(area, day)
     station = build_station(day, station_cache if station_cache is not None else {})
     if not settled:
-        for part in (lightning, rain):
+        for part in (lightning, lightning_glm, lightning_flash, rain):
             if part["status"] in ("complete", "incomplete"):
                 part["status"] = "provisional"
     record = {
         "date": day.isoformat(),
         "area": AREA_NAME,
         "coverage": AREA_SCOPE + (" (APPROXIMATE rectangle; boundary not yet loaded)" if area.approximate else ""),
-        "status": overall_status([lightning, rain, station], settled),
+        "status": None,
         "day_ended": now >= end,
         "rain_estimated": rain,
         "rain_station": station,
         "lightning": lightning,
+        "lightning_glm": lightning_glm,
+        "lightning_flash": lightning_flash,
         "retrieved_at": now.isoformat(timespec="seconds"),
     }
+    record["status"] = overall_status([primary_lightning(record), rain, station], settled)
     return record, events

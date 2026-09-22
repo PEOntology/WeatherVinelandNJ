@@ -158,4 +158,41 @@ def test_month_to_date_counts_missing_days():
     a = _rec(date="2026-05-01")
     b = _rec(date="2026-05-02", rain_estimated={"value_in": None, "status": "unavailable"})
     mtd = report.month_to_date({"2026-05-01": a, "2026-05-02": b}, date(2026, 5, 2))
-    assert mtd == {"days": 2, "rain_in": 0.5, "rain_days_missing": 1, "cg": 0, "lightning_days_missing": 2}
+    assert mtd == {"days": 2, "rain_in": 0.5, "rain_days_missing": 1, "cg": 0, "lightning_days_missing": 2,
+                   "glm_flashes": 0, "glm_days_missing": 2}
+
+
+def test_glm_summary_complete_and_incomplete():
+    from weather import glm
+    full = [{"files": 180, "flashes": [[1777640400, 39.48, -75.02]]} for _ in range(24)]
+    out = glm.summarize(full, 24)
+    assert out["status"] == "complete" and out["flashes"] == 24
+    short = full[:20] + [{"files": 0, "flashes": []} for _ in range(4)]
+    out = glm.summarize(short, 24)
+    assert out["status"] == "incomplete" and out["flashes"] is None and out["partial_flashes"] == 20
+    assert glm.summarize([{"files": 0, "flashes": []}], 1)["status"] == "unavailable"
+
+
+def test_glm_file_start_parses_filename():
+    from weather import glm
+    t = glm.file_start("GLM-L2-LCFA/2026/121/04/OR_GLM-L2-LCFA_G19_s20261210412200_e20261210412400_c20261210412416.nc")
+    assert t == datetime(2026, 5, 1, 4, 12, 20, tzinfo=UTC)
+
+
+def test_live_flash_coverage(tmp_path, monkeypatch):
+    import json
+    from weather import xweather_live as xl
+    monkeypatch.setattr(xl, "LIVE_DIR", tmp_path)
+    start, end = local_day_bounds(date(2026, 5, 1))
+    t0 = int(start.timestamp())
+    monkeypatch.setattr(xl, "now_utc", lambda: end + timedelta(hours=1))
+    polls = list(range(t0 + 60, int(end.timestamp()), 120))
+    for p in polls:
+        xl.record_poll(datetime.fromtimestamp(p, UTC), [{"id": "a", "ts": t0 + 3600}] if p == polls[5] else [])
+    out = xl.day_summary(date(2026, 5, 1))
+    assert out["status"] == "complete" and out["flashes"] == 1
+    data = json.loads((tmp_path / "2026-05-01.json").read_text())
+    data["polls"] = [p for p in data["polls"] if not (t0 + 7200 < p < t0 + 10800)]
+    (tmp_path / "2026-05-01.json").write_text(json.dumps(data))
+    out = xl.day_summary(date(2026, 5, 1))
+    assert out["status"] == "incomplete" and out["flashes"] is None and out["uncovered_minutes"] >= 55

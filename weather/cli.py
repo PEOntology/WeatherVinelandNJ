@@ -60,7 +60,8 @@ def build_days(days: list[date]) -> dict[str, dict]:
         records[rec["date"]] = rec
         print(f"{rec['date']}: {rec['status']} rain={rec['rain_estimated'].get('value_in')} "
               f"kmiv={rec['rain_station'].get('value_in')} lightning={rec['lightning'].get('status')}"
-              f"/{rec['lightning'].get('cg')}cg", flush=True)
+              f"/{rec['lightning'].get('cg')}cg glm={rec['lightning_glm'].get('status')}"
+              f"/{rec['lightning_glm'].get('flashes')}", flush=True)
         if events is not None:
             write_json(private_events_path(rec["date"]), events)
             if s.publish_lightning_events:
@@ -173,6 +174,19 @@ def cmd_check_stale(args) -> int:
     return 0
 
 
+def cmd_lightning_live(args) -> int:
+    from . import xweather_live
+    s = settings()
+    if not s.xweather_configured:
+        print("Xweather credentials not configured")
+        _mark("lightning_live", False, "not configured")
+        return 1
+    res = xweather_live.run(s, load_area(), args.minutes)
+    print("live lightning:", res)
+    _mark("lightning_live", res["polls"] > 0, f"{res['polls']} polls, {res['errors']} errors")
+    return 0 if res["polls"] else 1
+
+
 def cmd_xweather_check(_args) -> int:
     """Report which Xweather products this account's subscription allows."""
     from .http import request
@@ -224,6 +238,9 @@ def main(argv=None) -> int:
     r.set_defaults(fn=cmd_report)
     sub.add_parser("reconcile").set_defaults(fn=cmd_reconcile)
     sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)
+    lv = sub.add_parser("lightning-live")
+    lv.add_argument("--minutes", type=float, default=70)
+    lv.set_defaults(fn=cmd_lightning_live)
     c = sub.add_parser("check-stale")
     c.add_argument("--max-hours", type=float, default=3)
     c.set_defaults(fn=cmd_check_stale)

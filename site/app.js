@@ -1,7 +1,7 @@
 "use strict";
 
 const $ = (s) => document.querySelector(s);
-const state = { records: [], meta: {}, range: "all", byDate: new Map(), logLimit: 31 };
+const state = { records: [], meta: {}, range: "all", byDate: new Map(), logLimit: 31, ltSource: "glm" };
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const inches = (v) => (v == null ? null : v.toFixed(2));
@@ -19,6 +19,15 @@ function rainText(p, withLabel) {
   return `${inches(p.value_in)}${withLabel ? " in" : ""}`;
 }
 const ltOk = (lt) => lt && lt.status !== "unavailable";
+// Satellite (NOAA GOES GLM) total-lightning flashes and Xweather live-feed flashes.
+const glmN = (r) => r.lightning_glm?.flashes ?? null;
+const liveN = (r) => r.lightning_flash?.flashes ?? null;
+const countText = (p) => {
+  if (!p || p.status === "unavailable") return '<span class="na-text">n/a</span>';
+  if (p.flashes == null) return `${p.partial_flashes ?? 0} <span class="na-text">(partial)</span>`;
+  return String(p.flashes);
+};
+const hadLightning = (r) => glmN(r) > 0 || liveN(r) > 0 || (ltOk(r.lightning) && r.lightning.total > 0);
 const statusPill = (s) => `<span class="st ${esc(s)}">${esc(s[0].toUpperCase() + s.slice(1))}</span>`;
 
 async function getJSON(url) {
@@ -56,7 +65,7 @@ function renderBanner() {
   const notes = [];
   if (!state.records.length) notes.push("No daily records have been collected yet. The historical load from May 1, 2026 runs as a separate job.");
   if (state.meta.boundary_approximate) notes.push("Records currently use an approximate rectangle around Vineland; the official city boundary has not been loaded yet.");
-  if (state.records.length && state.records.every((r) => !ltOk(r.lightning))) notes.push("Lightning data is not connected yet, so lightning is shown as unavailable (not zero).");
+  if (state.records.length && state.records.every((r) => glmN(r) == null && !ltOk(r.lightning))) notes.push("Lightning data is still loading, so lightning is shown as unavailable (not zero).");
   if (notes.length) { const b = $("#banner"); b.hidden = false; b.innerHTML = notes.map(esc).join("<br>"); }
 }
 
@@ -94,6 +103,9 @@ function monthStats(prefix) {
     ic: lt.reduce((a, r) => a + r.lightning.ic, 0),
     ltDays: lt.filter((r) => r.lightning.cg > 0).length,
     ltMissing: rows.length - lt.length,
+    glm: rows.reduce((a, r) => a + (glmN(r) ?? 0), 0),
+    glmDays: rows.filter((r) => glmN(r) > 0).length,
+    glmMissing: rows.filter((r) => glmN(r) == null).length,
   };
 }
 
@@ -107,7 +119,7 @@ function renderTiles() {
   const tiles = [
     { label: last ? `Rain, ${fmtDay(last.date)}` : "Latest day", value: last ? rainText(last.rain_estimated, true) : "–", sub: last ? statusPill(last.status) : "" },
     { label: `Rain, ${mName} to date`, value: `${m.rain.toFixed(2)} in`, sub: `${m.rainDays} rain days${miss(m.rainMissing)}` },
-    { label: `Cloud-to-ground, ${mName}`, value: m.days && m.ltMissing === m.days ? '<span class="na-text">–</span>' : m.cg.toLocaleString(), sub: `${m.ltDays} lightning days${miss(m.ltMissing)}` },
+    { label: `Lightning flashes, ${mName}`, value: m.days && m.glmMissing === m.days ? '<span class="na-text">–</span>' : m.glm.toLocaleString(), sub: `${m.glmDays} lightning days · satellite${miss(m.glmMissing)}` },
     { label: "Rain since May 1", value: `${all.rain.toFixed(2)} in`, sub: `${all.days} days logged${miss(all.rainMissing)}` },
   ];
   $("#tiles").innerHTML = tiles.map((t) => `<div class="tile"><div class="label">${esc(t.label)}</div><div class="value">${t.value}</div><div class="sub">${t.sub}</div></div>`).join("");
@@ -190,14 +202,40 @@ function renderCharts() {
     [{ get: (r) => r.rain_estimated?.value_in, color: c("--rain"), missing: (r) => r.rain_estimated?.value_in == null }],
     (t) => t.toFixed(t < 1 && t > 0 ? 2 : 1),
     (r) => `<b>${esc(fmtDay(r.date))}</b><div class="row"><span><span class="sw" style="background:var(--rain)"></span>Estimated rain</span><span>${rainText(r.rain_estimated, true)}</span></div><div class="row muted"><span>KMIV (Millville)</span><span>${rainText(r.rain_station, true)}</span></div><div class="muted">${statusPill(r.status)}</div>`);
-  $("#lt-chart").dataset.label = "Daily detected lightning events";
-  drawChart($("#lt-chart"), rows,
-    [{ get: (r) => (ltOk(r.lightning) ? r.lightning.cg : null), color: c("--cg"), missing: (r) => !ltOk(r.lightning) },
-     { get: (r) => (ltOk(r.lightning) ? r.lightning.ic : null), color: c("--ic"), missing: (r) => !ltOk(r.lightning) }],
-    (t) => Math.round(t).toLocaleString(),
-    (r) => ltOk(r.lightning)
-      ? `<b>${esc(fmtDay(r.date))}</b><div class="row"><span><span class="sw" style="background:var(--cg)"></span>Cloud-to-ground</span><span>${r.lightning.cg}</span></div><div class="row"><span><span class="sw" style="background:var(--ic)"></span>In-cloud</span><span>${r.lightning.ic}</span></div>${r.lightning.total ? `<div class="muted">${fmtTime(r.lightning.first_local)}–${fmtTime(r.lightning.last_local)} local</div>` : ""}`
-      : `<b>${esc(fmtDay(r.date))}</b><div class="na-text">Lightning data unavailable</div>`);
+  const unavailable = (r) => `<b>${esc(fmtDay(r.date))}</b><div class="na-text">Lightning data unavailable</div>`;
+  const span = (p) => (p?.first_local ? `<div class="muted">${fmtTime(p.first_local)}–${fmtTime(p.last_local)} local</div>` : "");
+  const ground = rows.some((r) => ltOk(r.lightning));
+  document.querySelectorAll(".lt-glm").forEach((e) => (e.hidden = state.ltSource !== "glm"));
+  document.querySelectorAll(".lt-x").forEach((e) => (e.hidden = state.ltSource !== "xweather"));
+  document.querySelectorAll(".lt-cgic").forEach((e) => (e.hidden = state.ltSource !== "xweather" || !ground));
+  document.querySelectorAll(".lt-live").forEach((e) => (e.hidden = state.ltSource !== "xweather" || ground));
+  if (state.ltSource === "glm") {
+    $("#lt-chart").dataset.label = "Daily satellite-detected lightning flashes";
+    drawChart($("#lt-chart"), rows,
+      [{ get: glmN, color: c("--glm"), missing: (r) => glmN(r) == null }],
+      (t) => Math.round(t).toLocaleString(),
+      (r) => glmN(r) == null ? unavailable(r)
+        : `<b>${esc(fmtDay(r.date))}</b><div class="row"><span><span class="sw" style="background:var(--glm)"></span>Satellite flashes</span><span>${glmN(r)}</span></div>${span(r.lightning_glm)}`);
+  } else if (ground) {
+    $("#lt-chart").dataset.label = "Daily cloud-to-ground and in-cloud lightning (Xweather)";
+    drawChart($("#lt-chart"), rows,
+      [{ get: (r) => (ltOk(r.lightning) ? r.lightning.cg : null), color: c("--cg"), missing: (r) => !ltOk(r.lightning) },
+       { get: (r) => (ltOk(r.lightning) ? r.lightning.ic : null), color: c("--ic"), missing: (r) => !ltOk(r.lightning) }],
+      (t) => Math.round(t).toLocaleString(),
+      (r) => ltOk(r.lightning)
+        ? `<b>${esc(fmtDay(r.date))}</b><div class="row"><span><span class="sw" style="background:var(--cg)"></span>Cloud-to-ground</span><span>${r.lightning.cg}</span></div><div class="row"><span><span class="sw" style="background:var(--ic)"></span>In-cloud</span><span>${r.lightning.ic}</span></div>${span(r.lightning)}`
+        : unavailable(r));
+  } else {
+    const live = rows.filter((r) => r.lightning_flash && r.lightning_flash.status !== "unavailable");
+    $("#lt-chart").dataset.label = "Daily Xweather ground-network lightning flashes";
+    drawChart($("#lt-chart"), live,
+      [{ get: liveN, color: c("--cg"), missing: (r) => liveN(r) == null }],
+      (t) => Math.round(t).toLocaleString(),
+      (r) => liveN(r) == null
+        ? `<b>${esc(fmtDay(r.date))}</b><div>${r.lightning_flash.partial_flashes ?? 0} flashes</div><div class="na-text">Partial coverage (${r.lightning_flash.uncovered_minutes} min not monitored)</div>`
+        : `<b>${esc(fmtDay(r.date))}</b><div class="row"><span><span class="sw" style="background:var(--cg)"></span>Ground-network flashes</span><span>${liveN(r)}</span></div>${span(r.lightning_flash)}`);
+    if (!live.length) $("#lt-chart").innerHTML = '<p class="na-text">Live Xweather collection started Sep 22, 2026; days appear here as they are recorded.</p>';
+  }
 }
 
 /* ---------- calendar ---------- */
@@ -215,8 +253,8 @@ function renderCalendar() {
       if (!r) { cells += `<div class="cal-day future" aria-hidden="true"></div>`; continue; }
       const rain = r.rain_estimated?.value_in;
       const cls = ["cal-day", rain == null ? "na" : rain >= 0.01 ? "rain" : "", rain >= 0.5 ? "heavy" : ""].join(" ");
-      const bolt = ltOk(r.lightning) && r.lightning.cg > 0;
-      const label = `${fmtDay(date)}: rain ${rain == null ? "unavailable" : rain.toFixed(2) + " in"}, ${ltOk(r.lightning) ? r.lightning.cg + " cloud-to-ground" : "lightning unavailable"}`;
+      const bolt = hadLightning(r);
+      const label = `${fmtDay(date)}: rain ${rain == null ? "unavailable" : rain.toFixed(2) + " in"}, ${glmN(r) != null ? glmN(r) + " satellite lightning flashes" : "lightning unavailable"}`;
       cells += `<button class="${cls}" data-date="${date}" aria-label="${esc(label)}" title="${esc(label)}">${d}${bolt ? '<span class="b" aria-hidden="true">⚡</span>' : ""}</button>`;
     }
     return `<div class="cal"><h3>${MONTHS[mo - 1]} ${y}</h3><div class="cal-grid">${cells}</div></div>`;
@@ -226,12 +264,13 @@ function renderCalendar() {
 /* ---------- tables ---------- */
 function renderMonths() {
   const months = [...new Set(state.records.map((r) => r.date.slice(0, 7)))];
-  const head = `<thead><tr><th>Month</th><th class="num">Est. rain (in)</th><th class="num">Rain days</th><th class="num">Cloud-to-ground</th><th class="num">In-cloud</th><th class="num">Lightning days</th><th class="num">Days missing data</th></tr></thead>`;
+  const ground = state.records.some((r) => ltOk(r.lightning));
+  const head = `<thead><tr><th>Month</th><th class="num">Est. rain (in)</th><th class="num">Rain days</th><th class="num">Satellite lightning flashes</th><th class="num">Lightning days</th>${ground ? '<th class="num">Cloud-to-ground</th><th class="num">In-cloud</th>' : ""}<th class="num">Days missing data</th></tr></thead>`;
   const body = months.map((ym) => {
     const s = monthStats(ym);
     const [y, mo] = ym.split("-").map(Number);
-    const noLt = s.ltMissing === s.days;
-    return `<tr><td>${MONTHS[mo - 1]} ${y}</td><td class="num">${s.rain.toFixed(2)}</td><td class="num">${s.rainDays}</td><td class="num">${noLt ? "–" : s.cg}</td><td class="num">${noLt ? "–" : s.ic}</td><td class="num">${noLt ? "–" : s.ltDays}</td><td class="num">${Math.max(s.rainMissing, s.ltMissing)}</td></tr>`;
+    const noGlm = s.glmMissing === s.days;
+    return `<tr><td>${MONTHS[mo - 1]} ${y}</td><td class="num">${s.rain.toFixed(2)}</td><td class="num">${s.rainDays}</td><td class="num">${noGlm ? "–" : s.glm.toLocaleString()}</td><td class="num">${noGlm ? "–" : s.glmDays}</td>${ground ? `<td class="num">${s.cg}</td><td class="num">${s.ic}</td>` : ""}<td class="num">${Math.max(s.rainMissing, s.glmMissing)}</td></tr>`;
   }).join("");
   $("#months").innerHTML = head + `<tbody>${body}</tbody>`;
 }
@@ -242,22 +281,24 @@ function filteredLog() {
     if (q && !r.date.includes(q) && !fmtDay(r.date, { month: "long", day: "numeric", year: "numeric" }).toLowerCase().includes(q.toLowerCase())) return false;
     if (st && r.status !== st) return false;
     if (wx === "rain" && !(r.rain_estimated?.value_in >= 0.01)) return false;
-    if (wx === "lightning" && !(ltOk(r.lightning) && r.lightning.total > 0)) return false;
+    if (wx === "lightning" && !hadLightning(r)) return false;
     return true;
   }).reverse();
 }
 
 function renderLog() {
   const rows = filteredLog();
-  const head = `<thead><tr><th>Date</th><th class="num">Est. rain (in)</th><th class="num">KMIV rain (in)</th><th class="num">Cloud-to-ground</th><th class="num">In-cloud</th><th>First / last</th><th>Status</th></tr></thead>`;
+  const head = `<thead><tr><th>Date</th><th class="num">Est. rain (in)</th><th class="num">KMIV rain (in)</th><th class="num">Satellite flashes</th><th class="num">Xweather flashes</th><th class="num">Cloud-to-ground</th><th>First / last</th><th>Status</th></tr></thead>`;
   const body = rows.slice(0, state.logLimit).map((r) => {
-    const lt = r.lightning;
+    const lt = r.lightning, g = r.lightning_glm;
+    const span = ltOk(lt) && lt.total ? lt : g?.first_local ? g : null;
     return `<tr data-date="${r.date}" tabindex="0"><td>${esc(fmtDay(r.date, { weekday: "short", month: "short", day: "numeric", year: "numeric" }))}</td>
       <td class="num">${rainText(r.rain_estimated)}</td><td class="num">${rainText(r.rain_station)}</td>
-      <td class="num">${ltOk(lt) ? lt.cg : '<span class="na-text">n/a</span>'}</td><td class="num">${ltOk(lt) ? lt.ic : '<span class="na-text">n/a</span>'}</td>
-      <td>${ltOk(lt) && lt.total ? `${fmtTime(lt.first_local)} / ${fmtTime(lt.last_local)}` : "–"}</td><td>${statusPill(r.status)}</td></tr>`;
+      <td class="num">${countText(g)}</td><td class="num">${countText(r.lightning_flash)}</td>
+      <td class="num">${ltOk(lt) ? lt.cg : '<span class="na-text">n/a</span>'}</td>
+      <td>${span ? `${fmtTime(span.first_local)} / ${fmtTime(span.last_local)}` : "–"}</td><td>${statusPill(r.status)}</td></tr>`;
   }).join("");
-  $("#log").innerHTML = head + `<tbody>${body || '<tr><td colspan="7" class="na-text">No matching days.</td></tr>'}</tbody>`;
+  $("#log").innerHTML = head + `<tbody>${body || '<tr><td colspan="8" class="na-text">No matching days.</td></tr>'}</tbody>`;
   const more = $("#more");
   more.hidden = rows.length <= state.logLimit;
   more.textContent = `Show all ${rows.length} days`;
@@ -265,11 +306,15 @@ function renderLog() {
 }
 
 function toCSV(rows) {
-  const cols = ["date", "status", "est_rain_in", "est_rain_status", "kmiv_rain_in", "kmiv_status", "lightning_cg", "lightning_ic", "lightning_status", "first_event_local", "last_event_local", "coverage", "retrieved_at"];
+  const cols = ["date", "status", "est_rain_in", "est_rain_status", "kmiv_rain_in", "kmiv_status",
+    "satellite_flashes", "satellite_status", "satellite_first_local", "satellite_last_local",
+    "xweather_live_flashes", "xweather_live_status",
+    "lightning_cg", "lightning_ic", "lightning_status", "first_event_local", "last_event_local", "coverage", "retrieved_at"];
   const q = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v);
   const lines = rows.map((r) => {
-    const lt = r.lightning || {};
+    const lt = r.lightning || {}, g = r.lightning_glm || {}, x = r.lightning_flash || {};
     return [r.date, r.status, r.rain_estimated?.value_in, r.rain_estimated?.status, r.rain_station?.value_in, r.rain_station?.status,
+      g.flashes, g.status, g.first_local, g.last_local, x.flashes, x.status,
       ltOk(lt) ? lt.cg : "", ltOk(lt) ? lt.ic : "", lt.status, lt.first_local, lt.last_local, r.coverage, r.retrieved_at].map(q).join(",");
   });
   return [cols.join(","), ...lines].join("\n");
@@ -289,7 +334,10 @@ function openDetail(date) {
     <dl><dt>Vineland area average</dt><dd>${rainText(re, true)}</dd><dt>Hours of data</dt><dd>${re?.hours_found ?? "–"} of ${re?.hours_expected ?? "–"}</dd><dt>Source</dt><dd>${esc(re?.source)}</dd>${reason(re)}</dl>
     <h4>Nearby station (not in Vineland)</h4>
     <dl><dt>${esc(rs?.name || "Millville Municipal Airport")}</dt><dd>${rainText(rs, true)}</dd><dt>Source</dt><dd>${esc(rs?.source || "")}</dd>${reason(rs)}</dl>
-    <h4>Detected lightning</h4>
+    <h4>Satellite lightning (NOAA GOES)</h4>
+    ${r.lightning_glm && r.lightning_glm.status !== "unavailable" ? `<dl><dt>Flashes in Vineland</dt><dd>${countText(r.lightning_glm)}</dd><dt>First / last</dt><dd>${fmtTime(r.lightning_glm.first_local)} / ${fmtTime(r.lightning_glm.last_local)}</dd><dt>Satellite files</dt><dd>${r.lightning_glm.files_found} of ${r.lightning_glm.files_expected}</dd><dt>Measures</dt><dd>Total lightning, ~8 km resolution; no ground-strike split</dd></dl>` : `<dl><dt>Status</dt><dd class="na-text">Data unavailable</dd>${reason(r.lightning_glm)}</dl>`}
+    ${r.lightning_flash && r.lightning_flash.status !== "unavailable" ? `<h4>Xweather live feed</h4><dl><dt>Flashes in Vineland</dt><dd>${countText(r.lightning_flash)}</dd><dt>Not monitored</dt><dd>${r.lightning_flash.uncovered_minutes} min</dd></dl>` : ""}
+    <h4>Cloud-to-ground / in-cloud (Xweather)</h4>
     ${ltOk(lt) ? `<dl><dt>Cloud-to-ground</dt><dd>${lt.cg}</dd><dt>In-cloud</dt><dd>${lt.ic}</dd>${lt.unclassified ? `<dt>Unclassified</dt><dd>${lt.unclassified}</dd>` : ""}<dt>First event</dt><dd>${fmtTime(lt.first_local)}</dd><dt>Last event</dt><dd>${fmtTime(lt.last_local)}</dd><dt>Source</dt><dd>${esc(lt.source)}</dd></dl>` : `<dl><dt>Status</dt><dd class="na-text">Data unavailable</dd>${reason(lt)}</dl>`}
     <h4>Record</h4>
     <dl><dt>Retrieved</dt><dd>${esc(fmtStamp(r.retrieved_at))}</dd></dl>`;
@@ -307,6 +355,11 @@ function bind() {
   document.querySelectorAll("#range button").forEach((b) => b.addEventListener("click", () => {
     state.range = b.dataset.range;
     document.querySelectorAll("#range button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    renderCharts();
+  }));
+  document.querySelectorAll("#lt-source button").forEach((b) => b.addEventListener("click", () => {
+    state.ltSource = b.dataset.src;
+    document.querySelectorAll("#lt-source button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
     renderCharts();
   }));
   ["#q", "#status-filter", "#wx-filter"].forEach((s) => $(s).addEventListener("input", renderLog));

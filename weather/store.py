@@ -15,6 +15,8 @@ PROCORE_LOG = STATE_DIR / "procore_sync.json"
 XANO_IDS = STATE_DIR / "xano_ids.json"
 # Final (Pass 2) hourly area-average values, so re-runs don't re-download them.
 MRMS_CACHE = STATE_DIR / "mrms_hourly_mm.json"
+# Settled hourly GLM flash lists inside the city (public NOAA data).
+GLM_CACHE = STATE_DIR / "glm_hourly.json"
 
 
 def read_json(path: Path, default):

@@ -1,0 +1,51 @@
+name: Live lightning collector
+
+# Xweather's standard feed only reaches back 5 minutes, so this job polls it
+# every 90 s. Each run lasts 70 minutes and a new run is queued every hour, so
+# the next one starts as soon as the previous finishes (continuous coverage).
+# Gaps longer than 5 minutes are measured and mark the day incomplete.
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "How long to poll"
+        default: "70"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-lightning
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      XWEATHER_CLIENT_ID: ${{ secrets.XWEATHER_CLIENT_ID }}
+      XWEATHER_CLIENT_SECRET: ${{ secrets.XWEATHER_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install requests numpy
+      - name: Poll
+        run: python -m weather.cli lightning-live --minutes "${{ inputs.minutes || '70' }}"
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "weather-bot"
+          git config user.email "weather-bot@users.noreply.github.com"
+          git add state/xweather_flash
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -q -m "data: live lightning $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3 4 5; do
+            git pull -q --rebase -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((2**i))
+          done
+          exit 1

@@ -55,6 +55,9 @@ class Settings:
     xweather_client_secret: str | None = field(default_factory=lambda: _env("XWEATHER_CLIENT_SECRET"))
     xweather_base: str = field(default_factory=lambda: _env("XWEATHER_BASE", "https://data.api.xweather.com"))
     xweather_lightning_path: str = field(default_factory=lambda: _env("XWEATHER_LIGHTNING_PATH", "lightning/within"))
+    # Historical/polygon lightning needs the Lightning Enterprise add-on; off until purchased.
+    xweather_enterprise: bool = field(default_factory=lambda: _flag("XWEATHER_ENTERPRISE"))
+    glm_enabled: bool = field(default_factory=lambda: _flag("GLM_ENABLED", True))
     xweather_filter: str = field(default_factory=lambda: _env("XWEATHER_LIGHTNING_FILTER", "all"))
     # Individual event coordinates are published only if the license allows it.
     publish_lightning_events: bool = field(default_factory=lambda: _flag("PUBLISH_LIGHTNING_EVENTS"))

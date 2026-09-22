@@ -55,8 +55,19 @@
     </figure>
     <figure class="chart">
       <figcaption>
-        <strong>Detected lightning</strong> <span class="muted">&middot; events per day inside city limits</span>
-        <span class="legend"><span class="key k-cg"></span>Cloud-to-ground <span class="key k-ic"></span>In-cloud <span class="key k-na"></span>No data</span>
+        <strong>Lightning</strong>
+        <span class="muted lt-glm">&middot; satellite-detected flashes per day inside city limits (NOAA GOES; total lightning, no ground-strike split)</span>
+        <span class="muted lt-x" hidden>&middot; Xweather ground network, inside city limits</span>
+        <span class="legend">
+          <span class="lt-glm"><span class="key k-glm"></span> Satellite flashes</span>
+          <span class="lt-cgic" hidden><span class="key k-cg"></span> Cloud-to-ground <span class="key k-ic"></span> In-cloud</span>
+          <span class="lt-live" hidden><span class="key k-cg"></span> Ground-network flashes</span>
+          <span><span class="key k-na"></span> No data</span>
+        </span>
+        <span class="seg seg-sm" role="group" aria-label="Lightning source" id="lt-source">
+          <button data-src="glm" aria-pressed="true">Satellite</button>
+          <button data-src="xweather">Xweather</button>
+        </span>
       </figcaption>
       <div class="chart-box" id="lt-chart"></div>
     </figure>
@@ -106,7 +117,8 @@
       <li><strong>Days</strong> run local midnight to midnight, America/New_York (23 or 25 hours on daylight-saving change days).</li>
       <li><strong>Estimated rainfall</strong> is the average over the Vineland city boundary of NOAA Multi-Radar/Multi-Sensor 1-hour gauge-corrected estimates. It is an estimate, not a gauge reading.</li>
       <li><strong>Nearby station rainfall</strong> is measured at Millville Municipal Airport (KMIV), outside Vineland, via the Iowa Environmental Mesonet.</li>
-      <li><strong>Lightning</strong> counts are events detected by Xweather's network inside the city boundary. They are not confirmed strikes at any jobsite.</li>
+      <li><strong>Satellite lightning</strong> is counted from NOAA's GOES-East Geostationary Lightning Mapper: flashes whose centre falls inside the city boundary. It measures total lightning (cloud-to-ground and in-cloud together) at roughly 8 km resolution, so it is an area-level record, not strikes at a location.</li>
+      <li><strong>Xweather</strong> ground-network flashes are collected live from Sep 22, 2026 onward. Separate cloud-to-ground and in-cloud counts require Xweather's Lightning Enterprise add-on and appear when it is active. None of these are confirmed strikes at any jobsite.</li>
       <li><strong>Missing data is never shown as zero.</strong> Statuses: complete, provisional (day not yet final), incomplete (a source is missing part of the day), unavailable.</li>
       <li>This is a weather record, not a real-time lightning safety or all-clear system.</li>
     </ul>
@@ -118,7 +130,7 @@
   <div id="detail-body"></div>
 </dialog>
 
-<footer class="wrap foot muted small">constructionweather.us &middot; Sources: NOAA MRMS, NWS, Iowa Environmental Mesonet, Xweather</footer>
+<footer class="wrap foot muted small">constructionweather.us &middot; Sources: NOAA MRMS, NOAA GOES GLM, NWS, Iowa Environmental Mesonet, Xweather</footer>
 <script src="app.js"></script>
 </body>
 </html>
