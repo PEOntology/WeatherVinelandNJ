@@ -206,6 +206,17 @@ def cmd_report(args) -> int:
     subject = f"Vineland weather log {day:%a %b %d, %Y}"
     if rec["status"] != "complete":
         subject += f" [{rec['status']}]"
+    if getattr(args, "test", False):
+        # Test send: labelled, not recorded in the delivery log, no Procore sync.
+        if not s.resend_configured:
+            print("email not configured")
+            return 1
+        stamp = now_utc().strftime("%Y%m%d%H%M")
+        results = [emailer.send(s, to, "[Test] " + subject, html, text, key=f"test-{day}-{emailer.recipient_hash(to)}-{stamp}")
+                   for to in s.report_recipients]
+        ok = sum(1 for good, _ in results if good)
+        print(f"test email: {ok}/{len(results)} sent", [info if not good else "ok" for good, info in results])
+        return 0 if ok == len(results) else 1
     problems = []
     if s.resend_configured:
         res = emailer.send_daily(s, day.isoformat(), subject, html, text, force=args.force)
@@ -436,6 +447,7 @@ def main(argv=None) -> int:
     r = sub.add_parser("report")
     r.add_argument("--date")
     r.add_argument("--force", action="store_true")
+    r.add_argument("--test", action="store_true", help="send a labelled test copy; nothing is logged")
     r.set_defaults(fn=cmd_report)
     sub.add_parser("reconcile").set_defaults(fn=cmd_reconcile)
     sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)

@@ -1,0 +1,31 @@
+name: Test email
+
+# Sends a labelled "[Test]" copy of a day's report to REPORT_RECIPIENTS.
+# Nothing is logged, so it never affects the real morning report.
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Report date (YYYY-MM-DD); blank = yesterday"
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      REPORT_RECIPIENTS: ${{ secrets.REPORT_RECIPIENTS }}
+      REPORT_FROM: ${{ vars.REPORT_FROM }}
+      SITE_URL: ${{ vars.SITE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests numpy
+      - run: |
+          if [ -n "${{ inputs.date }}" ]; then d="${{ inputs.date }}"; else d=$(TZ=America/New_York date -d yesterday +%F); fi
+          python -m weather.cli report --date "$d" --test
