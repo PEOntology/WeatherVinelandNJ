@@ -6,10 +6,17 @@ const KMIV = [-75.0722, 39.3678]; // lon, lat
 const CELL = 0.01; // MRMS grid spacing (degrees)
 const MRMS_LAT1 = 54.995, MRMS_LON1 = -129.995;
 
+// Data is read straight from the repository (updated every few minutes by the collectors),
+// so the page never waits for a site redeploy. Falls back to the copy deployed with the site.
+const RAW = "https://raw.githubusercontent.com/PEOntology/WeatherVinelandNJ/HEAD/site/";
 async function getJSON(url) {
-  const r = await fetch(url + "?v=" + Date.now());
-  if (!r.ok) throw new Error(url + " " + r.status);
-  return r.json();
+  for (const base of [RAW, ""]) {
+    try {
+      const r = await fetch(base + url + "?v=" + Date.now(), { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch (e) { /* try the next source */ }
+  }
+  throw new Error(url + " unavailable");
 }
 
 function rings(gj) {

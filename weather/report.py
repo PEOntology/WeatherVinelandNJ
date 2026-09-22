@@ -17,6 +17,17 @@ def fmt_in(part: dict) -> str:
     return f"{part['value_in']:.2f} in"
 
 
+def fmt_local(iso: str | None) -> str:
+    """'2026-09-22T17:20:00+00:00' -> 'Sep 22, 1:20 PM ET'."""
+    if not iso:
+        return "time unknown"
+    from datetime import datetime
+
+    from .config import TZ
+    t = datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(TZ)
+    return f"{t:%b} {t.day}, {t.hour % 12 or 12}:{t:%M} {'AM' if t.hour < 12 else 'PM'} ET"
+
+
 def fmt_time(iso: str | None) -> str:
     if not iso:
         return "-"
@@ -135,7 +146,7 @@ def html_report(rec: dict, mtd: dict, current: dict | None = None) -> str:
             f'<h3 style="font-size:15px;margin:24px 0 6px">Current conditions</h3>'
             f'<p style="margin:0;color:#444">{escape(str(ob.get("description") or ""))}, '
             f'{ob.get("temp_f", "-")}&deg;F, wind {ob.get("wind_mph", "-")} mph '
-            f'&mdash; {escape(ob["station_name"])}, observed {escape(str(ob.get("observed_at") or ""))}</p>'
+            f'&mdash; {escape(ob["station_name"])}, observed {escape(fmt_local(ob.get("observed_at")))}</p>'
         )
     color = status_color.get(rec["status"], "#444")
     return f"""<!doctype html><html><body style="margin:0;background:#f6f6f4;font-family:Arial,Helvetica,sans-serif;color:#111">

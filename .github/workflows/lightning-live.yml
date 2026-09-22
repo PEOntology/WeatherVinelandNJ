@@ -38,6 +38,7 @@ jobs:
       XANO_META_URL: ${{ vars.XANO_META_URL || secrets.XANO_META_URL }}
       XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
       XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID || secrets.XANO_WORKSPACE_ID }}
+      NWS_USER_AGENT: ${{ vars.NWS_USER_AGENT }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -51,7 +52,8 @@ jobs:
           git config user.name "weather-bot"
           git config user.email "weather-bot@users.noreply.github.com"
           save() {
-            git add state/xweather_flash state/xano_flashes_live.json 2>/dev/null || git add state/xweather_flash
+            git add state/xweather_flash site/data/current.json site/data/status.json
+            git add state/xano_flashes_live.json state/xano_ids.json 2>/dev/null || true
             git diff --cached --quiet && return 0
             git commit -q -m "data: live lightning $(date -u +%Y-%m-%dT%H:%MZ)"
             for i in 1 2 3 4 5; do
@@ -63,6 +65,7 @@ jobs:
           ok=0
           for i in $(seq 1 "${{ inputs.chunks || '7' }}"); do
             if python -m weather.cli lightning-live --minutes 10; then ok=1; fi
+            python -m weather.cli current || true   # keep the site's current conditions fresh
             save
           done
           [ "$ok" = 1 ]

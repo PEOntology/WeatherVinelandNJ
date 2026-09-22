@@ -33,7 +33,7 @@ REF_STATION_ICAO = "KMIV"
 REF_STATION_NAME = "Millville Municipal Airport"
 REF_NETWORK = "NJ_ASOS"
 
-SITE_URL = os.environ.get("SITE_URL", "https://constructionweather.us")
+SITE_URL = (os.environ.get("SITE_URL") or "").strip().rstrip("/") or "https://constructionweather.us"
 
 
 def _env(name: str, default: str | None = None) -> str | None:

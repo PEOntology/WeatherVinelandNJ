@@ -30,10 +30,17 @@ const countText = (p) => {
 const hadLightning = (r) => glmN(r) > 0 || liveN(r) > 0 || (ltOk(r.lightning) && r.lightning.total > 0);
 const statusPill = (s) => `<span class="st ${esc(s)}">${esc(s[0].toUpperCase() + s.slice(1))}</span>`;
 
+// Data is read straight from the repository (updated every few minutes by the collectors),
+// so the page never waits for a site redeploy. Falls back to the copy deployed with the site.
+const RAW = "https://raw.githubusercontent.com/PEOntology/WeatherVinelandNJ/HEAD/site/";
 async function getJSON(url) {
-  const r = await fetch(url + "?v=" + Date.now());
-  if (!r.ok) throw new Error(url + " " + r.status);
-  return r.json();
+  for (const base of [RAW, ""]) {
+    try {
+      const r = await fetch(base + url + "?v=" + Date.now(), { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch (e) { /* try the next source */ }
+  }
+  throw new Error(url + " unavailable");
 }
 
 async function init() {
@@ -56,7 +63,9 @@ async function init() {
 }
 
 function renderFreshness(status, daily) {
-  const upd = status?.update?.last_success || daily?.generated_at;
+  const times = Object.values(status || {}).map((j) => j?.last_success).filter(Boolean);
+  if (daily?.generated_at) times.push(daily.generated_at);
+  const upd = times.sort().at(-1);
   const stale = upd && Date.now() - new Date(upd).getTime() > 3 * 3600e3;
   $("#freshness").innerHTML = `Last successful update: <strong>${esc(fmtStamp(upd))}</strong>${stale ? " &middot; ⚠ updates may have stopped" : ""}`;
 }
