@@ -8,3 +8,4 @@ private/
 cache/
 *.grib2
 *.grib2.gz
+!.env.example
