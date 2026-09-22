@@ -92,11 +92,37 @@ jobs:
         id: main
         run: |
           job="${{ steps.pick.outputs.job }}"
+          git config user.name "weather-bot"
+          git config user.email "weather-bot@users.noreply.github.com"
+          save() {  # commit progress so the site and Xano fill in during long runs
+            git add site/data state data
+            git diff --cached --quiet && return 0
+            git commit -q -m "data: $job progress $(date -u +%Y-%m-%dT%H:%MZ)"
+            for i in 1 2 3 4; do
+              git pull -q --rebase --autostash -X theirs origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && return 0
+              sleep $((2**i))
+            done
+            echo "::warning::progress push failed; will retry at the end"
+          }
           case "$job" in
             backfill)
-              args="--start ${{ inputs.start }}"
-              [ -n "${{ inputs.end }}" ] && args="$args --end ${{ inputs.end }}"
-              python -m weather.cli backfill $args ;;
+              start="${{ inputs.start }}"
+              end="${{ inputs.end }}"
+              [ -z "$end" ] && end=$(TZ=America/New_York date +%F)
+              # 5-day chunks, saved after each one
+              python - "$start" "$end" > /tmp/chunks <<'PY'
+          import sys
+          from datetime import date, timedelta
+          a, b = date.fromisoformat(sys.argv[1]), date.fromisoformat(sys.argv[2])
+          while a <= b:
+              c = min(a + timedelta(days=4), b)
+              print(a, c)
+              a = c + timedelta(days=1)
+          PY
+              while read -r a b; do
+                python -m weather.cli backfill --start "$a" --end "$b"
+                save
+              done < /tmp/chunks ;;
             report)
               if [ -n "${{ inputs.date }}" ]; then python -m weather.cli report --date "${{ inputs.date }}"; else python -m weather.cli report; fi ;;
             *)

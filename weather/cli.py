@@ -14,7 +14,7 @@ import sys
 from datetime import date, datetime, timedelta
 
 from . import emailer, nws, procore, report, xano
-from .config import AREA_NAME, AREA_SCOPE, START_DATE, TZ, settings
+from .config import AREA_NAME, AREA_SCOPE, SITE_DATA, START_DATE, TZ, settings
 from .daily import build_day
 from .geo import load_area
 from .http import SourceError
@@ -27,6 +27,38 @@ CATCH_UP_PER_RUN = 3
 RETRY_DAYS = 5  # how long unavailable/incomplete days keep being retried automatically
 
 
+def integrations_status() -> dict:
+    """Public, non-secret progress of each integration (shown on the dashboard)."""
+    from .store import PROCORE_LOG
+    s = settings()
+    plog = read_json(PROCORE_LOG, {})
+    synced = sorted(d for d, e in plog.items() if e.get("weather_log_id") or e.get("file_id"))
+    has_creds = bool(s.procore_client_id and s.procore_client_secret)
+    has_ids = bool(s.procore_company_id and s.procore_project_id and s.procore_folder_id)
+    live_ok = bool(synced) and s.procore_mode == "live"
+    steps = [
+        ("Integration built", "Daily Log weather entry + report upload into Documents; no automatic delay flags or log completion", True),
+        ("Procore developer app", "Private app with a Developer Managed Service Account (client credentials)", has_creds),
+        ("Company, project & folder selected", "Target project and Documents folder chosen by a Procore admin", has_ids),
+        ("Sandbox dry run", "Payloads generated and reviewed without writing to Procore", s.procore_mode in ("dry-run", "live") and has_ids),
+        ("Sandbox live test", "One day written to the sandbox project and verified", live_ok and s.procore_env == "sandbox"
+         or (live_ok and s.procore_env == "production")),
+        ("Production", "Daily reports flowing into the live project", live_ok and s.procore_env == "production"),
+    ]
+    current = next((i for i, st in enumerate(steps) if not st[2]), len(steps))
+    return {
+        "procore": {
+            "mode": s.procore_mode, "env": s.procore_env,
+            "steps": [{"name": n, "detail": d, "done": bool(ok)} for n, d, ok in steps],
+            "current_step": current,
+            "days_synced": len(synced), "last_synced": synced[-1] if synced else None,
+        },
+        "email": {"configured": s.resend_configured},
+        "xano": {"configured": xano.available(s)},
+        "xweather": {"live_feed": s.xweather_configured, "history_archive": s.xweather_enterprise},
+    }
+
+
 def _mark(job: str, ok: bool, detail: str = "") -> None:
     st = read_json(STATUS_FILE, {})
     now = now_utc().isoformat(timespec="seconds")
@@ -36,6 +68,10 @@ def _mark(job: str, ok: bool, detail: str = "") -> None:
     entry["detail"] = detail[:300]
     if ok:
         entry["last_success"] = now
+    try:
+        st["integrations"] = integrations_status()
+    except Exception as exc:  # noqa: BLE001 - status must always be writable
+        print(f"integrations status: {exc}", file=sys.stderr)
     write_json(STATUS_FILE, st)
 
 
@@ -331,6 +367,13 @@ def cmd_xano_setup(_args) -> int:
         return 1
     ids = _x.setup(s)
     print("xano ids:", ids)
+    url = _x.setup_public_api(s)
+    print("subscription endpoint:", url)
+    if url:
+        from .http import request as _req
+        r = _req("POST", url, json={"action": "probe", "email": "", "token": "", "website": ""}, attempts=1)
+        print(f"endpoint test: HTTP {r.status_code} {r.text[:200]}")
+        write_json(SITE_DATA / "public_config.json", {"subscribe_url": url})
     records = load_daily()
     if records:
         day = "2026-08-03" if "2026-08-03" in records else sorted(records)[-1]
