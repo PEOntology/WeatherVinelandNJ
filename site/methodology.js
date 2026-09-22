@@ -54,13 +54,15 @@ function drawMap(gj) {
     const lat = MRMS_LAT1 - r * CELL, lon = MRMS_LON1 + c * CELL;
     if (rs.some((ring) => inside(lon, lat, ring))) cells.push([lon, lat]);
   }
-  document.querySelectorAll('[data-fill="cells"]').forEach((e) => (e.textContent = cells.length));
+  const nCells = window.__meta?.mrms_cells ?? cells.length;  // pipeline's own count wins
+  document.querySelectorAll('[data-fill="cells"]').forEach((e) => (e.textContent = nCells));
 
   const path = rs.map((ring) => "M" + ring.map((p) => `${sx(p[0]).toFixed(1)},${sy(p[1]).toFixed(1)}`).join("L") + "Z").join("");
   // one GLM pixel (~8 km) drawn as a reference square in the corner
   const km = 8, degLat = km / 111.0, degLon = km / (111.0 * k);
-  const gx = sx(maxX - pad / 2 - degLon), gy = sy(maxY - pad / 2);
-  const gw = sx(maxX - pad / 2) - gx, gh = sy(maxY - pad / 2 - degLat) - gy;
+  // bottom-right corner, clear of the city outline
+  const gx = sx(maxX - pad / 2 - degLon), gy = sy(minY + pad / 2 + degLat);
+  const gw = sx(maxX - pad / 2) - gx, gh = sy(minY + pad / 2) - gy;
   const cellR = Math.max(1.2, (sx(minX + CELL) - sx(minX)) * 0.28);
 
   el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
@@ -80,7 +82,7 @@ function drawMap(gj) {
     A += (x1 * rad * R * k) * (y2 * rad * R) - (x2 * rad * R * k) * (y1 * rad * R);
   }
   A = Math.abs(A) / 2;
-  $("#area-stats").textContent = `${(A / 2.58999).toFixed(1)} sq mi (${A.toFixed(0)} km²) · ${cells.length} radar cells`;
+  $("#area-stats").textContent = `${(A / 2.58999).toFixed(1)} sq mi (${A.toFixed(0)} km²) · ${nCells} radar cells`;
 }
 
 /* ---------- validation ---------- */
@@ -139,6 +141,7 @@ function drawScatter(rows) {
 
 async function init() {
   const [bound, daily] = await Promise.allSettled([getJSON("data/boundary.geojson"), getJSON("data/daily.json")]);
+  if (daily.status === "fulfilled") window.__meta = daily.value;
   if (bound.status === "fulfilled") drawMap(bound.value);
   else $("#map").innerHTML = '<p class="na-text">Boundary map unavailable.</p>';
   if (daily.status !== "fulfilled") return;

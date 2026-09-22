@@ -39,7 +39,9 @@ def _mark(job: str, ok: bool, detail: str = "") -> None:
 
 
 def _meta(area) -> dict:
+    from .mrms import area_mask_points
     return {
+        "mrms_cells": len(area_mask_points(area, 54.995, -129.995)[0]),
         "area": AREA_NAME,
         "coverage": AREA_SCOPE,
         "boundary_approximate": area.approximate,
