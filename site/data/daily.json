@@ -1,0 +1,107 @@
+{
+ "area": "Vineland, NJ",
+ "coverage": "City of Vineland municipal boundary (Census place 3476070)",
+ "boundary_approximate": false,
+ "timezone": "America/New_York",
+ "start_date": "2026-05-01",
+ "generated_at": "2026-09-22T17:39:03+00:00",
+ "lightning_events_published": false,
+ "records": [
+  {
+   "date": "2026-09-19",
+   "area": "Vineland, NJ",
+   "coverage": "City of Vineland municipal boundary (Census place 3476070)",
+   "status": "incomplete",
+   "day_ended": true,
+   "rain_estimated": {
+    "value_in": 0.0,
+    "partial_in": null,
+    "hours_expected": 24,
+    "hours_found": 24,
+    "status": "complete",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "label": "Estimated precipitation, Vineland area average"
+   },
+   "rain_station": {
+    "station": "KMIV",
+    "name": "Millville Municipal Airport",
+    "label": "Nearby station precipitation, Millville Municipal Airport",
+    "source": "Iowa Environmental Mesonet ASOS daily summary",
+    "value_in": 0.0,
+    "trace": false,
+    "status": "complete"
+   },
+   "lightning": {
+    "source": "Xweather detected lightning (Lightning Enterprise)",
+    "label": "Detected lightning events within Vineland",
+    "status": "unavailable",
+    "reason": "lightning source not configured"
+   },
+   "retrieved_at": "2026-09-22T17:38:14+00:00"
+  },
+  {
+   "date": "2026-09-20",
+   "area": "Vineland, NJ",
+   "coverage": "City of Vineland municipal boundary (Census place 3476070)",
+   "status": "incomplete",
+   "day_ended": true,
+   "rain_estimated": {
+    "value_in": 0.08,
+    "partial_in": null,
+    "hours_expected": 24,
+    "hours_found": 24,
+    "status": "complete",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "label": "Estimated precipitation, Vineland area average"
+   },
+   "rain_station": {
+    "station": "KMIV",
+    "name": "Millville Municipal Airport",
+    "label": "Nearby station precipitation, Millville Municipal Airport",
+    "source": "Iowa Environmental Mesonet ASOS daily summary",
+    "value_in": 0.37,
+    "trace": false,
+    "status": "complete"
+   },
+   "lightning": {
+    "source": "Xweather detected lightning (Lightning Enterprise)",
+    "label": "Detected lightning events within Vineland",
+    "status": "unavailable",
+    "reason": "lightning source not configured"
+   },
+   "retrieved_at": "2026-09-22T17:38:31+00:00"
+  },
+  {
+   "date": "2026-09-21",
+   "area": "Vineland, NJ",
+   "coverage": "City of Vineland municipal boundary (Census place 3476070)",
+   "status": "incomplete",
+   "day_ended": true,
+   "rain_estimated": {
+    "value_in": 0.17,
+    "partial_in": null,
+    "hours_expected": 24,
+    "hours_found": 24,
+    "status": "complete",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "label": "Estimated precipitation, Vineland area average"
+   },
+   "rain_station": {
+    "station": "KMIV",
+    "name": "Millville Municipal Airport",
+    "label": "Nearby station precipitation, Millville Municipal Airport",
+    "source": "Iowa Environmental Mesonet ASOS daily summary",
+    "value_in": 0.02,
+    "trace": false,
+    "status": "complete"
+   },
+   "lightning": {
+    "source": "Xweather detected lightning (Lightning Enterprise)",
+    "label": "Detected lightning events within Vineland",
+    "status": "unavailable",
+    "reason": "lightning source not configured"
+   },
+   "retrieved_at": "2026-09-22T17:38:47+00:00"
+  }
+ ]
+}
