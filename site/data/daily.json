@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-22T20:22:33+00:00",
+ "generated_at": "2026-09-22T20:55:31+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -6955,6 +6955,7 @@
     "last_local": null,
     "files_found": 4316,
     "files_expected": 4320,
+    "missing_seconds": 80,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -6964,7 +6965,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:21:05+00:00"
+   "retrieved_at": "2026-09-22T20:55:29+00:00"
   },
   {
    "date": "2026-09-20",
@@ -7004,6 +7005,7 @@
     "last_local": null,
     "files_found": 4315,
     "files_expected": 4320,
+    "missing_seconds": 100,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7013,7 +7015,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:21:33+00:00"
+   "retrieved_at": "2026-09-22T20:55:30+00:00"
   },
   {
    "date": "2026-09-21",
@@ -7053,6 +7055,7 @@
     "last_local": null,
     "files_found": 4313,
     "files_expected": 4320,
+    "missing_seconds": 140,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7062,7 +7065,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:22:01+00:00"
+   "retrieved_at": "2026-09-22T20:55:31+00:00"
   },
   {
    "date": "2026-09-22",
@@ -7084,7 +7087,7 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": 0.17,
+    "value_in": 0.18,
     "trace": false,
     "status": "complete"
    },
@@ -7100,18 +7103,23 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 2422,
+    "files_found": 2524,
     "files_expected": 4320,
+    "missing_seconds": 35920,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
    "lightning_flash": {
     "source": "Xweather lightning/flash live feed (polled continuously)",
     "label": "Detected lightning flashes within Vineland (ground network; strikes and in-cloud pulses combined)",
-    "status": "unavailable",
-    "reason": "no live polling for this day"
+    "status": "provisional",
+    "flashes": null,
+    "partial_flashes": 0,
+    "uncovered_minutes": 947,
+    "first_local": null,
+    "last_local": null
    },
-   "retrieved_at": "2026-09-22T20:20:09+00:00"
+   "retrieved_at": "2026-09-22T20:54:36+00:00"
   }
  ]
 }

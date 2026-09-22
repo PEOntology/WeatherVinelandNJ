@@ -1,9 +1,9 @@
 {
  "current": {
-  "last_run": "2026-09-22T20:53:55+00:00",
+  "last_run": "2026-09-22T20:54:34+00:00",
   "last_result": "ok",
   "detail": "",
-  "last_success": "2026-09-22T20:53:55+00:00"
+  "last_success": "2026-09-22T20:54:34+00:00"
  },
  "backfill": {
   "last_run": "2026-09-22T20:18:02+00:00",
@@ -58,7 +58,7 @@
    "last_synced": null
   },
   "email": {
-   "configured": false
+   "configured": true
   },
   "xano": {
    "configured": true
@@ -67,5 +67,31 @@
    "live_feed": true,
    "history_archive": false
   }
+ },
+ "update": {
+  "last_run": "2026-09-22T20:54:54+00:00",
+  "last_result": "ok",
+  "detail": "built 1 days",
+  "last_success": "2026-09-22T20:54:54+00:00"
+ },
+ "xano_sync": {
+  "last_run": "2026-09-22T20:55:29+00:00",
+  "last_result": "ok",
+  "detail": "initial copy of all data",
+  "last_success": "2026-09-22T20:55:29+00:00"
+ },
+ "reconcile": {
+  "last_run": "2026-09-22T20:55:33+00:00",
+  "last_result": "ok",
+  "detail": "last 3 days rebuilt",
+  "last_success": "2026-09-22T20:55:33+00:00",
+  "for_date": "2026-09-21"
+ },
+ "report": {
+  "last_run": "2026-09-22T20:55:33+00:00",
+  "last_result": "ok",
+  "detail": "reported 2026-09-21",
+  "last_success": "2026-09-22T20:55:33+00:00",
+  "for_date": "2026-09-21"
  }
 }
