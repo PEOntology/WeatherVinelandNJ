@@ -1,7 +1,6 @@
 name: Fetch site assets
 
-# Copies the "Built by" photo into the site so it is served from our own
-# domain (the source site may block hotlinking).
+# Copies the "Built by" photo into the site so it is served from our own domain.
 on:
   workflow_dispatch:
 

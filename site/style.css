@@ -260,13 +260,15 @@ code { font-size: 12.5px; background: var(--surface-2); padding: 1px 4px; border
   max-width: 440px;
   transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-.builtby:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgb(15 23 32 / 0.08), 0 14px 36px rgb(15 23 32 / 0.14); }
-.builtby:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+
 .bb-photo {
   position: relative; flex: none; width: 88px; height: 88px; border-radius: 50%; overflow: hidden;
   border: 4px solid #ffffff; box-shadow: 0 0 0 1px #d4dbe2, 0 4px 12px rgb(15 23 32 / 0.12);
   background: linear-gradient(135deg, #2a78d6, #184f95);
+  padding: 0; cursor: zoom-in; transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.bb-photo:hover { transform: scale(1.04); box-shadow: 0 0 0 1px #c3ccd6, 0 6px 16px rgb(15 23 32 / 0.18); }
+.bb-photo:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
 .bb-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .bb-initials { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font: 700 26px "IBM Plex Sans", sans-serif; }
 .bb-text { display: flex; flex-direction: column; min-width: 0; }
@@ -292,3 +294,13 @@ code { font-size: 12.5px; background: var(--surface-2); padding: 1px 4px; border
 .top-left .top-meta { flex-direction: row; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
 .top-left .top-meta .freshness { order: 2; }
 @media (max-width: 900px) { .builtby { max-width: 100%; } }
+
+/* photo viewer */
+.photo-viewer { padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: #fff; color: #0f1720;
+  width: min(520px, calc(100% - 32px)); box-shadow: 0 24px 60px rgb(0 0 0 / 0.35); }
+.photo-viewer::backdrop { background: rgb(10 14 20 / 0.7); }
+.photo-viewer img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.photo-viewer .pv-caption { margin: 0; padding: 14px 18px 16px; font-size: 14px; color: #4a5561; }
+.photo-viewer .pv-caption strong { color: #0f1720; font-size: 17px; }
+.photo-viewer .close { position: absolute; top: 8px; right: 10px; z-index: 2; width: 36px; height: 36px; border-radius: 50%;
+  border: 0; background: rgb(255 255 255 / 0.9); color: #0f1720; font-size: 24px; line-height: 1; cursor: pointer; }

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css?v=20260922b">
+<link rel="stylesheet" href="style.css?v=20260922c">
 </head>
 <body>
 <header class="top">
@@ -19,14 +19,17 @@
       <h1>Methodology</h1>
       <nav class="topnav top-meta"><a href="./">&larr; Dashboard</a></nav>
     </div>
-    <a class="builtby" href="https://www.datacenterland.us/login" target="_blank" rel="noopener" aria-label="Built by Eric Quidort (opens datacenterland.us)">
-        <span class="bb-photo"><img src="assets/eric-quidort.jpg" alt="Eric Quidort" width="88" height="88" referrerpolicy="no-referrer" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='https://www.datacenterland.us/assets/eric-quidort.jpg'}else{this.remove()}"><span class="bb-initials" aria-hidden="true">EQ</span></span>
-        <span class="bb-text">
-          <span class="bb-eyebrow">Built by</span>
-          <strong class="bb-name">Eric Quidort</strong>
-          <span class="bb-role">Data Center Intelligence Analyst &middot; Marketing &amp; Software Engineer</span>
-        </span>
-      </a>
+    <div class="builtby">
+      <button type="button" class="bb-photo" id="bb-photo" aria-label="Enlarge photo of Eric Quidort" aria-haspopup="dialog">
+        <span class="bb-initials" aria-hidden="true">EQ</span>
+        <img src="assets/eric-quidort.jpg" alt="" width="88" height="88" onerror="this.remove()">
+      </button>
+      <span class="bb-text">
+        <span class="bb-eyebrow">Built by</span>
+        <strong class="bb-name">Eric Quidort</strong>
+        <span class="bb-role">Data Center Intelligence Analyst &middot; Marketing &amp; Software Engineer</span>
+      </span>
+    </div>
   </div>
 </header>
 
@@ -131,6 +134,20 @@
   </section>
 </main>
 <footer class="wrap foot muted small"><a href="./">Dashboard</a> &middot; constructionweather.us</footer>
-<script src="methodology.js?v=20260922b"></script>
+<script src="methodology.js?v=20260922c"></script>
+
+<dialog id="photo-viewer" class="photo-viewer" aria-label="Eric Quidort">
+  <form method="dialog"><button class="close" aria-label="Close">&times;</button></form>
+  <img src="assets/eric-quidort.jpg" alt="Eric Quidort" width="800" height="800">
+  <p class="pv-caption"><strong>Eric Quidort</strong><br>Data Center Intelligence Analyst &middot; Marketing &amp; Software Engineer</p>
+</dialog>
+<script>
+(function () {
+  var btn = document.getElementById("bb-photo"), dlg = document.getElementById("photo-viewer");
+  if (!btn || !dlg) return;
+  btn.addEventListener("click", function () { dlg.showModal(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); }); // click outside the photo closes
+})();
+</script>
 </body>
 </html>
