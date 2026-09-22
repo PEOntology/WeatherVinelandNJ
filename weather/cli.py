@@ -71,7 +71,7 @@ def build_days(days: list[date]) -> dict[str, dict]:
                            [{k: e[k] for k in ("ts", "lat", "lon", "type")} for e in events])
         try:
             xano.upsert_day(s, rec, events)
-        except SourceError as exc:
+        except Exception as exc:  # noqa: BLE001 - the private archive must never break the public log
             print(f"  xano: {exc}", file=sys.stderr)
         save_daily(records, _meta(area))  # save as we go so a crash keeps progress
     return records
@@ -250,17 +250,13 @@ def cmd_config_check(_args) -> int:
                 print(f"xano {label:12} ERROR {exc}")
                 return None
 
-        show("auth/me app", "https://app.xano.com/api:meta/auth/me")
-        show("auth/me inst", f"{base}/auth/me")
-        show("instances", "https://app.xano.com/api:meta/instance")
-        ws = show("workspaces", f"{base}/workspace")
-        items = ws if isinstance(ws, list) else (ws or {}).get("items", []) if isinstance(ws, dict) else []
-        for w in items[:10]:
-            print(f"  workspace id={w.get('id')} name={w.get('name')!r}")
-            tb = show("tables", f"{base}/workspace/{w.get('id')}/table?per_page=100")
-            titems = tb if isinstance(tb, list) else (tb or {}).get("items", []) if isinstance(tb, dict) else []
-            for t in titems[:50]:
-                print(f"    table id={t.get('id')} name={t.get('name')!r}")
+        from . import xano as _x
+        try:
+            wsid = _x.workspace_id(s)
+            print(f"xano workspace {_x.WORKSPACE_NAME!r}: id={wsid}")
+            print(f"xano table {_x.TABLE_NAME!r}: id={_x.find_table(s, wsid) or 'not created yet'}")
+        except SourceError as exc:
+            print(f"xano lookup: {exc}")
         if s.xano_workspace_id and s.xano_table_id:
             show("our table", f"{base}/workspace/{s.xano_workspace_id}/table/{s.xano_table_id}/content?page=1&per_page=1")
     if s.resend_api_key:
@@ -270,6 +266,34 @@ def cmd_config_check(_args) -> int:
             print(f"resend domains HTTP {r.status_code}: {doms}")
         except Exception as exc:  # noqa: BLE001
             print(f"resend ERROR {exc}")
+    return 0
+
+
+def cmd_xano_setup(_args) -> int:
+    """Create the Xano table if needed, then write and read back one real day as a test."""
+    import json as _json
+
+    from . import xano as _x
+    from .http import request
+    s = settings()
+    if not _x.available(s):
+        print("Xano not configured")
+        return 1
+    ids = _x.setup(s)
+    print("xano ids:", ids)
+    records = load_daily()
+    if records:
+        day = "2026-08-03" if "2026-08-03" in records else sorted(records)[-1]
+        row_id = _x.upsert_day(s, records[day], None)
+        print(f"test write {day}: row id {row_id}")
+        r = request("GET", _x._content_url(s, f"/{row_id}"), headers=_x._h(s), attempts=1)
+        body = r.json() if r.status_code == 200 else r.text[:200]
+        if isinstance(body, dict):
+            body = {k: body.get(k) for k in ("id", "date", "status", "rain_mrms_in", "glm_flashes")}
+        print(f"read back: HTTP {r.status_code} {_json.dumps(body)[:300]}")
+        # This job can't commit state/xano_ids.json, so remove the test row; the pipeline writes the real ones.
+        d = request("DELETE", _x._content_url(s, f"/{row_id}"), headers=_x._h(s), attempts=1)
+        print(f"removed test row: HTTP {d.status_code}")
     return 0
 
 
@@ -347,6 +371,7 @@ def main(argv=None) -> int:
     sub.add_parser("reconcile").set_defaults(fn=cmd_reconcile)
     sub.add_parser("xweather-check").set_defaults(fn=cmd_xweather_check)
     sub.add_parser("config-check").set_defaults(fn=cmd_config_check)
+    sub.add_parser("xano-setup").set_defaults(fn=cmd_xano_setup)
     lv = sub.add_parser("lightning-live")
     lv.add_argument("--minutes", type=float, default=70)
     lv.set_defaults(fn=cmd_lightning_live)

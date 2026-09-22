@@ -4,6 +4,11 @@ name: Config check
 # and tests Xano and Resend access.
 on:
   workflow_dispatch:
+    inputs:
+      setup_xano:
+        description: "Also create the Xano table and write one test day"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -29,3 +34,5 @@ jobs:
           python-version: "3.12"
       - run: pip install requests numpy
       - run: python -m weather.cli config-check
+      - if: inputs.setup_xano
+        run: python -m weather.cli xano-setup

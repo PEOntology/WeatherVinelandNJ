@@ -119,7 +119,7 @@ class Settings:
 
     @property
     def xano_configured(self) -> bool:
-        return bool(self.xano_meta_url and self.xano_token and self.xano_workspace_id and self.xano_table_id)
+        return bool(self.xano_meta_url and self.xano_token)
 
     @property
     def procore_login_base(self) -> str:
