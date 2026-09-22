@@ -13,6 +13,8 @@ EVENTS_DIR = SITE_DATA / "events"  # only written when the license permits
 DELIVERY_LOG = STATE_DIR / "deliveries.json"
 PROCORE_LOG = STATE_DIR / "procore_sync.json"
 XANO_IDS = STATE_DIR / "xano_ids.json"
+XANO_IDS_NLDN = STATE_DIR / "xano_ids_nldn.json"
+NLDN_FILE = SITE_DATA / "nldn.json"
 # Flashes already written to Xano (separate files so the live collector and pipeline never edit the same one).
 XANO_GLM_FLASHES = STATE_DIR / "xano_flashes_glm.json"
 XANO_LIVE_FLASHES = STATE_DIR / "xano_flashes_live.json"

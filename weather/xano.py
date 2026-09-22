@@ -49,6 +49,10 @@ TABLES[SUB_REQ_TABLE] = ("Raw sign-up / confirm / unsubscribe requests from the 
 TABLES[SUBSCRIBERS_TABLE] = ("Daily report subscribers (double opt-in)", [
     ("email", "text"), ("status", "text"), ("token", "text"), ("requested_at", "text"),
     ("confirmed_at", "text"), ("unsubscribed_at", "text"), ("last_confirm_sent", "text")])
+NLDN_TABLE = "nldn_daily"
+TABLES[NLDN_TABLE] = ("One-time import: NOAA NLDN cloud-to-ground strikes in 0.1-deg cells overlapping Vineland (UTC days)", [
+    ("date", "text"), ("status", "text"), ("cg_city_estimate", "decimal"), ("cg_overlapping_cells", "int"),
+    ("cells", "json")])
 API_GROUP = "weather_public"
 ENDPOINT_XS = """query "subscription" verb=POST {
   input {

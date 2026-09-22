@@ -204,3 +204,16 @@ def test_token_prefix_is_stripped(monkeypatch):
     for raw in (f"xano api- {jwt}", f"Bearer {jwt}", f'"{jwt}"', f"  {jwt}\n", jwt):
         monkeypatch.setenv("XANO_API_TOKEN", raw)
         assert Settings().xano_token == jwt
+
+
+def test_nldn_cells_and_summary():
+    from weather import nldn
+    area = approximate_area()
+    cells = nldn.cells_for_area(area)
+    assert cells and all(0 < v <= 1 for v in cells.values())
+    k = next(iter(cells))
+    out = nldn.summarize_day("2026-08-03", True, {k: 10}, cells)
+    assert out["cg_overlapping_cells"] == 10 and out["cg_city_estimate"] == round(10 * cells[k], 1)
+    assert out["day_basis"] == "UTC"
+    assert nldn.summarize_day("2026-08-03", True, {}, cells)["cg_overlapping_cells"] == 0  # listed day, no strikes = 0
+    assert nldn.summarize_day("2026-08-03", False, {}, cells)["status"] == "unavailable"  # day missing = unknown

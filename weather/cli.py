@@ -400,6 +400,55 @@ def cmd_xano_setup(_args) -> int:
     return 0
 
 
+def cmd_nldn_import(args) -> int:
+    """One-time: NOAA monthly NLDN tile files -> site/data/nldn.json (+ Xano nldn_daily)."""
+    from . import nldn
+    from .store import NLDN_FILE, XANO_IDS_NLDN
+    s = settings()
+    area = load_area()
+    cells = nldn.cells_for_area(area)
+    start, end = parse_date(args.start), parse_date(args.end) if args.end else today_local()
+    doc = read_json(NLDN_FILE, {"days": {}})
+    months = sorted({d.strftime("%Y%m") for d in daterange(start, end)})
+    for ym in months:
+        try:
+            present, hits = nldn.fetch_month(ym, cells)
+        except SourceError as exc:
+            print(f"{ym}: {exc}")
+            present, hits = set(), {}
+        n = 0
+        for d in daterange(start, end):
+            if d.strftime("%Y%m") != ym:
+                continue
+            k = d.isoformat()
+            doc["days"][k] = nldn.summarize_day(k, k in present, hits.get(k, {}), cells)
+            n += 1
+        got = [k for k in present if k[:7] == f"{ym[:4]}-{ym[4:]}"]
+        print(f"{ym}: {n} days, file covers {min(got) if got else '-'}..{max(got) if got else '-'}, "
+              f"strike-days in city cells {sum(1 for k in hits if hits[k])}")
+    doc.update({
+        "generated_at": now_utc().isoformat(timespec="seconds"),
+        "cells": [{"lon": k[0], "lat": k[1], "share_in_city": round(v, 3)} for k, v in sorted(cells.items())],
+        "note": "Counts are UTC days. 'cg_city_estimate' weights each cell by its share inside the city; "
+                "'cg_overlapping_cells' is the raw total of every cell touching the city.",
+    })
+    write_json(NLDN_FILE, doc)
+    if xano.available(s):
+        try:
+            xano.setup(s)
+            for k in sorted(doc["days"]):
+                v = doc["days"][k]
+                xano._upsert(s, xano.NLDN_TABLE, k, {"date": k, "status": v["status"],
+                             "cg_city_estimate": v.get("cg_city_estimate"),
+                             "cg_overlapping_cells": v.get("cg_overlapping_cells"), "cells": v.get("cells")},
+                             cache_path=XANO_IDS_NLDN)
+            xano.put_site_doc(s, "nldn", doc)
+            print("xano: nldn_daily written")
+        except Exception as exc:  # noqa: BLE001
+            print(f"xano: {exc}", file=sys.stderr)
+    return 0
+
+
 def cmd_subscriptions(_args) -> int:
     from . import subscriptions
     s = settings()
@@ -521,6 +570,10 @@ def main(argv=None) -> int:
     sub.add_parser("xano-setup").set_defaults(fn=cmd_xano_setup)
     sub.add_parser("xano-sync").set_defaults(fn=cmd_xano_sync)
     sub.add_parser("subscriptions").set_defaults(fn=cmd_subscriptions)
+    ni = sub.add_parser("nldn-import")
+    ni.add_argument("--start", default=START_DATE.isoformat())
+    ni.add_argument("--end")
+    ni.set_defaults(fn=cmd_nldn_import)
     lv = sub.add_parser("lightning-live")
     lv.add_argument("--minutes", type=float, default=70)
     lv.set_defaults(fn=cmd_lightning_live)

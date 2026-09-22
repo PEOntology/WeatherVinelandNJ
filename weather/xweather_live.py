@@ -15,48 +15,59 @@ from __future__ import annotations
 import time
 from datetime import date, datetime
 
-from .config import CENTER_LAT, CENTER_LON, STATE_DIR, Settings
+import os
+
+from .config import STATE_DIR, Settings
 from .geo import Area
 from .http import SourceError, get_json
 from .store import read_json, write_json
 from .timeutil import UTC, local_day_bounds, now_utc, to_local_iso
 
 LIVE_DIR = STATE_DIR / "xweather_flash"
-RADIUS = "25mi"  # the endpoint's maximum (40 km); covers the whole city from its centre
-WINDOW_S = 300  # the feed only reaches back 5 minutes
-POLL_S = 90
+# Smallest circle covering the whole city boundary is 11.5 km around this point; 8 mi adds margin.
+QUERY_POINT = "39.4753,-75.0041"
+RADIUS = "8mi"
+WINDOW_S = 300  # the feeds only reach back 5 minutes
+# Every 4 minutes keeps a 1-minute overlap inside the 5-minute window (~360 requests/day per feed).
+POLL_S = int(os.environ.get("LIVE_POLL_SECONDS", "240"))
 PAGE = 1000
+# Individual strikes/pulses with cloud-to-ground vs in-cloud type come from the main lightning
+# endpoint, which appears to be billed at a higher rate than lightning/flash; opt in explicitly.
+STRIKES = os.environ.get("XWEATHER_LIVE_STRIKES", "").lower() in ("1", "true", "yes")
 
 
 def day_path(day: str):
     return LIVE_DIR / f"{day}.json"
 
 
-def poll_once(s: Settings, area: Area) -> list[dict]:
+def poll_once(s: Settings, area: Area, path: str = "lightning/flash/closest") -> list[dict]:
+    """All records in the feed's window inside the city. `limit` is always set: `closest`
+    returns only the single nearest record by default, which would silently undercount."""
     out, skip = [], 0
     while True:
         body = get_json(
-            f"{s.xweather_base}/lightning/flash/closest",
-            params={"p": f"{CENTER_LAT},{CENTER_LON}", "radius": RADIUS, "limit": PAGE, "skip": skip,
+            f"{s.xweather_base}/{path}",
+            params={"p": QUERY_POINT, "radius": RADIUS, "limit": PAGE, "skip": skip, "filter": "all",
                     "client_id": s.xweather_client_id, "client_secret": s.xweather_client_secret},
         )
         err = body.get("error") or {}
         if not body.get("success"):
-            raise SourceError(f"Xweather flash error {err.get('code')}: {err.get('description')}")
+            raise SourceError(f"Xweather {path} error {err.get('code')}: {err.get('description')}")
         page = body.get("response") or []
         for rec in page:
             loc, ob = rec.get("loc") or {}, rec.get("ob") or {}
             lat, lon, ts = loc.get("lat"), loc.get("long"), ob.get("timestamp")
             if None in (lat, lon, ts) or not area.contains(float(lat), float(lon)):
                 continue
+            pulse = ob.get("pulse") or {}
             out.append({"id": str(rec.get("id") or f"{ts}:{lat}:{lon}"), "ts": int(ts),
-                        "lat": float(lat), "lon": float(lon)})
+                        "lat": float(lat), "lon": float(lon), "type": (pulse.get("type") or "").lower() or None})
         if len(page) < PAGE:
             return out
         skip += PAGE
 
 
-def record_poll(polled_at: datetime, flashes: list[dict]) -> list[dict]:
+def record_poll(polled_at: datetime, flashes: list[dict], kind: str = "flashes") -> list[dict]:
     """Merge one poll's flashes into their local-day files and log the poll time.
 
     Only ids and times go into the (public) repo files; returns the flashes not
@@ -69,12 +80,14 @@ def record_poll(polled_at: datetime, flashes: list[dict]) -> list[dict]:
     for day, new in by_day.items():
         path = day_path(day)
         data = read_json(path, {"flashes": {}, "polls": []})
+        store = data.setdefault(kind, {})
         for f in new:
-            if f["id"] not in data["flashes"]:
+            if f["id"] not in store:
                 new_flashes.append(f)
-            data["flashes"][f["id"]] = f["ts"]
+            # flashes: id -> ts ; strikes: id -> [ts, type]
+            store[f["id"]] = f["ts"] if kind == "flashes" else [f["ts"], f.get("type")]
         if day == _local_day(int(polled_at.timestamp())):
-            data["polls"].append(int(polled_at.timestamp()))
+            data.setdefault("polls" if kind == "flashes" else "strike_polls", []).append(int(polled_at.timestamp()))
         write_json(path, data)
     return new_flashes
 
@@ -100,15 +113,27 @@ def run(s: Settings, area: Area, minutes: float) -> dict:
         except SourceError as exc:
             errors += 1
             print(f"poll failed: {exc}", flush=True)
+        if STRIKES:
+            try:
+                pending += [{**f, "source": "xweather_strike"}
+                            for f in record_poll(t0, poll_once(s, area, "lightning/closest"), kind="strikes")]
+            except SourceError as exc:
+                errors += 1
+                print(f"strike poll failed: {exc}", flush=True)
         if pending and xano.available(s):
             try:
-                xano.add_flashes(s, "xweather_live",
-                                 [{"key": f"xw:{f['id']}", "ts": f["ts"], "lat": f["lat"], "lon": f["lon"]}
-                                  for f in pending], XANO_LIVE_FLASHES)
+                for src in ("xweather_live", "xweather_strike"):
+                    batch = [f for f in pending if f.get("source", "xweather_live") == src]
+                    xano.add_flashes(s, src, [{"key": f"{'xw' if src == 'xweather_live' else 'xs'}:{f['id']}",
+                                               "ts": f["ts"], "lat": f["lat"], "lon": f["lon"],
+                                               "type": f.get("type")} for f in batch], XANO_LIVE_FLASHES)
                 pending = []
             except Exception as exc:  # noqa: BLE001 - keep polling; retry next time
                 print(f"xano flash write failed (will retry): {exc}", flush=True)
-        time.sleep(max(1.0, POLL_S - (now_utc() - t0).total_seconds()))
+        wait = POLL_S - (now_utc() - t0).total_seconds()
+        if time.monotonic() + wait >= stop:
+            break  # end right after a poll, so the hand-off to the next chunk/run adds no idle gap
+        time.sleep(max(1.0, wait))
     return {"polls": polls, "errors": errors}
 
 
@@ -127,8 +152,21 @@ def day_summary(day: date) -> dict:
     gap_s = sum(max(0, b - a - WINDOW_S) for a, b in zip(edges, edges[1:]))
     times = sorted(data["flashes"].values())
     complete = gap_s == 0
+    strikes = data.get("strikes") or {}
+    strike_part = {}
+    if data.get("strike_polls"):
+        sp = sorted(set(data["strike_polls"]))
+        sedges = [int(start.timestamp())] + sp + [min(int(end.timestamp()), int(now_utc().timestamp()))]
+        sgap = sum(max(0, b - a - WINDOW_S) for a, b in zip(sedges, sedges[1:]))
+        types = [v[1] for v in strikes.values()]
+        strike_part = {"strikes": {
+            "status": "complete" if sgap == 0 else "incomplete",
+            "cg": types.count("cg"), "ic": types.count("ic"),
+            "uncovered_minutes": round(sgap / 60),
+        }}
     return {
         **base,
+        **strike_part,
         "status": "complete" if complete else "incomplete",
         "flashes": len(times) if complete else None,
         "partial_flashes": None if complete else len(times),

@@ -1,0 +1,42 @@
+name: NLDN one-time import
+
+# One-time historical load of NOAA's monthly NLDN lightning-tile files
+# (cloud-to-ground strike counts in 0.1-degree cells, UTC days). Writes only
+# site/data/nldn.json and its own Xano table, so it can run alongside the pipeline.
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        default: "2026-05-01"
+      end:
+        description: "blank = today"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    env:
+      XANO_META_URL: ${{ vars.XANO_META_URL || secrets.XANO_META_URL }}
+      XANO_API_TOKEN: ${{ secrets.XANO_API_TOKEN }}
+      XANO_WORKSPACE_ID: ${{ vars.XANO_WORKSPACE_ID || secrets.XANO_WORKSPACE_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests numpy
+      - run: |
+          if [ -n "${{ inputs.end }}" ]; then python -m weather.cli nldn-import --start "${{ inputs.start }}" --end "${{ inputs.end }}"
+          else python -m weather.cli nldn-import --start "${{ inputs.start }}"; fi
+      - name: Commit
+        run: |
+          git config user.name "weather-bot"
+          git config user.email "weather-bot@users.noreply.github.com"
+          git add site/data/nldn.json state/xano_ids_nldn.json 2>/dev/null || git add site/data/nldn.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "data: NLDN tiles one-time import"
+          for i in 1 2 3 4; do git pull -q --rebase --autostash origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0; sleep $((2**i)); done
+          exit 1

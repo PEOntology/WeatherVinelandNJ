@@ -55,9 +55,13 @@ def file_start(key: str) -> datetime:
 
 
 def _read_flashes(data: bytes) -> tuple[np.ndarray, np.ndarray]:
+    """Flash-level (not group/event) centroids that pass GLM's own quality flag (0 = good)."""
     import h5py  # lazy: collectors only
 
     with h5py.File(io.BytesIO(data), "r") as f:
+        good = None
+        if "flash_quality_flag" in f:
+            good = f["flash_quality_flag"][()] == 0
         out = []
         for name in ("flash_lat", "flash_lon"):
             ds = f[name]
@@ -72,6 +76,8 @@ def _read_flashes(data: bytes) -> tuple[np.ndarray, np.ndarray]:
             if offset is not None:
                 vals = vals + float(np.asarray(offset).ravel()[0])
             out.append(vals)
+    if good is not None and len(good) == len(out[0]):
+        return out[0][good], out[1][good]
     return out[0], out[1]
 
 
@@ -151,6 +157,7 @@ def summarize(per_hour: list[dict], n_hours: int) -> dict:
         "last_local": to_local_iso(datetime.fromtimestamp(flashes[-1][0], UTC)) if flashes else None,
         "files_found": found,
         "files_expected": expected,
+        "missing_seconds": max(0, expected - found) * 20,  # each GLM file covers 20 s
         "source": f"NOAA {SATELLITE.upper().replace('GOES', 'GOES-')} Geostationary Lightning Mapper (GLM L2)",
         "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)",
         "_flashes": flashes,  # [[ts, lat, lon], ...]; removed from the public record, sent to Xano
