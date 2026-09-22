@@ -207,24 +207,25 @@ def cmd_xweather_check(args) -> int:
     t1 = t0 + 2 * 3600
     iso0, iso1 = "2026-08-03T19:30:00Z", "2026-08-03T21:30:00Z"
     win = {"from": t0, "to": t1}
+    c2 = "39.4753,-75.0041"
     checks = [
-        ("archive/closest", "lightning/archive/closest", {"p": ctr, "radius": "8mi", **win}),
-        ("archive/within box", "lightning/archive/within", {"p": box, **win}),
-        ("archive ?p=ctr", "lightning/archive", {"p": ctr, "radius": "8mi", **win}),
-        ("archive/:id ctr", f"lightning/archive/{ctr}", {"radius": "8mi", **win}),
-        ("archive/closest iso", "lightning/archive/closest", {"p": ctr, "radius": "8mi", "from": iso0, "to": iso1}),
-        ("archive/search", "lightning/archive/search", {"p": ctr, "radius": "8mi", **win}),
-        ("analytics/:id ctr", f"lightning/analytics/{ctr}", {"radius": "8mi", **win}),
-        ("analytics/closest", "lightning/analytics/closest", {"p": ctr, "radius": "8mi", **win}),
-        ("analytics/within box", "lightning/analytics/within", {"p": box, **win}),
-        ("density/:id ctr", f"lightning/density/{ctr}", win),
-        ("summary/closest hist", "lightning/summary/closest", {"p": ctr, "radius": "8mi", **win}),
-        ("lightning/closest hist", "lightning/closest", {"p": ctr, "radius": "8mi", **win}),
-        ("lightning/:id hist", f"lightning/{ctr}", {"radius": "8mi", **win}),
+        ("A1 no time", f"lightning/archive/{c2}", {"radius": "20km"}),
+        ("A2 -24hours/now", f"lightning/archive/{c2}", {"radius": "20km", "from": "-24hours", "to": "now"}),
+        ("A3 city name -24h", "lightning/archive/vineland,nj", {"radius": "20km", "from": "-24hours", "to": "now"}),
+        ("A4 epoch Aug3", f"lightning/archive/{c2}", {"radius": "20km", **win}),
+        ("A5 iso Aug3", f"lightning/archive/{c2}", {"radius": "20km", "from": iso0, "to": iso1}),
+        ("A6 date str Aug3", f"lightning/archive/{c2}", {"radius": "20km", "from": "2026-08-03 19:30:00", "to": "2026-08-03 21:30:00"}),
+        ("A7 closest -24h", "lightning/archive/closest", {"p": c2, "radius": "20km", "from": "-24hours", "to": "now"}),
+        ("A8 closest Aug3 iso", "lightning/archive/closest", {"p": c2, "radius": "20km", "from": iso0, "to": iso1}),
+        ("A9 within box -24h", "lightning/archive/within", {"p": box, "from": "-24hours", "to": "now"}),
+        ("A10 May15 iso", f"lightning/archive/{c2}", {"radius": "20km", "from": "2026-05-15T00:00:00Z", "to": "2026-05-16T00:00:00Z"}),
+        ("L1 lightning -24h", f"lightning/{c2}", {"radius": "20km", "from": "-24hours", "to": "now"}),
+        ("AN1 analytics -24h", f"lightning/analytics/{c2}", {"radius": "20km", "from": "-24hours", "to": "now"}),
+        ("AN2 analytics Aug3", f"lightning/analytics/{c2}", {"radius": "20km", "from": iso0, "to": iso1}),
     ]
     for label, path, params in checks:
         params = {**params, "client_id": s.xweather_client_id, "client_secret": s.xweather_client_secret,
-                  "limit": 1000}
+                  "limit": 100}
         try:
             r = request("GET", f"{s.xweather_base}/{path}", params=params, attempts=1)
             body = r.json() if "json" in r.headers.get("content-type", "") else {}
