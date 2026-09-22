@@ -1,10 +1,11 @@
 {
+ "mrms_cells": 185,
  "area": "Vineland, NJ",
  "coverage": "City of Vineland municipal boundary (Census place 3476070)",
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-22T20:18:02+00:00",
+ "generated_at": "2026-09-22T20:22:33+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -6816,7 +6817,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:13:34+00:00"
+   "retrieved_at": "2026-09-22T20:18:45+00:00"
   },
   {
    "date": "2026-09-17",
@@ -6865,7 +6866,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:14:11+00:00"
+   "retrieved_at": "2026-09-22T20:19:14+00:00"
   },
   {
    "date": "2026-09-18",
@@ -6914,7 +6915,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:14:49+00:00"
+   "retrieved_at": "2026-09-22T20:19:40+00:00"
   },
   {
    "date": "2026-09-19",
@@ -6963,7 +6964,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:15:27+00:00"
+   "retrieved_at": "2026-09-22T20:21:05+00:00"
   },
   {
    "date": "2026-09-20",
@@ -7012,7 +7013,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:16:03+00:00"
+   "retrieved_at": "2026-09-22T20:21:33+00:00"
   },
   {
    "date": "2026-09-21",
@@ -7061,7 +7062,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:16:39+00:00"
+   "retrieved_at": "2026-09-22T20:22:01+00:00"
   },
   {
    "date": "2026-09-22",
@@ -7099,7 +7100,7 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 2414,
+    "files_found": 2422,
     "files_expected": 4320,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
@@ -7110,7 +7111,7 @@
     "status": "unavailable",
     "reason": "no live polling for this day"
    },
-   "retrieved_at": "2026-09-22T20:17:17+00:00"
+   "retrieved_at": "2026-09-22T20:20:09+00:00"
   }
  ]
 }
