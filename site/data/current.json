@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-23T18:54:39+00:00",
+ "retrieved_at": "2026-09-23T19:01:44+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 68,
-   "short": "Slight Chance Rain Showers then Mostly Cloudy",
-   "precip_pct": 17,
-   "wind": "NE 15 to 20 mph"
+   "short": "Mostly Cloudy",
+   "precip_pct": 1,
+   "wind": "NE 20 mph"
   },
   {
    "name": "Tonight",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "Coastal Flood Advisory",
-   "headline": "Coastal Flood Advisory issued September 23 at 4:28AM EDT until September 26 at 2:00AM EDT by NWS Mount Holly NJ",
+   "headline": "Coastal Flood Advisory issued September 23 at 3:00PM EDT until September 26 at 2:00AM EDT by NWS Mount Holly NJ",
    "severity": "Minor",
    "ends": "2026-09-26T02:00:00-04:00"
   }
