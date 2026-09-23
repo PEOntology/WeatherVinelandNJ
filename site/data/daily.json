@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-23T09:31:06+00:00",
+ "generated_at": "2026-09-23T10:20:34+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7074,14 +7074,14 @@
    "date": "2026-09-22",
    "area": "Vineland, NJ",
    "coverage": "City of Vineland municipal boundary (Census place 3476070)",
-   "status": "provisional",
+   "status": "incomplete",
    "day_ended": true,
    "rain_estimated": {
     "value_in": 0.67,
     "partial_in": null,
     "hours_expected": 24,
     "hours_found": 24,
-    "status": "provisional",
+    "status": "complete",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
    },
@@ -7101,7 +7101,7 @@
     "reason": "Xweather Lightning Enterprise add-on not active"
    },
    "lightning_glm": {
-    "status": "provisional",
+    "status": "incomplete",
     "flashes": null,
     "partial_flashes": 0,
     "first_local": null,
@@ -7115,14 +7115,14 @@
    "lightning_flash": {
     "source": "Xweather lightning/flash live feed (polled continuously)",
     "label": "Detected lightning flashes within Vineland (ground network; strikes and in-cloud pulses combined)",
-    "status": "provisional",
+    "status": "incomplete",
     "flashes": null,
     "partial_flashes": 0,
     "uncovered_minutes": 948,
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-23T09:30:36+00:00"
+   "retrieved_at": "2026-09-23T10:20:19+00:00"
   },
   {
    "date": "2026-09-23",
@@ -7132,9 +7132,9 @@
    "day_ended": false,
    "rain_estimated": {
     "value_in": null,
-    "partial_in": 0.19,
+    "partial_in": 0.25,
     "hours_expected": 24,
-    "hours_found": 5,
+    "hours_found": 6,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
@@ -7144,7 +7144,7 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": 0.12,
+    "value_in": 0.16,
     "trace": false,
     "status": "complete"
    },
@@ -7160,9 +7160,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 989,
+    "files_found": 1138,
     "files_expected": 4320,
-    "missing_seconds": 66620,
+    "missing_seconds": 63640,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7176,7 +7176,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-23T09:30:44+00:00"
+   "retrieved_at": "2026-09-23T10:20:25+00:00"
   }
  ]
 }
