@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-24T03:50:56+00:00",
+ "retrieved_at": "2026-09-24T03:51:15+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,7 +17,7 @@
   {
    "name": "Tonight",
    "temp_f": 54,
-   "short": "Partly Cloudy",
+   "short": "Mostly Cloudy",
    "precip_pct": 0,
    "wind": "NE 15 mph"
   },
