@@ -1,9 +1,9 @@
 {
  "current": {
-  "last_run": "2026-09-24T23:01:22+00:00",
+  "last_run": "2026-09-24T23:01:52+00:00",
   "last_result": "ok",
   "detail": "",
-  "last_success": "2026-09-24T23:01:22+00:00"
+  "last_success": "2026-09-24T23:01:52+00:00"
  },
  "backfill": {
   "last_run": "2026-09-22T21:10:04+00:00",
@@ -58,7 +58,7 @@
    "last_synced": null
   },
   "email": {
-   "configured": false
+   "configured": true
   },
   "xano": {
    "configured": true
@@ -69,10 +69,10 @@
   }
  },
  "update": {
-  "last_run": "2026-09-24T22:15:49+00:00",
+  "last_run": "2026-09-24T23:02:14+00:00",
   "last_result": "ok",
   "detail": "built 2 days",
-  "last_success": "2026-09-24T22:15:49+00:00"
+  "last_success": "2026-09-24T23:02:14+00:00"
  },
  "xano_sync": {
   "last_run": "2026-09-22T20:55:29+00:00",
