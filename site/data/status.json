@@ -1,8 +1,8 @@
 {
  "current": {
-  "last_run": "2026-09-24T23:29:53+00:00",
-  "last_result": "ok",
-  "detail": "",
+  "last_run": "2026-09-24T23:37:14+00:00",
+  "last_result": "error",
+  "detail": "forecast: GET https://api.weather.gov/gridpoints/PHI/58,59/forecast -> HTTP 503: {\n    \"correlationId\": \"d6507a3\",\n    \"title\": \"Forecast Grid Expired\",\n    \"type\": \"https://api.weather.gov/problems/ForecastGridExpired\",\n    \"status\": 503,\n    \"detail\": \"The requested forecast gri",
   "last_success": "2026-09-24T23:29:53+00:00"
  },
  "backfill": {
@@ -12,10 +12,10 @@
   "last_success": "2026-09-22T21:10:04+00:00"
  },
  "lightning_live": {
-  "last_run": "2026-09-24T23:29:53+00:00",
+  "last_run": "2026-09-24T23:36:58+00:00",
   "last_result": "ok",
   "detail": "3 polls, 0 errors",
-  "last_success": "2026-09-24T23:29:53+00:00"
+  "last_success": "2026-09-24T23:36:58+00:00"
  },
  "integrations": {
   "procore": {

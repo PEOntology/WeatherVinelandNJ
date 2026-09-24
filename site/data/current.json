@@ -1,6 +1,8 @@
 {
- "retrieved_at": "2026-09-24T23:29:53+00:00",
- "errors": [],
+ "retrieved_at": "2026-09-24T23:36:59+00:00",
+ "errors": [
+  "forecast: GET https://api.weather.gov/gridpoints/PHI/58,59/forecast -> HTTP 503: {\n    \"correlationId\": \"d6507a3\",\n    \"title\": \"Forecast Grid Expired\",\n    \"type\": \"https://api.weather.gov/problems/ForecastGridExpired\",\n    \"status\": 503,\n    \"detail\": \"The requested forecast gri"
+ ],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
@@ -13,37 +15,7 @@
   "wind_gust_mph": null,
   "wind_dir_deg": 30
  },
- "forecast": [
-  {
-   "name": "Tonight",
-   "temp_f": 52,
-   "short": "Mostly Cloudy",
-   "precip_pct": 0,
-   "wind": "NE 10 to 15 mph"
-  },
-  {
-   "name": "Friday",
-   "temp_f": 68,
-   "short": "Partly Sunny then Slight Chance Rain Showers",
-   "precip_pct": 23,
-   "wind": "N 15 mph"
-  },
-  {
-   "name": "Friday Night",
-   "temp_f": 54,
-   "short": "Chance Rain Showers",
-   "precip_pct": 28,
-   "wind": "N 10 to 15 mph"
-  },
-  {
-   "name": "Saturday",
-   "temp_f": 68,
-   "short": "Chance Rain Showers",
-   "precip_pct": 44,
-   "wind": "N 15 mph"
-  }
- ],
- "forecast_updated": "2026-09-24T08:10:23+00:00",
+ "forecast": null,
  "alerts": [
   {
    "event": "Coastal Flood Advisory",
