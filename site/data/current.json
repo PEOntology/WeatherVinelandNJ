@@ -1,49 +1,49 @@
 {
- "retrieved_at": "2026-09-25T08:18:27+00:00",
+ "retrieved_at": "2026-09-25T08:25:33+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-09-25T07:50:00+00:00",
+  "observed_at": "2026-09-25T08:05:00+00:00",
   "description": "Clear",
   "temp_f": 55.4,
-  "dewpoint_f": null,
-  "humidity_pct": null,
-  "wind_mph": null,
-  "wind_gust_mph": 27.6,
-  "wind_dir_deg": null
+  "dewpoint_f": 37.4,
+  "humidity_pct": 50.7,
+  "wind_mph": 15.0,
+  "wind_gust_mph": null,
+  "wind_dir_deg": 20
  },
  "forecast": [
   {
    "name": "Overnight",
    "temp_f": 52,
    "short": "Mostly Cloudy",
-   "precip_pct": 1,
+   "precip_pct": 0,
    "wind": "N 10 mph"
   },
   {
    "name": "Friday",
-   "temp_f": 68,
-   "short": "Mostly Cloudy then Slight Chance Rain Showers",
-   "precip_pct": 16,
-   "wind": "N 10 mph"
+   "temp_f": 70,
+   "short": "Mostly Cloudy",
+   "precip_pct": 14,
+   "wind": "N 10 to 20 mph"
   },
   {
    "name": "Friday Night",
-   "temp_f": 54,
-   "short": "Slight Chance Rain Showers then Mostly Cloudy",
-   "precip_pct": 24,
-   "wind": "N 10 to 15 mph"
+   "temp_f": 55,
+   "short": "Chance Light Rain",
+   "precip_pct": 43,
+   "wind": "N 15 to 20 mph"
   },
   {
    "name": "Saturday",
-   "temp_f": 67,
-   "short": "Chance Rain Showers",
-   "precip_pct": 51,
-   "wind": "N 10 to 15 mph"
+   "temp_f": 61,
+   "short": "Rain",
+   "precip_pct": 83,
+   "wind": "N 20 mph"
   }
  ],
- "forecast_updated": "2026-09-24T23:57:44+00:00",
+ "forecast_updated": "2026-09-25T08:10:22+00:00",
  "alerts": [
   {
    "event": "Wind Advisory",
