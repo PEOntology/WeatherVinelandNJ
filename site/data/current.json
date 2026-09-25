@@ -1,17 +1,17 @@
 {
- "retrieved_at": "2026-09-25T10:12:41+00:00",
+ "retrieved_at": "2026-09-25T10:19:45+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-09-25T09:50:00+00:00",
-  "description": "Mostly Clear",
+  "observed_at": "2026-09-25T10:00:00+00:00",
+  "description": "Clear",
   "temp_f": 55.4,
   "dewpoint_f": 39.2,
   "humidity_pct": 54.4,
-  "wind_mph": 16.1,
-  "wind_gust_mph": 21.9,
-  "wind_dir_deg": 20
+  "wind_mph": 13.8,
+  "wind_gust_mph": null,
+  "wind_dir_deg": 10
  },
  "forecast": [
   {
@@ -46,16 +46,16 @@
  "forecast_updated": "2026-09-25T08:10:22+00:00",
  "alerts": [
   {
+   "event": "Coastal Flood Advisory",
+   "headline": "Coastal Flood Advisory issued September 25 at 6:18AM EDT until September 27 at 2:00AM EDT by NWS Mount Holly NJ",
+   "severity": "Minor",
+   "ends": "2026-09-27T02:00:00-04:00"
+  },
+  {
    "event": "Wind Advisory",
    "headline": "Wind Advisory issued September 25 at 4:43AM EDT until September 27 at 6:00AM EDT by NWS Mount Holly NJ",
    "severity": "Moderate",
    "ends": "2026-09-27T06:00:00-04:00"
-  },
-  {
-   "event": "Coastal Flood Advisory",
-   "headline": "Coastal Flood Advisory issued September 24 at 10:50PM EDT until September 26 at 1:00PM EDT by NWS Mount Holly NJ",
-   "severity": "Minor",
-   "ends": "2026-09-26T13:00:00-04:00"
   }
  ]
 }
