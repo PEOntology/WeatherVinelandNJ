@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-26T08:49:28+00:00",
+ "retrieved_at": "2026-09-26T08:56:32+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,33 +17,33 @@
   {
    "name": "Overnight",
    "temp_f": 54,
-   "short": "Light Rain Likely",
-   "precip_pct": 58,
+   "short": "Chance Rain Showers",
+   "precip_pct": 42,
    "wind": "N 20 mph"
   },
   {
    "name": "Saturday",
-   "temp_f": 62,
-   "short": "Light Rain",
-   "precip_pct": 86,
+   "temp_f": 60,
+   "short": "Rain Showers",
+   "precip_pct": 91,
    "wind": "N 15 to 20 mph"
   },
   {
    "name": "Saturday Night",
-   "temp_f": 55,
-   "short": "Rain",
-   "precip_pct": 92,
+   "temp_f": 54,
+   "short": "Rain Showers",
+   "precip_pct": 94,
    "wind": "N 15 to 20 mph"
   },
   {
    "name": "Sunday",
    "temp_f": 63,
-   "short": "Rain",
+   "short": "Rain Showers",
    "precip_pct": 96,
-   "wind": "N 15 to 20 mph"
+   "wind": "NW 15 to 20 mph"
   }
  ],
- "forecast_updated": "2026-09-25T21:46:30+00:00",
+ "forecast_updated": "2026-09-26T08:12:33+00:00",
  "alerts": [
   {
    "event": "Coastal Flood Warning",
