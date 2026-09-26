@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-26T17:22:38+00:00",
+ "retrieved_at": "2026-09-26T17:29:43+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "Wind Advisory",
-   "headline": "Wind Advisory issued September 26 at 1:17PM EDT until September 27 at 12:00PM EDT by NWS Mount Holly NJ",
+   "headline": "Wind Advisory issued September 26 at 1:26PM EDT until September 27 at 12:00PM EDT by NWS Mount Holly NJ",
    "severity": "Moderate",
    "ends": "2026-09-27T12:00:00-04:00"
   },
