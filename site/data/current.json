@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-27T08:27:40+00:00",
+ "retrieved_at": "2026-09-27T08:27:49+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 55,
    "short": "Rain Showers",
    "precip_pct": 89,
-   "wind": "NW 10 to 15 mph"
+   "wind": "NW 15 mph"
   },
   {
    "name": "Sunday",
