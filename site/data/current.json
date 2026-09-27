@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-27T16:48:07+00:00",
+ "retrieved_at": "2026-09-27T16:55:04+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,10 +15,10 @@
  },
  "forecast": [
   {
-   "name": "This Afternoon",
+   "name": "Today",
    "temp_f": 63,
    "short": "Rain Showers",
-   "precip_pct": 83,
+   "precip_pct": 98,
    "wind": "NW 10 to 15 mph"
   },
   {
@@ -44,12 +44,5 @@
   }
  ],
  "forecast_updated": "2026-09-27T08:11:14+00:00",
- "alerts": [
-  {
-   "event": "Coastal Flood Warning",
-   "headline": "Coastal Flood Warning issued September 27 at 4:51AM EDT until September 27 at 2:00PM EDT by NWS Mount Holly NJ",
-   "severity": "Severe",
-   "ends": "2026-09-27T14:00:00-04:00"
-  }
- ]
+ "alerts": []
 }
