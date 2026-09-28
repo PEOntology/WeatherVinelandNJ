@@ -1,10 +1,10 @@
 {
- "retrieved_at": "2026-09-28T18:01:15+00:00",
+ "retrieved_at": "2026-09-28T18:08:19+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-09-28T17:40:00+00:00",
+  "observed_at": "2026-09-28T17:45:00+00:00",
   "description": "Cloudy",
   "temp_f": 64.4,
   "dewpoint_f": 59.0,
@@ -18,7 +18,7 @@
    "name": "Today",
    "temp_f": 66,
    "short": "Slight Chance Rain Showers then Mostly Cloudy",
-   "precip_pct": 20,
+   "precip_pct": 19,
    "wind": "NW 5 mph"
   },
   {
