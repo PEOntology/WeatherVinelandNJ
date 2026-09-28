@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-09-28T09:27:03+00:00",
+ "retrieved_at": "2026-09-28T09:27:28+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Overnight",
    "temp_f": 59,
-   "short": "Slight Chance Rain Showers",
-   "precip_pct": 23,
+   "short": "Chance Rain Showers",
+   "precip_pct": 26,
    "wind": "N 5 mph"
   },
   {
