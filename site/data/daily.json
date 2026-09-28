@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-09-28T11:07:57+00:00",
+ "generated_at": "2026-09-28T11:57:49+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7122,7 +7122,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-28T11:07:29+00:00"
+   "retrieved_at": "2026-09-28T11:57:19+00:00"
   },
   {
    "date": "2026-09-23",
@@ -7284,7 +7284,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-27T15:42:56+00:00"
+   "retrieved_at": "2026-09-28T11:57:47+00:00"
   },
   {
    "date": "2026-09-26",
@@ -7338,7 +7338,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-27T15:42:57+00:00"
+   "retrieved_at": "2026-09-28T11:57:48+00:00"
   },
   {
    "date": "2026-09-27",
@@ -7392,7 +7392,7 @@
     "first_local": "2026-09-27T10:21:56-04:00",
     "last_local": "2026-09-27T10:21:56-04:00"
    },
-   "retrieved_at": "2026-09-28T10:17:36+00:00"
+   "retrieved_at": "2026-09-28T11:57:48+00:00"
   },
   {
    "date": "2026-09-28",
@@ -7404,7 +7404,7 @@
     "value_in": null,
     "partial_in": 0.03,
     "hours_expected": 24,
-    "hours_found": 6,
+    "hours_found": 7,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
@@ -7430,9 +7430,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1282,
+    "files_found": 1431,
     "files_expected": 4320,
-    "missing_seconds": 60760,
+    "missing_seconds": 57780,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7446,7 +7446,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-09-28T11:07:37+00:00"
+   "retrieved_at": "2026-09-28T11:57:27+00:00"
   }
  ]
 }
