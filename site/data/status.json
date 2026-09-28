@@ -81,17 +81,17 @@
   "last_success": "2026-09-22T20:55:29+00:00"
  },
  "reconcile": {
-  "last_run": "2026-09-28T11:57:51+00:00",
+  "last_run": "2026-09-28T18:39:49+00:00",
   "last_result": "ok",
   "detail": "last 3 days rebuilt",
-  "last_success": "2026-09-28T11:57:51+00:00",
+  "last_success": "2026-09-28T18:39:49+00:00",
   "for_date": "2026-09-27"
  },
  "report": {
-  "last_run": "2026-09-28T11:57:52+00:00",
+  "last_run": "2026-09-28T18:39:50+00:00",
   "last_result": "ok",
   "detail": "reported 2026-09-27",
-  "last_success": "2026-09-28T11:57:52+00:00",
+  "last_success": "2026-09-28T18:39:50+00:00",
   "for_date": "2026-09-27"
  }
 }
