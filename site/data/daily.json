@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-01T18:24:56+00:00",
+ "generated_at": "2026-10-01T18:48:46+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7592,9 +7592,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 2589,
+    "files_found": 2661,
     "files_expected": 4320,
-    "missing_seconds": 34620,
+    "missing_seconds": 33180,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7608,7 +7608,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-01T18:24:24+00:00"
+   "retrieved_at": "2026-10-01T18:48:39+00:00"
   }
  ]
 }
