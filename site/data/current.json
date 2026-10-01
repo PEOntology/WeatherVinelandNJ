@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-01T06:50:24+00:00",
+ "retrieved_at": "2026-10-01T06:57:29+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
+   "name": "Tonight",
    "temp_f": 61,
-   "short": "Cloudy",
+   "short": "Mostly Cloudy",
    "precip_pct": 0,
-   "wind": "SW 5 mph"
+   "wind": "S 5 mph"
   },
   {
    "name": "Thursday",
