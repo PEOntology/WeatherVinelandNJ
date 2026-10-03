@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-03T04:10:00+00:00",
+ "retrieved_at": "2026-10-03T04:17:04+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,9 +17,9 @@
   {
    "name": "Tonight",
    "temp_f": 60,
-   "short": "Chance Rain Showers",
-   "precip_pct": 54,
-   "wind": "N 5 to 10 mph"
+   "short": "Showers And Thunderstorms Likely",
+   "precip_pct": 60,
+   "wind": "NW 5 to 10 mph"
   },
   {
    "name": "Saturday",
