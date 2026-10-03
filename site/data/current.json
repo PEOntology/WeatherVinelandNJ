@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-03T20:18:38+00:00",
+ "retrieved_at": "2026-10-03T20:19:01+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,8 +15,8 @@
  },
  "forecast": [
   {
-   "name": "Today",
-   "temp_f": 70,
+   "name": "This Afternoon",
+   "temp_f": 68,
    "short": "Cloudy",
    "precip_pct": 11,
    "wind": "NE 5 mph"
@@ -24,25 +24,25 @@
   {
    "name": "Tonight",
    "temp_f": 58,
-   "short": "Mostly Cloudy then Slight Chance Rain Showers",
-   "precip_pct": 16,
-   "wind": "NE 0 to 5 mph"
+   "short": "Slight Chance Rain Showers",
+   "precip_pct": 19,
+   "wind": "NE 5 mph"
   },
   {
    "name": "Sunday",
    "temp_f": 66,
-   "short": "Rain Showers",
-   "precip_pct": 80,
-   "wind": "E 5 mph"
+   "short": "Rain Showers Likely",
+   "precip_pct": 58,
+   "wind": "NE 5 to 10 mph"
   },
   {
    "name": "Sunday Night",
-   "temp_f": 58,
-   "short": "Chance Rain Showers",
-   "precip_pct": 42,
+   "temp_f": 59,
+   "short": "Chance Rain Showers then Patchy Fog",
+   "precip_pct": 34,
    "wind": "N 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-03T08:09:19+00:00",
+ "forecast_updated": "2026-10-03T20:10:57+00:00",
  "alerts": []
 }
