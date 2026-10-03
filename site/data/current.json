@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-03T16:13:52+00:00",
+ "retrieved_at": "2026-10-03T16:16:43+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Today",
    "temp_f": 70,
-   "short": "Cloudy",
-   "precip_pct": 6,
+   "short": "Chance Rain Showers then Cloudy",
+   "precip_pct": 30,
    "wind": "NE 5 mph"
   },
   {
