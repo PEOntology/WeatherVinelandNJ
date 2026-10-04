@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-04T11:17:05+00:00",
+ "generated_at": "2026-10-04T12:06:44+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7608,7 +7608,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-03T15:10:40+00:00"
+   "retrieved_at": "2026-10-04T12:06:43+00:00"
   },
   {
    "date": "2026-10-02",
@@ -7662,7 +7662,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-03T15:10:41+00:00"
+   "retrieved_at": "2026-10-04T12:06:43+00:00"
   },
   {
    "date": "2026-10-03",
@@ -7716,7 +7716,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-04T10:26:57+00:00"
+   "retrieved_at": "2026-10-04T12:06:44+00:00"
   },
   {
    "date": "2026-10-04",
@@ -7730,7 +7730,7 @@
     "hours_expected": 24,
     "hours_found": 7,
     "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -7738,7 +7738,7 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": 0.03,
+    "value_in": 0.04,
     "trace": false,
     "status": "complete"
    },
@@ -7754,9 +7754,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1308,
+    "files_found": 1457,
     "files_expected": 4320,
-    "missing_seconds": 60240,
+    "missing_seconds": 57260,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -7770,7 +7770,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-04T11:16:47+00:00"
+   "retrieved_at": "2026-10-04T12:06:33+00:00"
   }
  ]
 }
