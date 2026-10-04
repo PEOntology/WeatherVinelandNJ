@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-04T08:46:59+00:00",
+ "retrieved_at": "2026-10-04T08:47:19+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,31 +18,31 @@
    "name": "Overnight",
    "temp_f": 58,
    "short": "Slight Chance Rain Showers",
-   "precip_pct": 15,
+   "precip_pct": 16,
    "wind": "E 5 mph"
   },
   {
    "name": "Sunday",
    "temp_f": 66,
    "short": "Rain Showers Likely",
-   "precip_pct": 58,
+   "precip_pct": 55,
    "wind": "NE 5 to 10 mph"
   },
   {
    "name": "Sunday Night",
-   "temp_f": 59,
+   "temp_f": 57,
    "short": "Chance Rain Showers then Patchy Fog",
-   "precip_pct": 34,
+   "precip_pct": 28,
    "wind": "N 0 to 5 mph"
   },
   {
    "name": "Monday",
-   "temp_f": 71,
+   "temp_f": 70,
    "short": "Patchy Fog then Mostly Sunny",
    "precip_pct": 1,
    "wind": "NW 0 to 10 mph"
   }
  ],
- "forecast_updated": "2026-10-04T00:34:42+00:00",
+ "forecast_updated": "2026-10-04T08:09:14+00:00",
  "alerts": []
 }
