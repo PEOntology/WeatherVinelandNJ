@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-04T22:26:13+00:00",
+ "retrieved_at": "2026-10-04T22:33:18+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,13 +14,6 @@
   "wind_dir_deg": 40
  },
  "forecast": [
-  {
-   "name": "This Afternoon",
-   "temp_f": 62,
-   "short": "Rain Showers Likely",
-   "precip_pct": 58,
-   "wind": "NE 5 mph"
-  },
   {
    "name": "Tonight",
    "temp_f": 55,
@@ -41,6 +34,13 @@
    "short": "Clear",
    "precip_pct": 0,
    "wind": "NW 5 to 10 mph"
+  },
+  {
+   "name": "Tuesday",
+   "temp_f": 63,
+   "short": "Sunny",
+   "precip_pct": 0,
+   "wind": "NW 0 to 5 mph"
   }
  ],
  "forecast_updated": "2026-10-04T20:31:28+00:00",
