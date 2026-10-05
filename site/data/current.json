@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-05T05:19:06+00:00",
+ "retrieved_at": "2026-10-05T05:26:10+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,14 +17,14 @@
   {
    "name": "Overnight",
    "temp_f": 55,
-   "short": "Mostly Cloudy",
-   "precip_pct": 4,
+   "short": "Patchy Drizzle",
+   "precip_pct": 10,
    "wind": "0 mph"
   },
   {
    "name": "Monday",
-   "temp_f": 71,
-   "short": "Mostly Sunny",
+   "temp_f": 72,
+   "short": "Patchy Fog then Mostly Sunny",
    "precip_pct": 0,
    "wind": "NW 0 to 15 mph"
   },
@@ -37,12 +37,12 @@
   },
   {
    "name": "Tuesday",
-   "temp_f": 63,
+   "temp_f": 62,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "NW 0 to 5 mph"
+   "wind": "NW 5 mph"
   }
  ],
- "forecast_updated": "2026-10-04T20:31:28+00:00",
+ "forecast_updated": "2026-10-05T05:16:42+00:00",
  "alerts": []
 }
