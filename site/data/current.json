@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-05T01:52:39+00:00",
+ "retrieved_at": "2026-10-05T01:56:49+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Tonight",
    "temp_f": 55,
-   "short": "Slight Chance Rain Showers then Cloudy",
-   "precip_pct": 21,
+   "short": "Chance Rain Showers then Cloudy",
+   "precip_pct": 48,
    "wind": "N 0 to 5 mph"
   },
   {
