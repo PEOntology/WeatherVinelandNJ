@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-09T08:24:58+00:00",
+ "retrieved_at": "2026-10-09T08:25:27+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -16,7 +16,7 @@
  "forecast": [
   {
    "name": "Overnight",
-   "temp_f": 47,
+   "temp_f": 45,
    "short": "Partly Cloudy",
    "precip_pct": 0,
    "wind": "W 5 mph"
@@ -43,6 +43,6 @@
    "wind": "NE 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-10-09T06:33:20+00:00",
+ "forecast_updated": "2026-10-09T08:09:02+00:00",
  "alerts": []
 }
