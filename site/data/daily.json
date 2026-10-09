@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-09T12:35:25+00:00",
+ "generated_at": "2026-10-09T13:25:14+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7878,7 +7878,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-09T12:35:04+00:00"
+   "retrieved_at": "2026-10-09T13:24:54+00:00"
   },
   {
    "date": "2026-10-07",
@@ -7932,7 +7932,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-09T12:35:08+00:00"
+   "retrieved_at": "2026-10-09T13:24:58+00:00"
   },
   {
    "date": "2026-10-08",
@@ -7986,7 +7986,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-09T12:35:10+00:00"
+   "retrieved_at": "2026-10-09T13:24:59+00:00"
   },
   {
    "date": "2026-10-09",
@@ -7998,7 +7998,7 @@
     "value_in": null,
     "partial_in": 0.0,
     "hours_expected": 24,
-    "hours_found": 8,
+    "hours_found": 9,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
@@ -8008,9 +8008,9 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": null,
+    "value_in": 0.0,
     "trace": false,
-    "status": "unavailable"
+    "status": "complete"
    },
    "lightning": {
     "source": "Xweather detected lightning (Lightning Enterprise)",
@@ -8024,9 +8024,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1542,
+    "files_found": 1692,
     "files_expected": 4320,
-    "missing_seconds": 55560,
+    "missing_seconds": 52560,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -8040,7 +8040,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-09T12:35:13+00:00"
+   "retrieved_at": "2026-10-09T13:25:02+00:00"
   }
  ]
 }
