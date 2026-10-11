@@ -1,8 +1,8 @@
 {
  "current": {
-  "last_run": "2026-10-11T03:08:33+00:00",
-  "last_result": "ok",
-  "detail": "",
+  "last_run": "2026-10-11T03:15:52+00:00",
+  "last_result": "error",
+  "detail": "alerts: GET https://api.weather.gov/alerts/active -> HTTP 500: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"robots\" content=\"noindex,nofollow,noarchive\" />\n    <title>An Error Occurred: Internal Server Error</title>\n    <li",
   "last_success": "2026-10-11T03:08:33+00:00"
  },
  "backfill": {
@@ -12,10 +12,10 @@
   "last_success": "2026-09-22T21:10:04+00:00"
  },
  "lightning_live": {
-  "last_run": "2026-10-11T03:08:32+00:00",
+  "last_run": "2026-10-11T03:15:37+00:00",
   "last_result": "ok",
   "detail": "3 polls, 0 errors",
-  "last_success": "2026-10-11T03:08:32+00:00"
+  "last_success": "2026-10-11T03:15:37+00:00"
  },
  "integrations": {
   "procore": {
