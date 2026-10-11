@@ -1,8 +1,6 @@
 {
- "retrieved_at": "2026-10-11T03:15:37+00:00",
- "errors": [
-  "alerts: GET https://api.weather.gov/alerts/active -> HTTP 500: <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"robots\" content=\"noindex,nofollow,noarchive\" />\n    <title>An Error Occurred: Internal Server Error</title>\n    <li"
- ],
+ "retrieved_at": "2026-10-11T03:22:56+00:00",
+ "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
@@ -46,5 +44,5 @@
   }
  ],
  "forecast_updated": "2026-10-10T20:10:20+00:00",
- "alerts": null
+ "alerts": []
 }
