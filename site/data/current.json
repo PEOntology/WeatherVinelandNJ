@@ -1,48 +1,48 @@
 {
- "retrieved_at": "2026-10-11T20:23:23+00:00",
+ "retrieved_at": "2026-10-11T20:26:17+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-11T20:00:00+00:00",
+  "observed_at": "2026-10-11T20:10:00+00:00",
   "description": "Fog/Mist",
   "temp_f": 66.2,
   "dewpoint_f": 66.2,
   "humidity_pct": 100,
-  "wind_mph": 6.9,
+  "wind_mph": 4.6,
   "wind_gust_mph": null,
   "wind_dir_deg": 110
  },
  "forecast": [
   {
-   "name": "This Afternoon",
+   "name": "Today",
    "temp_f": 67,
-   "short": "Chance Showers And Thunderstorms",
-   "precip_pct": 67,
-   "wind": "E 10 mph"
+   "short": "Rain",
+   "precip_pct": 99,
+   "wind": "E 10 to 15 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 61,
-   "short": "Showers And Thunderstorms",
-   "precip_pct": 91,
-   "wind": "NE 0 to 10 mph"
+   "short": "Rain then Showers And Thunderstorms Likely",
+   "precip_pct": 81,
+   "wind": "E 5 to 10 mph"
   },
   {
    "name": "Columbus Day",
-   "temp_f": 72,
-   "short": "Rain Showers Likely then Mostly Cloudy",
-   "precip_pct": 61,
+   "temp_f": 70,
+   "short": "Showers And Thunderstorms then Mostly Cloudy",
+   "precip_pct": 82,
    "wind": "N 5 to 10 mph"
   },
   {
    "name": "Monday Night",
-   "temp_f": 56,
-   "short": "Partly Cloudy",
+   "temp_f": 53,
+   "short": "Mostly Clear",
    "precip_pct": 0,
-   "wind": "0 mph"
+   "wind": "NW 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-11T20:10:33+00:00",
+ "forecast_updated": "2026-10-11T08:09:31+00:00",
  "alerts": []
 }
