@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-11T21:05:53+00:00",
+ "retrieved_at": "2026-10-11T21:12:59+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,34 +15,34 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 67,
-   "short": "Rain",
-   "precip_pct": 99,
-   "wind": "E 10 to 15 mph"
+   "short": "Chance Showers And Thunderstorms",
+   "precip_pct": 53,
+   "wind": "E 10 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 61,
-   "short": "Rain then Showers And Thunderstorms Likely",
-   "precip_pct": 81,
-   "wind": "E 5 to 10 mph"
+   "short": "Showers And Thunderstorms",
+   "precip_pct": 91,
+   "wind": "NE 0 to 10 mph"
   },
   {
    "name": "Columbus Day",
-   "temp_f": 70,
-   "short": "Showers And Thunderstorms then Mostly Cloudy",
-   "precip_pct": 82,
+   "temp_f": 72,
+   "short": "Rain Showers Likely then Mostly Cloudy",
+   "precip_pct": 61,
    "wind": "N 5 to 10 mph"
   },
   {
    "name": "Monday Night",
-   "temp_f": 53,
-   "short": "Mostly Clear",
+   "temp_f": 56,
+   "short": "Partly Cloudy",
    "precip_pct": 0,
-   "wind": "NW 0 to 5 mph"
+   "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-10-11T08:09:31+00:00",
+ "forecast_updated": "2026-10-11T20:10:33+00:00",
  "alerts": []
 }
