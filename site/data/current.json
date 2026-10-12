@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-12T22:12:10+00:00",
+ "retrieved_at": "2026-10-12T22:19:05+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,13 +14,6 @@
   "wind_dir_deg": 290
  },
  "forecast": [
-  {
-   "name": "Columbus Day",
-   "temp_f": 73,
-   "short": "Mostly Sunny",
-   "precip_pct": 0,
-   "wind": "NW 5 mph"
-  },
   {
    "name": "Tonight",
    "temp_f": 56,
@@ -41,6 +34,13 @@
    "short": "Mostly Clear",
    "precip_pct": 3,
    "wind": "SW 5 mph"
+  },
+  {
+   "name": "Wednesday",
+   "temp_f": 83,
+   "short": "Sunny",
+   "precip_pct": 4,
+   "wind": "W 5 mph"
   }
  ],
  "forecast_updated": "2026-10-12T20:10:30+00:00",
