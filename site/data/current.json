@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-12T10:31:42+00:00",
+ "retrieved_at": "2026-10-12T10:32:07+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,13 +15,6 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
-   "temp_f": 60,
-   "short": "Patchy Fog",
-   "precip_pct": 69,
-   "wind": "NE 5 to 10 mph"
-  },
-  {
    "name": "Columbus Day",
    "temp_f": 73,
    "short": "Patchy Fog then Partly Sunny",
@@ -29,7 +22,7 @@
    "wind": "N 5 to 10 mph"
   },
   {
-   "name": "Monday Night",
+   "name": "Tonight",
    "temp_f": 56,
    "short": "Mostly Clear",
    "precip_pct": 2,
@@ -41,6 +34,13 @@
    "short": "Sunny",
    "precip_pct": 2,
    "wind": "SW 0 to 5 mph"
+  },
+  {
+   "name": "Tuesday Night",
+   "temp_f": 64,
+   "short": "Mostly Clear",
+   "precip_pct": 2,
+   "wind": "SW 5 mph"
   }
  ],
  "forecast_updated": "2026-10-12T08:09:51+00:00",
