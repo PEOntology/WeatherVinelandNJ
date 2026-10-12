@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-12T17:11:47+00:00",
+ "retrieved_at": "2026-10-12T17:12:16+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,8 +18,8 @@
    "name": "Columbus Day",
    "temp_f": 73,
    "short": "Patchy Fog then Partly Sunny",
-   "precip_pct": 9,
-   "wind": "NW 5 to 10 mph"
+   "precip_pct": 61,
+   "wind": "N 5 to 10 mph"
   },
   {
    "name": "Tonight",
