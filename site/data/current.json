@@ -1,25 +1,25 @@
 {
- "retrieved_at": "2026-10-12T14:41:39+00:00",
+ "retrieved_at": "2026-10-12T14:42:08+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-12T14:25:00+00:00",
+  "observed_at": "2026-10-12T14:15:00+00:00",
   "description": "Cloudy",
   "temp_f": 57.2,
   "dewpoint_f": 55.4,
   "humidity_pct": 93.7,
-  "wind_mph": 15.0,
+  "wind_mph": 11.5,
   "wind_gust_mph": null,
-  "wind_dir_deg": 340
+  "wind_dir_deg": 350
  },
  "forecast": [
   {
    "name": "Columbus Day",
    "temp_f": 73,
-   "short": "Patchy Fog then Partly Sunny",
-   "precip_pct": 53,
-   "wind": "N 5 to 10 mph"
+   "short": "Mostly Sunny",
+   "precip_pct": 4,
+   "wind": "NW 5 to 10 mph"
   },
   {
    "name": "Tonight",
