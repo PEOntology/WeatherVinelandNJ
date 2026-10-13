@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-13T20:42:30+00:00",
+ "generated_at": "2026-10-13T21:11:20+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7878,7 +7878,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-13T20:42:07+00:00"
+   "retrieved_at": "2026-10-13T21:10:56+00:00"
   },
   {
    "date": "2026-10-07",
@@ -7932,7 +7932,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-13T20:42:12+00:00"
+   "retrieved_at": "2026-10-13T21:11:03+00:00"
   },
   {
    "date": "2026-10-08",
@@ -7986,7 +7986,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-13T20:42:14+00:00"
+   "retrieved_at": "2026-10-13T21:11:05+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8216,7 +8216,7 @@
     "hours_expected": 24,
     "hours_found": 16,
     "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -8240,9 +8240,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 3000,
+    "files_found": 3086,
     "files_expected": 4320,
-    "missing_seconds": 26400,
+    "missing_seconds": 24680,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -8256,7 +8256,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-13T20:42:18+00:00"
+   "retrieved_at": "2026-10-13T21:11:09+00:00"
   }
  ]
 }
