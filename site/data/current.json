@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-14T20:52:21+00:00",
+ "retrieved_at": "2026-10-14T20:52:46+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "This Afternoon",
    "temp_f": 84,
-   "short": "Slight Chance Rain Showers",
-   "precip_pct": 17,
+   "short": "Slight Chance Showers And Thunderstorms",
+   "precip_pct": 21,
    "wind": "W 5 to 10 mph"
   },
   {
@@ -43,6 +43,6 @@
    "wind": "SE 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-14T20:11:51+00:00",
+ "forecast_updated": "2026-10-14T18:21:13+00:00",
  "alerts": []
 }
