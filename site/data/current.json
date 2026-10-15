@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-15T07:06:07+00:00",
+ "retrieved_at": "2026-10-15T07:13:11+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,7 +18,7 @@
    "name": "Overnight",
    "temp_f": 56,
    "short": "Mostly Cloudy",
-   "precip_pct": 7,
+   "precip_pct": 5,
    "wind": "N 10 mph"
   },
   {
