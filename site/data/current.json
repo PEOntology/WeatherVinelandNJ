@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-16T22:52:49+00:00",
+ "retrieved_at": "2026-10-16T22:59:46+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "Severe Thunderstorm Watch",
-   "headline": "Severe Thunderstorm Watch issued October 16 at 3:52PM EDT until October 16 at 10:00PM EDT by NWS Mount Holly NJ",
+   "headline": "Severe Thunderstorm Watch issued October 16 at 6:57PM EDT until October 16 at 10:00PM EDT by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-10-16T22:00:00-04:00"
   }
