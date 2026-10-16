@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-16T06:11:43+00:00",
+ "retrieved_at": "2026-10-16T06:12:06+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
+   "name": "Tonight",
    "temp_f": 56,
-   "short": "Showers And Thunderstorms Likely",
+   "short": "Mostly Cloudy then Showers And Thunderstorms Likely",
    "precip_pct": 68,
    "wind": "SE 5 mph"
   },
