@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-16T07:01:36+00:00",
+ "retrieved_at": "2026-10-16T07:01:56+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,32 +17,32 @@
   {
    "name": "Overnight",
    "temp_f": 56,
-   "short": "Showers And Thunderstorms Likely",
-   "precip_pct": 68,
+   "short": "Rain Showers",
+   "precip_pct": 79,
    "wind": "SE 5 mph"
   },
   {
    "name": "Friday",
    "temp_f": 80,
-   "short": "Showers And Thunderstorms Likely then Partly Sunny",
-   "precip_pct": 71,
-   "wind": "S 5 to 15 mph"
+   "short": "Rain Showers Likely",
+   "precip_pct": 68,
+   "wind": "S 5 to 10 mph"
   },
   {
    "name": "Friday Night",
-   "temp_f": 46,
+   "temp_f": 47,
    "short": "Showers And Thunderstorms",
-   "precip_pct": 89,
-   "wind": "W 5 to 15 mph"
+   "precip_pct": 91,
+   "wind": "W 10 to 15 mph"
   },
   {
    "name": "Saturday",
    "temp_f": 54,
    "short": "Chance Rain Showers then Partly Sunny",
-   "precip_pct": 40,
-   "wind": "N 10 to 15 mph"
+   "precip_pct": 46,
+   "wind": "N 15 mph"
   }
  ],
- "forecast_updated": "2026-10-15T20:09:54+00:00",
+ "forecast_updated": "2026-10-16T06:15:57+00:00",
  "alerts": []
 }
