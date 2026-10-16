@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-16T08:41:24+00:00",
+ "retrieved_at": "2026-10-16T08:41:49+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -43,6 +43,6 @@
    "wind": "N 15 mph"
   }
  ],
- "forecast_updated": "2026-10-16T06:15:57+00:00",
+ "forecast_updated": "2026-10-16T08:09:28+00:00",
  "alerts": []
 }
