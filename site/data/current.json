@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-17T12:11:34+00:00",
+ "retrieved_at": "2026-10-17T12:11:58+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Today",
    "temp_f": 52,
-   "short": "Rain Showers Likely",
-   "precip_pct": 57,
+   "short": "Chance Rain Showers",
+   "precip_pct": 33,
    "wind": "N 10 to 15 mph"
   },
   {
