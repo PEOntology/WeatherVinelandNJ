@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-17T01:00:58+00:00",
+ "retrieved_at": "2026-10-17T01:08:03+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,7 +18,7 @@
    "name": "Tonight",
    "temp_f": 44,
    "short": "Rain Showers",
-   "precip_pct": 100,
+   "precip_pct": 92,
    "wind": "NW 10 to 20 mph"
   },
   {
@@ -43,6 +43,6 @@
    "wind": "NE 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-10-17T00:28:36+00:00",
+ "forecast_updated": "2026-10-17T00:45:33+00:00",
  "alerts": []
 }
