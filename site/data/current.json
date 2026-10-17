@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-17T20:31:46+00:00",
+ "retrieved_at": "2026-10-17T20:32:10+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -38,11 +38,11 @@
   {
    "name": "Sunday Night",
    "temp_f": 39,
-   "short": "Mostly Clear",
-   "precip_pct": 1,
-   "wind": "NE 5 mph"
+   "short": "Clear",
+   "precip_pct": 0,
+   "wind": "NE 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-17T15:43:41+00:00",
+ "forecast_updated": "2026-10-17T20:09:10+00:00",
  "alerts": []
 }
