@@ -1,24 +1,24 @@
 {
- "retrieved_at": "2026-10-17T17:25:41+00:00",
+ "retrieved_at": "2026-10-17T17:32:47+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-17T17:05:00+00:00",
+  "observed_at": "2026-10-17T17:15:00+00:00",
   "description": "Clear",
   "temp_f": 51.8,
   "dewpoint_f": 37.4,
   "humidity_pct": 57.8,
   "wind_mph": 13.8,
   "wind_gust_mph": null,
-  "wind_dir_deg": 350
+  "wind_dir_deg": 360
  },
  "forecast": [
   {
    "name": "This Afternoon",
    "temp_f": 52,
    "short": "Cloudy",
-   "precip_pct": 6,
+   "precip_pct": 5,
    "wind": "N 15 to 20 mph"
   },
   {
