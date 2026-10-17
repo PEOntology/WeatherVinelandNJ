@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-17T08:03:19+00:00",
+ "generated_at": "2026-10-17T08:52:47+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7878,7 +7878,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-17T08:02:30+00:00"
+   "retrieved_at": "2026-10-17T08:52:13+00:00"
   },
   {
    "date": "2026-10-07",
@@ -7986,7 +7986,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-17T08:02:37+00:00"
+   "retrieved_at": "2026-10-17T08:52:18+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8040,7 +8040,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-17T08:02:42+00:00"
+   "retrieved_at": "2026-10-17T08:52:22+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8430,9 +8430,9 @@
     "value_in": null,
     "partial_in": 0.15,
     "hours_expected": 24,
-    "hours_found": 3,
+    "hours_found": 4,
     "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -8440,7 +8440,7 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": 0.17,
+    "value_in": 0.19,
     "trace": false,
     "status": "complete"
    },
@@ -8456,9 +8456,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 727,
+    "files_found": 875,
     "files_expected": 4320,
-    "missing_seconds": 71860,
+    "missing_seconds": 68900,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -8472,7 +8472,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-17T08:02:57+00:00"
+   "retrieved_at": "2026-10-17T08:52:32+00:00"
   }
  ]
 }
