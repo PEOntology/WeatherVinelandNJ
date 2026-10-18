@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-18T18:09:07+00:00",
+ "retrieved_at": "2026-10-18T18:09:30+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,7 +15,7 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 58,
    "short": "Sunny",
    "precip_pct": 0,
