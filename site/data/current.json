@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-19T14:58:36+00:00",
+ "retrieved_at": "2026-10-19T15:05:35+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,7 +17,7 @@
   {
    "name": "Today",
    "temp_f": 63,
-   "short": "Sunny",
+   "short": "Mostly Sunny",
    "precip_pct": 0,
    "wind": "NE 5 to 10 mph"
   },
