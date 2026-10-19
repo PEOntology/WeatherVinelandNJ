@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-19T05:54:48+00:00",
+ "retrieved_at": "2026-10-19T06:01:53+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
+   "name": "Tonight",
    "temp_f": 37,
-   "short": "Patchy Frost",
+   "short": "Mostly Clear then Patchy Frost",
    "precip_pct": 0,
    "wind": "N 0 to 5 mph"
   },
