@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-19T10:48:42+00:00",
+ "generated_at": "2026-10-19T11:39:02+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7983,7 +7983,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-19T10:47:48+00:00"
+   "retrieved_at": "2026-10-19T11:37:57+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8037,7 +8037,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-19T10:47:53+00:00"
+   "retrieved_at": "2026-10-19T11:38:02+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8091,7 +8091,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-19T10:48:04+00:00"
+   "retrieved_at": "2026-10-19T11:38:13+00:00"
   },
   {
    "date": "2026-10-11",
@@ -8415,7 +8415,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-18T14:43:01+00:00"
+   "retrieved_at": "2026-10-19T11:38:54+00:00"
   },
   {
    "date": "2026-10-17",
@@ -8469,21 +8469,21 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-18T14:43:01+00:00"
+   "retrieved_at": "2026-10-19T11:38:54+00:00"
   },
   {
    "date": "2026-10-18",
    "area": "Vineland, NJ",
    "coverage": "City of Vineland municipal boundary (Census place 3476070)",
-   "status": "provisional",
-   "day_ended": false,
+   "status": "complete",
+   "day_ended": true,
    "rain_estimated": {
-    "value_in": null,
-    "partial_in": 0.0,
+    "value_in": 0.0,
+    "partial_in": null,
     "hours_expected": 24,
-    "hours_found": 23,
-    "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
+    "hours_found": 24,
+    "status": "complete",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -8502,28 +8502,28 @@
     "reason": "Xweather Lightning Enterprise add-on not active"
    },
    "lightning_glm": {
-    "status": "provisional",
-    "flashes": null,
-    "partial_flashes": 0,
+    "status": "complete",
+    "flashes": 0,
+    "partial_flashes": null,
     "first_local": null,
     "last_local": null,
-    "files_found": 4194,
+    "files_found": 4317,
     "files_expected": 4320,
-    "missing_seconds": 2520,
+    "missing_seconds": 60,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
    "lightning_flash": {
     "source": "Xweather lightning/flash live feed (polled continuously)",
     "label": "Detected lightning flashes within Vineland (ground network; strikes and in-cloud pulses combined)",
-    "status": "provisional",
+    "status": "complete",
     "flashes": 0,
     "partial_flashes": null,
     "uncovered_minutes": 0,
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-19T03:19:13+00:00"
+   "retrieved_at": "2026-10-19T11:38:55+00:00"
   },
   {
    "date": "2026-10-19",
@@ -8535,7 +8535,7 @@
     "value_in": null,
     "partial_in": 0.0,
     "hours_expected": 24,
-    "hours_found": 6,
+    "hours_found": 7,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
@@ -8561,9 +8561,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1222,
+    "files_found": 1372,
     "files_expected": 4320,
-    "missing_seconds": 61960,
+    "missing_seconds": 58960,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -8577,7 +8577,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-19T10:48:28+00:00"
+   "retrieved_at": "2026-10-19T11:38:38+00:00"
   }
  ]
 }
