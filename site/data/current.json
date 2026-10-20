@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-20T19:13:59+00:00",
+ "retrieved_at": "2026-10-20T19:21:04+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,7 +15,7 @@
  },
  "forecast": [
   {
-   "name": "This Afternoon",
+   "name": "Today",
    "temp_f": 69,
    "short": "Sunny",
    "precip_pct": 0,
@@ -24,25 +24,32 @@
   {
    "name": "Tonight",
    "temp_f": 43,
-   "short": "Clear",
+   "short": "Mostly Clear",
    "precip_pct": 0,
    "wind": "N 10 mph"
   },
   {
    "name": "Wednesday",
-   "temp_f": 62,
-   "short": "Sunny",
+   "temp_f": 63,
+   "short": "Mostly Sunny",
    "precip_pct": 0,
    "wind": "N 10 to 15 mph"
   },
   {
    "name": "Wednesday Night",
-   "temp_f": 38,
+   "temp_f": 41,
    "short": "Partly Cloudy",
    "precip_pct": 0,
-   "wind": "N 5 to 10 mph"
+   "wind": "N 10 to 15 mph"
   }
  ],
- "forecast_updated": "2026-10-20T18:58:15+00:00",
- "alerts": []
+ "forecast_updated": "2026-10-20T15:48:22+00:00",
+ "alerts": [
+  {
+   "event": "Coastal Flood Advisory",
+   "headline": "Coastal Flood Advisory issued October 20 at 3:18PM EDT until October 21 at 10:00PM EDT by NWS Mount Holly NJ",
+   "severity": "Minor",
+   "ends": "2026-10-21T22:00:00-04:00"
+  }
+ ]
 }
