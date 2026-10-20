@@ -1,17 +1,17 @@
 {
- "retrieved_at": "2026-10-20T17:27:04+00:00",
+ "retrieved_at": "2026-10-20T17:34:10+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-20T16:45:00+00:00",
+  "observed_at": "2026-10-20T16:50:00+00:00",
   "description": "Clear",
   "temp_f": 66.2,
   "dewpoint_f": 42.8,
   "humidity_pct": 42.6,
-  "wind_mph": 12.7,
-  "wind_gust_mph": 19.6,
-  "wind_dir_deg": 30
+  "wind_mph": 16.1,
+  "wind_gust_mph": null,
+  "wind_dir_deg": 10
  },
  "forecast": [
   {
@@ -44,12 +44,5 @@
   }
  ],
  "forecast_updated": "2026-10-20T15:48:22+00:00",
- "alerts": [
-  {
-   "event": "Tsunami Warning",
-   "headline": "TEST Tsunami Warning issued October 20 at 12:31PM EDT until October 20 at 1:31PM EDT by NWS National Tsunami Warning Center",
-   "severity": "Extreme",
-   "ends": "2026-10-20T13:31:00-04:00"
-  }
- ]
+ "alerts": []
 }
