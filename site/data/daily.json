@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-10-21T12:57:42+00:00",
+ "generated_at": "2026-10-21T13:47:40+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7983,7 +7983,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-21T12:56:50+00:00"
+   "retrieved_at": "2026-10-21T13:46:43+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8037,7 +8037,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-21T12:56:54+00:00"
+   "retrieved_at": "2026-10-21T13:46:48+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8091,7 +8091,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-21T12:57:05+00:00"
+   "retrieved_at": "2026-10-21T13:46:59+00:00"
   },
   {
    "date": "2026-10-11",
@@ -8643,9 +8643,9 @@
     "value_in": null,
     "partial_in": 0.0,
     "hours_expected": 24,
-    "hours_found": 8,
+    "hours_found": 9,
     "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -8653,9 +8653,9 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": null,
+    "value_in": 0.0,
     "trace": false,
-    "status": "unavailable"
+    "status": "complete"
    },
    "lightning": {
     "source": "Xweather detected lightning (Lightning Enterprise)",
@@ -8669,9 +8669,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1611,
+    "files_found": 1759,
     "files_expected": 4320,
-    "missing_seconds": 54180,
+    "missing_seconds": 51220,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -8685,7 +8685,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-21T12:57:30+00:00"
+   "retrieved_at": "2026-10-21T13:47:24+00:00"
   }
  ]
 }
