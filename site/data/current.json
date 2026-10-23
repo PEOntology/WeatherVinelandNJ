@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-23T21:39:50+00:00",
+ "retrieved_at": "2026-10-23T21:43:29+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -19,7 +19,7 @@
    "temp_f": 62,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "NE 5 mph"
+   "wind": "E 5 mph"
   },
   {
    "name": "Tonight",
