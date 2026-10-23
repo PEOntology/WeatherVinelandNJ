@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-23T22:26:34+00:00",
+ "retrieved_at": "2026-10-23T22:33:39+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -39,6 +39,13 @@
    "name": "Sunday",
    "temp_f": 65,
    "short": "Areas Of Frost then Sunny",
+   "precip_pct": 0,
+   "wind": "0 mph"
+  },
+  {
+   "name": "Sunday",
+   "temp_f": 65,
+   "short": "Patchy Frost then Sunny",
    "precip_pct": 0,
    "wind": "0 mph"
   }
