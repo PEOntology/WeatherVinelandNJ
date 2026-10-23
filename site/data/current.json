@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-23T21:21:45+00:00",
+ "retrieved_at": "2026-10-23T21:28:51+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "Frost Advisory",
-   "headline": "Frost Advisory issued October 23 at 2:04PM EDT until October 24 at 9:00AM EDT by NWS Mount Holly NJ",
+   "headline": "Frost Advisory issued October 23 at 5:28PM EDT until October 24 at 9:00AM EDT by NWS Mount Holly NJ",
    "severity": "Minor",
    "ends": "2026-10-24T09:00:00-04:00"
   }
