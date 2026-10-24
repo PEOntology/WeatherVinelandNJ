@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-24T22:34:48+00:00",
+ "retrieved_at": "2026-10-24T22:35:12+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,13 +14,6 @@
   "wind_dir_deg": 0
  },
  "forecast": [
-  {
-   "name": "This Afternoon",
-   "temp_f": 64,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "0 mph"
-  },
   {
    "name": "Tonight",
    "temp_f": 32,
@@ -41,6 +34,13 @@
    "short": "Patchy Frost",
    "precip_pct": 0,
    "wind": "0 mph"
+  },
+  {
+   "name": "Monday",
+   "temp_f": 69,
+   "short": "Patchy Frost then Sunny",
+   "precip_pct": 0,
+   "wind": "W 0 to 5 mph"
   }
  ],
  "forecast_updated": "2026-10-24T21:04:46+00:00",
