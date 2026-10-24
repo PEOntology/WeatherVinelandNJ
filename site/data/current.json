@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-24T21:19:09+00:00",
+ "retrieved_at": "2026-10-24T21:23:23+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -23,27 +23,27 @@
   },
   {
    "name": "Tonight",
-   "temp_f": 33,
-   "short": "Clear then Patchy Frost",
+   "temp_f": 32,
+   "short": "Widespread Frost",
    "precip_pct": 0,
    "wind": "0 mph"
   },
   {
    "name": "Sunday",
    "temp_f": 66,
-   "short": "Patchy Frost then Sunny",
+   "short": "Widespread Frost then Sunny",
    "precip_pct": 0,
    "wind": "NW 0 to 5 mph"
   },
   {
    "name": "Sunday Night",
    "temp_f": 36,
-   "short": "Clear then Patchy Frost",
+   "short": "Patchy Frost",
    "precip_pct": 0,
    "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-10-24T20:09:23+00:00",
+ "forecast_updated": "2026-10-24T21:04:46+00:00",
  "alerts": [
   {
    "event": "Freeze Warning",
