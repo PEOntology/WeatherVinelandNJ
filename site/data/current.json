@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-24T10:05:45+00:00",
+ "retrieved_at": "2026-10-24T10:06:09+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,21 +15,14 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
-   "temp_f": 33,
-   "short": "Areas Of Frost",
-   "precip_pct": 0,
-   "wind": "0 mph"
-  },
-  {
-   "name": "Saturday",
+   "name": "Today",
    "temp_f": 64,
    "short": "Areas Of Frost then Sunny",
    "precip_pct": 0,
    "wind": "0 mph"
   },
   {
-   "name": "Saturday Night",
+   "name": "Tonight",
    "temp_f": 34,
    "short": "Areas Of Frost",
    "precip_pct": 0,
@@ -39,6 +32,13 @@
    "name": "Sunday",
    "temp_f": 66,
    "short": "Areas Of Frost then Sunny",
+   "precip_pct": 0,
+   "wind": "0 mph"
+  },
+  {
+   "name": "Sunday Night",
+   "temp_f": 35,
+   "short": "Clear",
    "precip_pct": 0,
    "wind": "0 mph"
   }
