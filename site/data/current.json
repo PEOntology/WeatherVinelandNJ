@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-24T14:30:11+00:00",
+ "retrieved_at": "2026-10-24T14:37:18+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,7 +17,7 @@
   {
    "name": "Today",
    "temp_f": 64,
-   "short": "Sunny",
+   "short": "Areas Of Frost then Sunny",
    "precip_pct": 0,
    "wind": "0 mph"
   },
