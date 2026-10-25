@@ -1,10 +1,10 @@
 {
- "retrieved_at": "2026-10-25T08:35:19+00:00",
+ "retrieved_at": "2026-10-25T08:42:18+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-25T08:15:00+00:00",
+  "observed_at": "2026-10-25T08:30:00+00:00",
   "description": "Clear",
   "temp_f": 33.8,
   "dewpoint_f": 32.0,
@@ -15,18 +15,18 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 32,
-   "short": "Widespread Frost",
+   "short": "Areas Of Frost",
    "precip_pct": 0,
    "wind": "0 mph"
   },
   {
    "name": "Sunday",
-   "temp_f": 66,
-   "short": "Widespread Frost then Sunny",
+   "temp_f": 65,
+   "short": "Areas Of Frost then Sunny",
    "precip_pct": 0,
-   "wind": "NW 0 to 5 mph"
+   "wind": "0 mph"
   },
   {
    "name": "Sunday Night",
@@ -37,13 +37,13 @@
   },
   {
    "name": "Monday",
-   "temp_f": 69,
+   "temp_f": 68,
    "short": "Patchy Frost then Sunny",
    "precip_pct": 0,
    "wind": "W 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-24T21:04:46+00:00",
+ "forecast_updated": "2026-10-25T08:08:34+00:00",
  "alerts": [
   {
    "event": "Freeze Warning",
