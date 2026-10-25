@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-25T12:59:17+00:00",
+ "retrieved_at": "2026-10-25T13:06:21+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -44,12 +44,5 @@
   }
  ],
  "forecast_updated": "2026-10-25T08:08:34+00:00",
- "alerts": [
-  {
-   "event": "Freeze Warning",
-   "headline": "Freeze Warning issued October 25 at 8:56AM EDT until October 25 at 9:00AM EDT by NWS Mount Holly NJ",
-   "severity": "Severe",
-   "ends": "2026-10-25T09:00:00-04:00"
-  }
- ]
+ "alerts": []
 }
