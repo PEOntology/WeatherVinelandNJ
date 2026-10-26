@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-26T08:58:42+00:00",
+ "retrieved_at": "2026-10-26T09:05:46+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 34,
-   "short": "Clear then Areas Of Frost",
+   "short": "Areas Of Frost",
    "precip_pct": 0,
    "wind": "0 mph"
   },
@@ -26,24 +26,24 @@
    "temp_f": 68,
    "short": "Areas Of Frost then Sunny",
    "precip_pct": 0,
-   "wind": "W 0 to 10 mph"
+   "wind": "W 0 to 5 mph"
   },
   {
    "name": "Monday Night",
-   "temp_f": 47,
-   "short": "Clear",
-   "precip_pct": 0,
+   "temp_f": 45,
+   "short": "Mostly Clear",
+   "precip_pct": 1,
    "wind": "NW 0 to 5 mph"
   },
   {
    "name": "Tuesday",
-   "temp_f": 66,
+   "temp_f": 67,
    "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "N 0 to 5 mph"
+   "precip_pct": 1,
+   "wind": "NE 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-25T20:58:40+00:00",
+ "forecast_updated": "2026-10-26T08:09:03+00:00",
  "alerts": [
   {
    "event": "Frost Advisory",
