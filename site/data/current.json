@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-27T07:27:23+00:00",
+ "retrieved_at": "2026-10-27T07:27:47+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 47,
    "short": "Patchy Fog",
    "precip_pct": 0,
-   "wind": "NW 5 mph"
+   "wind": "N 5 mph"
   },
   {
    "name": "Tuesday",
