@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-29T10:26:28+00:00",
+ "retrieved_at": "2026-10-29T10:26:53+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,14 +15,21 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "Overnight",
+   "temp_f": 44,
+   "short": "Areas Of Fog",
+   "precip_pct": 0,
+   "wind": "0 mph"
+  },
+  {
+   "name": "Thursday",
    "temp_f": 71,
    "short": "Areas Of Fog then Mostly Sunny",
    "precip_pct": 0,
    "wind": "SW 0 to 5 mph"
   },
   {
-   "name": "Tonight",
+   "name": "Thursday Night",
    "temp_f": 50,
    "short": "Mostly Clear",
    "precip_pct": 2,
@@ -34,13 +41,6 @@
    "short": "Sunny",
    "precip_pct": 2,
    "wind": "W 5 to 15 mph"
-  },
-  {
-   "name": "Friday Night",
-   "temp_f": 39,
-   "short": "Mostly Clear",
-   "precip_pct": 0,
-   "wind": "NW 5 to 10 mph"
   }
  ],
  "forecast_updated": "2026-10-29T08:08:44+00:00",
