@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-29T14:29:29+00:00",
+ "retrieved_at": "2026-10-29T14:36:36+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,9 +17,9 @@
   {
    "name": "Today",
    "temp_f": 71,
-   "short": "Areas Of Fog then Mostly Sunny",
+   "short": "Mostly Sunny",
    "precip_pct": 0,
-   "wind": "W 0 to 5 mph"
+   "wind": "SW 0 to 5 mph"
   },
   {
    "name": "Tonight",
@@ -43,6 +43,6 @@
    "wind": "NW 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-10-29T08:08:44+00:00",
+ "forecast_updated": "2026-10-29T13:58:10+00:00",
  "alerts": []
 }
