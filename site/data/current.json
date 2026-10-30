@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-30T22:19:47+00:00",
+ "retrieved_at": "2026-10-30T22:20:08+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,13 +14,6 @@
   "wind_dir_deg": 300
  },
  "forecast": [
-  {
-   "name": "This Afternoon",
-   "temp_f": 75,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "NW 20 mph"
-  },
   {
    "name": "Tonight",
    "temp_f": 39,
@@ -41,6 +34,13 @@
    "short": "Mostly Cloudy then Patchy Frost",
    "precip_pct": 0,
    "wind": "N 0 to 5 mph"
+  },
+  {
+   "name": "Sunday",
+   "temp_f": 63,
+   "short": "Patchy Frost then Mostly Cloudy",
+   "precip_pct": 0,
+   "wind": "W 0 to 5 mph"
   }
  ],
  "forecast_updated": "2026-10-30T20:08:30+00:00",
