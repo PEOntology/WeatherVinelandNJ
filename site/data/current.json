@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-30T08:22:36+00:00",
+ "retrieved_at": "2026-10-30T08:29:42+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -16,15 +16,15 @@
  "forecast": [
   {
    "name": "Overnight",
-   "temp_f": 51,
-   "short": "Clear",
+   "temp_f": 50,
+   "short": "Patchy Fog",
    "precip_pct": 0,
    "wind": "SW 5 mph"
   },
   {
    "name": "Friday",
    "temp_f": 75,
-   "short": "Sunny",
+   "short": "Patchy Fog then Sunny",
    "precip_pct": 0,
    "wind": "W 5 to 15 mph"
   },
@@ -43,6 +43,6 @@
    "wind": "N 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-30T06:25:38+00:00",
+ "forecast_updated": "2026-10-30T08:08:30+00:00",
  "alerts": []
 }
