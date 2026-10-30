@@ -1,48 +1,48 @@
 {
- "retrieved_at": "2026-10-30T20:39:34+00:00",
+ "retrieved_at": "2026-10-30T20:40:01+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-10-30T20:20:00+00:00",
+  "observed_at": "2026-10-30T20:00:00+00:00",
   "description": "Clear",
   "temp_f": 73.4,
-  "dewpoint_f": 46.4,
-  "humidity_pct": 38.2,
-  "wind_mph": 10.4,
+  "dewpoint_f": 44.6,
+  "humidity_pct": 35.7,
+  "wind_mph": 13.8,
   "wind_gust_mph": null,
   "wind_dir_deg": 300
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 75,
-   "short": "Patchy Fog then Sunny",
+   "short": "Sunny",
    "precip_pct": 0,
-   "wind": "W 5 to 15 mph"
+   "wind": "NW 20 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 39,
    "short": "Mostly Clear",
    "precip_pct": 0,
-   "wind": "NW 5 to 10 mph"
+   "wind": "NW 5 to 15 mph"
   },
   {
    "name": "Saturday",
-   "temp_f": 62,
+   "temp_f": 61,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "N 0 to 5 mph"
+   "wind": "N 5 to 10 mph"
   },
   {
    "name": "Saturday Night",
-   "temp_f": 35,
-   "short": "Mostly Cloudy then Areas Of Frost",
+   "temp_f": 37,
+   "short": "Mostly Cloudy then Patchy Frost",
    "precip_pct": 0,
-   "wind": "0 mph"
+   "wind": "N 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-10-30T08:08:30+00:00",
+ "forecast_updated": "2026-10-30T20:08:30+00:00",
  "alerts": []
 }
