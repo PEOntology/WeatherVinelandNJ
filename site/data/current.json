@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-31T05:24:55+00:00",
+ "retrieved_at": "2026-10-31T05:32:02+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,7 +15,7 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 39,
    "short": "Partly Cloudy",
    "precip_pct": 0,
@@ -44,5 +44,12 @@
   }
  ],
  "forecast_updated": "2026-10-30T20:08:30+00:00",
- "alerts": []
+ "alerts": [
+  {
+   "event": "Frost Advisory",
+   "headline": "Frost Advisory issued October 31 at 1:26AM EDT until November 1 at 8:00AM EST by NWS Mount Holly NJ",
+   "severity": "Minor",
+   "ends": "2026-11-01T09:00:00-04:00"
+  }
+ ]
 }
