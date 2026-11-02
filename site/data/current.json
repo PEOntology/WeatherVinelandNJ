@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-02T03:47:48+00:00",
+ "retrieved_at": "2026-11-02T03:48:15+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,8 +18,8 @@
    "name": "Tonight",
    "temp_f": 36,
    "short": "Partly Cloudy then Areas Of Frost",
-   "precip_pct": 1,
-   "wind": "SW 0 to 5 mph"
+   "precip_pct": 0,
+   "wind": "0 mph"
   },
   {
    "name": "Monday",
@@ -43,7 +43,7 @@
    "wind": "S 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-01T21:08:24+00:00",
+ "forecast_updated": "2026-11-02T03:11:10+00:00",
  "alerts": [
   {
    "event": "Frost Advisory",
