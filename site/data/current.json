@@ -1,48 +1,48 @@
 {
- "retrieved_at": "2026-11-02T21:24:00+00:00",
+ "retrieved_at": "2026-11-02T21:24:32+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-02T21:05:00+00:00",
+  "observed_at": "2026-11-02T20:45:00+00:00",
   "description": "Clear",
   "temp_f": 59.0,
-  "dewpoint_f": 44.6,
-  "humidity_pct": 58.8,
+  "dewpoint_f": 42.8,
+  "humidity_pct": 54.9,
   "wind_mph": 0.0,
   "wind_gust_mph": null,
   "wind_dir_deg": 0
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 65,
-   "short": "Partly Sunny",
-   "precip_pct": 2,
-   "wind": "S 5 mph"
+   "short": "Sunny",
+   "precip_pct": 1,
+   "wind": "0 mph"
   },
   {
    "name": "Tonight",
-   "temp_f": 41,
+   "temp_f": 42,
    "short": "Areas Of Fog",
-   "precip_pct": 1,
-   "wind": "SW 0 to 5 mph"
+   "precip_pct": 2,
+   "wind": "0 mph"
   },
   {
    "name": "Tuesday",
-   "temp_f": 70,
+   "temp_f": 71,
    "short": "Areas Of Fog then Mostly Sunny",
-   "precip_pct": 1,
+   "precip_pct": 2,
    "wind": "S 0 to 5 mph"
   },
   {
    "name": "Tuesday Night",
-   "temp_f": 48,
+   "temp_f": 51,
    "short": "Areas Of Fog",
-   "precip_pct": 1,
-   "wind": "S 0 to 5 mph"
+   "precip_pct": 2,
+   "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-11-02T09:07:58+00:00",
+ "forecast_updated": "2026-11-02T21:08:29+00:00",
  "alerts": []
 }
