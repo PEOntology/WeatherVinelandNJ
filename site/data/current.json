@@ -1,13 +1,13 @@
 {
- "retrieved_at": "2026-11-02T12:59:32+00:00",
+ "retrieved_at": "2026-11-02T13:06:29+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-02T12:25:00+00:00",
-  "description": "Clear",
-  "temp_f": 35.6,
-  "dewpoint_f": 35.6,
+  "observed_at": "2026-11-02T12:55:00+00:00",
+  "description": "Mostly Clear",
+  "temp_f": 37.4,
+  "dewpoint_f": 37.4,
   "humidity_pct": 100,
   "wind_mph": 0.0,
   "wind_gust_mph": null,
@@ -44,12 +44,5 @@
   }
  ],
  "forecast_updated": "2026-11-02T09:07:58+00:00",
- "alerts": [
-  {
-   "event": "Frost Advisory",
-   "headline": "Frost Advisory issued November 2 at 7:38AM EST until November 2 at 8:00AM EST by NWS Mount Holly NJ",
-   "severity": "Minor",
-   "ends": "2026-11-02T08:00:00-05:00"
-  }
- ]
+ "alerts": []
 }
