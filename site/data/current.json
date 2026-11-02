@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-02T05:49:28+00:00",
+ "retrieved_at": "2026-11-02T05:50:07+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Overnight",
+   "name": "Tonight",
    "temp_f": 36,
-   "short": "Areas Of Frost",
+   "short": "Partly Cloudy then Areas Of Frost",
    "precip_pct": 0,
    "wind": "0 mph"
   },
