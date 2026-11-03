@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-03T21:02:48+00:00",
+ "retrieved_at": "2026-11-03T21:09:55+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "This Afternoon",
+   "name": "Today",
    "temp_f": 70,
-   "short": "Areas Of Fog then Mostly Sunny",
+   "short": "Mostly Sunny",
    "precip_pct": 2,
    "wind": "S 5 mph"
   },
