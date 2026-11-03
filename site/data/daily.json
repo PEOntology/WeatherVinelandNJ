@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-11-03T15:00:52+00:00",
+ "generated_at": "2026-11-03T15:46:23+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7983,7 +7983,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-03T14:59:36+00:00"
+   "retrieved_at": "2026-11-03T15:45:54+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8037,7 +8037,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-03T14:59:40+00:00"
+   "retrieved_at": "2026-11-03T15:45:57+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8091,7 +8091,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-03T14:59:51+00:00"
+   "retrieved_at": "2026-11-03T15:46:03+00:00"
   },
   {
    "date": "2026-10-11",
@@ -9345,9 +9345,9 @@
     "value_in": null,
     "partial_in": 0.0,
     "hours_expected": 24,
-    "hours_found": 9,
+    "hours_found": 10,
     "status": "provisional",
-    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
+    "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
@@ -9371,9 +9371,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1800,
+    "files_found": 1937,
     "files_expected": 4320,
-    "missing_seconds": 50400,
+    "missing_seconds": 47660,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -9381,13 +9381,13 @@
     "source": "Xweather lightning/flash live feed (polled continuously)",
     "label": "Detected lightning flashes within Vineland (ground network; strikes and in-cloud pulses combined)",
     "status": "provisional",
-    "flashes": null,
-    "partial_flashes": 0,
+    "flashes": 0,
+    "partial_flashes": null,
     "uncovered_minutes": 0,
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-03T15:00:39+00:00"
+   "retrieved_at": "2026-11-03T15:46:17+00:00"
   }
  ]
 }
