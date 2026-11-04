@@ -1,17 +1,17 @@
 {
- "retrieved_at": "2026-11-04T13:58:26+00:00",
+ "retrieved_at": "2026-11-04T14:05:31+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-04T13:03:00+00:00",
-  "description": "",
-  "temp_f": 53.1,
-  "dewpoint_f": 52.0,
-  "humidity_pct": 96.1,
-  "wind_mph": 0.0,
+  "observed_at": "2026-11-04T13:50:00+00:00",
+  "description": "Clear",
+  "temp_f": 60.8,
+  "dewpoint_f": 57.2,
+  "humidity_pct": 87.9,
+  "wind_mph": 3.4,
   "wind_gust_mph": null,
-  "wind_dir_deg": 0
+  "wind_dir_deg": 150
  },
  "forecast": [
   {
@@ -44,12 +44,5 @@
   }
  ],
  "forecast_updated": "2026-11-04T09:07:57+00:00",
- "alerts": [
-  {
-   "event": "Special Weather Statement",
-   "headline": "Special Weather Statement issued November 4 at 6:06AM EST by NWS Mount Holly NJ",
-   "severity": "Moderate",
-   "ends": "2026-11-04T09:00:00-05:00"
-  }
- ]
+ "alerts": []
 }
