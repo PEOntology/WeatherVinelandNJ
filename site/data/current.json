@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-06T21:39:24+00:00",
+ "retrieved_at": "2026-11-06T21:39:49+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,31 +18,31 @@
    "name": "This Afternoon",
    "temp_f": 68,
    "short": "Light Rain Likely",
-   "precip_pct": 63,
+   "precip_pct": 60,
    "wind": "NW 0 to 5 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 46,
-   "short": "Light Rain Likely then Mostly Cloudy",
-   "precip_pct": 57,
+   "short": "Chance Light Rain then Mostly Cloudy",
+   "precip_pct": 43,
    "wind": "W 0 to 5 mph"
   },
   {
    "name": "Saturday",
-   "temp_f": 59,
+   "temp_f": 58,
    "short": "Mostly Sunny",
    "precip_pct": 1,
    "wind": "W 5 to 15 mph"
   },
   {
    "name": "Saturday Night",
-   "temp_f": 41,
+   "temp_f": 40,
    "short": "Mostly Clear",
    "precip_pct": 0,
    "wind": "W 10 mph"
   }
  ],
- "forecast_updated": "2026-11-06T17:14:24+00:00",
+ "forecast_updated": "2026-11-06T21:07:56+00:00",
  "alerts": []
 }
