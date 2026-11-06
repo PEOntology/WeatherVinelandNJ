@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-06T09:16:34+00:00",
+ "retrieved_at": "2026-11-06T09:16:26+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 63,
-   "short": "Showers And Thunderstorms",
+   "short": "Rain Showers",
    "precip_pct": 93,
    "wind": "S 0 to 5 mph"
   },
