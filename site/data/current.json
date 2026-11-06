@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-06T17:00:34+00:00",
+ "retrieved_at": "2026-11-06T17:00:42+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 68,
    "short": "Rain",
-   "precip_pct": 95,
-   "wind": "W 0 to 5 mph"
+   "precip_pct": 76,
+   "wind": "NW 0 to 5 mph"
   },
   {
    "name": "Tonight",
