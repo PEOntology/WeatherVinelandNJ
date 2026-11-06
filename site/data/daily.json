@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-11-06T18:10:05+00:00",
+ "generated_at": "2026-11-06T18:20:45+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7983,7 +7983,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-06T17:29:30+00:00"
+   "retrieved_at": "2026-11-06T18:19:41+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8037,7 +8037,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-06T17:29:36+00:00"
+   "retrieved_at": "2026-11-06T18:19:46+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8091,7 +8091,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-06T17:29:50+00:00"
+   "retrieved_at": "2026-11-06T18:19:57+00:00"
   },
   {
    "date": "2026-10-11",
@@ -9505,9 +9505,9 @@
    "day_ended": false,
    "rain_estimated": {
     "value_in": null,
-    "partial_in": 0.63,
+    "partial_in": 0.67,
     "hours_expected": 24,
-    "hours_found": 12,
+    "hours_found": 13,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
@@ -9517,7 +9517,7 @@
     "name": "Millville Municipal Airport",
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
-    "value_in": 0.35,
+    "value_in": 0.44,
     "trace": false,
     "status": "complete"
    },
@@ -9533,9 +9533,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 2250,
+    "files_found": 2400,
     "files_expected": 4320,
-    "missing_seconds": 41400,
+    "missing_seconds": 38400,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -9549,7 +9549,7 @@
     "first_local": "2026-11-06T04:55:00-05:00",
     "last_local": "2026-11-06T04:55:00-05:00"
    },
-   "retrieved_at": "2026-11-06T17:30:28+00:00"
+   "retrieved_at": "2026-11-06T18:20:31+00:00"
   }
  ]
 }
