@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-07T02:39:56+00:00",
+ "retrieved_at": "2026-11-07T02:42:03+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Tonight",
    "temp_f": 46,
-   "short": "Slight Chance Light Rain then Mostly Cloudy",
-   "precip_pct": 19,
+   "short": "Patchy Fog",
+   "precip_pct": 9,
    "wind": "W 0 to 10 mph"
   },
   {
@@ -43,6 +43,6 @@
    "wind": "W 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-11-07T00:14:12+00:00",
+ "forecast_updated": "2026-11-07T01:53:04+00:00",
  "alerts": []
 }
