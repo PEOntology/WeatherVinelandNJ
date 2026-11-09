@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-09T18:53:56+00:00",
+ "retrieved_at": "2026-11-09T18:54:25+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,34 +15,34 @@
  },
  "forecast": [
   {
-   "name": "Today",
+   "name": "This Afternoon",
    "temp_f": 60,
-   "short": "Sunny",
-   "precip_pct": 6,
+   "short": "Mostly Sunny",
+   "precip_pct": 2,
    "wind": "NW 10 to 15 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 35,
-   "short": "Mostly Clear",
+   "short": "Mostly Clear then Patchy Frost",
    "precip_pct": 1,
    "wind": "W 5 to 10 mph"
   },
   {
    "name": "Tuesday",
    "temp_f": 64,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "W 5 to 15 mph"
+   "short": "Patchy Frost then Sunny",
+   "precip_pct": 1,
+   "wind": "SW 5 to 15 mph"
   },
   {
    "name": "Tuesday Night",
-   "temp_f": 36,
-   "short": "Clear",
+   "temp_f": 37,
+   "short": "Mostly Clear",
    "precip_pct": 0,
    "wind": "W 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-09T11:04:17+00:00",
+ "forecast_updated": "2026-11-09T18:20:35+00:00",
  "alerts": []
 }
