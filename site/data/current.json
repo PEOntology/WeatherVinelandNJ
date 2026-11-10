@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-10T21:08:06+00:00",
+ "retrieved_at": "2026-11-10T21:15:11+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,35 +15,35 @@
  },
  "forecast": [
   {
-   "name": "Today",
-   "temp_f": 64,
+   "name": "This Afternoon",
+   "temp_f": 65,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "SW 5 to 15 mph"
+   "wind": "SW 5 to 10 mph"
   },
   {
    "name": "Tonight",
-   "temp_f": 38,
-   "short": "Clear",
+   "temp_f": 37,
+   "short": "Clear then Patchy Frost",
    "precip_pct": 0,
    "wind": "W 0 to 5 mph"
   },
   {
    "name": "Veterans Day",
    "temp_f": 64,
-   "short": "Mostly Sunny",
+   "short": "Patchy Frost then Sunny",
    "precip_pct": 0,
-   "wind": "0 mph"
+   "wind": "SW 0 to 5 mph"
   },
   {
    "name": "Wednesday Night",
-   "temp_f": 42,
-   "short": "Mostly Cloudy then Slight Chance Light Rain",
-   "precip_pct": 18,
-   "wind": "0 mph"
+   "temp_f": 43,
+   "short": "Mostly Cloudy",
+   "precip_pct": 10,
+   "wind": "SE 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-10T13:20:03+00:00",
+ "forecast_updated": "2026-11-10T21:07:32+00:00",
  "alerts": [
   {
    "event": "Frost Advisory",
