@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-11T19:23:46+00:00",
+ "retrieved_at": "2026-11-11T19:24:10+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,9 +17,9 @@
   {
    "name": "Veterans Day",
    "temp_f": 64,
-   "short": "Sunny",
+   "short": "Mostly Sunny",
    "precip_pct": 0,
-   "wind": "S 0 to 5 mph"
+   "wind": "S 5 mph"
   },
   {
    "name": "Tonight",
