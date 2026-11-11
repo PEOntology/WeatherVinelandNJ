@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-11T21:18:11+00:00",
+ "retrieved_at": "2026-11-11T21:25:18+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,32 +17,32 @@
   {
    "name": "Veterans Day",
    "temp_f": 64,
-   "short": "Mostly Sunny",
+   "short": "Sunny",
    "precip_pct": 0,
-   "wind": "S 5 mph"
+   "wind": "S 0 to 5 mph"
   },
   {
    "name": "Tonight",
-   "temp_f": 45,
+   "temp_f": 47,
    "short": "Mostly Cloudy",
-   "precip_pct": 4,
+   "precip_pct": 3,
    "wind": "SE 0 to 5 mph"
   },
   {
    "name": "Thursday",
-   "temp_f": 65,
-   "short": "Light Rain Likely",
-   "precip_pct": 72,
-   "wind": "S 0 to 5 mph"
+   "temp_f": 64,
+   "short": "Light Rain",
+   "precip_pct": 77,
+   "wind": "S 5 to 10 mph"
   },
   {
    "name": "Thursday Night",
-   "temp_f": 37,
+   "temp_f": 38,
    "short": "Chance Light Rain",
-   "precip_pct": 28,
-   "wind": "NW 0 to 10 mph"
+   "precip_pct": 43,
+   "wind": "NW 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-11-11T14:33:06+00:00",
+ "forecast_updated": "2026-11-11T21:08:01+00:00",
  "alerts": []
 }
