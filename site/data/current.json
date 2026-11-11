@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-11T09:30:26+00:00",
+ "retrieved_at": "2026-11-11T09:37:35+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -43,7 +43,7 @@
    "wind": "S 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-11T06:23:09+00:00",
+ "forecast_updated": "2026-11-11T09:07:43+00:00",
  "alerts": [
   {
    "event": "Frost Advisory",
