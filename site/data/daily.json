@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-11-12T16:14:27+00:00",
+ "generated_at": "2026-11-12T17:04:06+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -7983,7 +7983,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-12T16:13:30+00:00"
+   "retrieved_at": "2026-11-12T17:03:34+00:00"
   },
   {
    "date": "2026-10-09",
@@ -8037,7 +8037,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-12T16:13:35+00:00"
+   "retrieved_at": "2026-11-12T17:03:37+00:00"
   },
   {
    "date": "2026-10-10",
@@ -8091,7 +8091,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-12T16:13:46+00:00"
+   "retrieved_at": "2026-11-12T17:03:44+00:00"
   },
   {
    "date": "2026-10-11",
@@ -9831,7 +9831,7 @@
     "value_in": null,
     "partial_in": 0.0,
     "hours_expected": 24,
-    "hours_found": 10,
+    "hours_found": 11,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected)",
     "label": "Estimated precipitation, Vineland area average"
@@ -9842,7 +9842,7 @@
     "label": "Nearby station precipitation, Millville Municipal Airport",
     "source": "Iowa Environmental Mesonet ASOS daily summary",
     "value_in": 0.0,
-    "trace": false,
+    "trace": true,
     "status": "complete"
    },
    "lightning": {
@@ -9857,9 +9857,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 2019,
+    "files_found": 2167,
     "files_expected": 4320,
-    "missing_seconds": 46020,
+    "missing_seconds": 43060,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -9873,7 +9873,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-12T16:14:12+00:00"
+   "retrieved_at": "2026-11-12T17:03:59+00:00"
   }
  ]
 }
