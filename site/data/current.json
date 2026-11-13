@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-13T18:55:25+00:00",
+ "retrieved_at": "2026-11-13T19:02:25+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,7 +18,7 @@
    "name": "This Afternoon",
    "temp_f": 44,
    "short": "Chance Light Rain",
-   "precip_pct": 50,
+   "precip_pct": 39,
    "wind": "NW 5 to 10 mph"
   },
   {
