@@ -1,17 +1,17 @@
 {
- "retrieved_at": "2026-11-13T17:36:32+00:00",
+ "retrieved_at": "2026-11-13T17:43:37+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-13T17:15:00+00:00",
+  "observed_at": "2026-11-13T17:25:00+00:00",
   "description": "Cloudy",
   "temp_f": 42.8,
   "dewpoint_f": 39.2,
   "humidity_pct": 87.0,
-  "wind_mph": 13.8,
+  "wind_mph": 9.2,
   "wind_gust_mph": null,
-  "wind_dir_deg": 320
+  "wind_dir_deg": 340
  },
  "forecast": [
   {
@@ -44,5 +44,12 @@
   }
  ],
  "forecast_updated": "2026-11-13T12:01:28+00:00",
- "alerts": []
+ "alerts": [
+  {
+   "event": "Freeze Warning",
+   "headline": "Freeze Warning issued November 13 at 12:43PM EST until November 14 at 9:00AM EST by NWS Mount Holly NJ",
+   "severity": "Severe",
+   "ends": "2026-11-14T09:00:00-05:00"
+  }
+ ]
 }
