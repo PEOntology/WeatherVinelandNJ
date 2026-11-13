@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-13T10:20:29+00:00",
+ "retrieved_at": "2026-11-13T10:27:39+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -19,11 +19,11 @@
    "temp_f": 38,
    "short": "Chance Light Rain",
    "precip_pct": 36,
-   "wind": "NW 10 mph"
+   "wind": "NW 10 to 15 mph"
   },
   {
    "name": "Friday",
-   "temp_f": 45,
+   "temp_f": 47,
    "short": "Light Rain",
    "precip_pct": 92,
    "wind": "NW 10 to 15 mph"
@@ -43,6 +43,6 @@
    "wind": "NW 10 to 15 mph"
   }
  ],
- "forecast_updated": "2026-11-13T10:12:28+00:00",
+ "forecast_updated": "2026-11-13T09:27:38+00:00",
  "alerts": []
 }
