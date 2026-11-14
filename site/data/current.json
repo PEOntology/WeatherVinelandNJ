@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-14T05:53:39+00:00",
+ "retrieved_at": "2026-11-14T06:00:45+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "Freeze Warning",
-   "headline": "Freeze Warning issued November 13 at 12:43PM EST until November 14 at 9:00AM EST by NWS Mount Holly NJ",
+   "headline": "Freeze Warning issued November 14 at 12:56AM EST until November 14 at 9:00AM EST by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-11-14T09:00:00-05:00"
   }
