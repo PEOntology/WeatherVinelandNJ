@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-14T00:46:04+00:00",
+ "retrieved_at": "2026-11-14T00:46:30+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,8 +17,8 @@
   {
    "name": "Tonight",
    "temp_f": 29,
-   "short": "Mostly Cloudy",
-   "precip_pct": 12,
+   "short": "Chance Light Rain then Mostly Cloudy",
+   "precip_pct": 36,
    "wind": "NW 5 mph"
   },
   {
