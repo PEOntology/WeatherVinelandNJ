@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-15T01:17:42+00:00",
+ "retrieved_at": "2026-11-15T01:24:49+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -16,7 +16,7 @@
  "forecast": [
   {
    "name": "Tonight",
-   "temp_f": 31,
+   "temp_f": 35,
    "short": "Partly Cloudy",
    "precip_pct": 2,
    "wind": "W 5 mph"
@@ -43,6 +43,6 @@
    "wind": "NW 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-14T21:07:54+00:00",
+ "forecast_updated": "2026-11-15T00:34:50+00:00",
  "alerts": []
 }
