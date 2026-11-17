@@ -1,18 +1,10 @@
 {
- "retrieved_at": "2026-11-17T16:02:07+00:00",
- "errors": [],
- "observation": {
-  "station": "KMIV",
-  "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-17T15:10:00+00:00",
-  "description": "Clear",
-  "temp_f": 48.2,
-  "dewpoint_f": 35.6,
-  "humidity_pct": 61.5,
-  "wind_mph": 5.7,
-  "wind_gust_mph": null,
-  "wind_dir_deg": 20
- },
+ "retrieved_at": "2026-11-17T16:09:19+00:00",
+ "errors": [
+  "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;c2aa3717&#46;1794931774&#46;12dc9034\n<P>https&#58;&#47;&#47;errors&#46;edge",
+  "alerts: GET https://api.weather.gov/alerts/active -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;95aa3717&#46;1794931790&#46;994bd12\n<P>https&#58;&#47;&#47;errors&#46;edges"
+ ],
+ "observation": null,
  "forecast": [
   {
    "name": "Today",
@@ -44,5 +36,5 @@
   }
  ],
  "forecast_updated": "2026-11-17T09:07:30+00:00",
- "alerts": []
+ "alerts": null
 }
