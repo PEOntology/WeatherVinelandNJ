@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-17T17:59:52+00:00",
+ "retrieved_at": "2026-11-17T18:00:17+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -19,31 +19,31 @@
    "temp_f": 57,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "W 5 mph"
+   "wind": "W 0 to 5 mph"
   },
   {
    "name": "Tonight",
-   "temp_f": 31,
+   "temp_f": 30,
    "short": "Mostly Clear",
    "precip_pct": 0,
-   "wind": "W 0 to 5 mph"
+   "wind": "0 mph"
   },
   {
    "name": "Wednesday",
    "temp_f": 61,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "W 5 mph"
+   "wind": "W 0 to 5 mph"
   },
   {
    "name": "Wednesday Night",
    "temp_f": 32,
    "short": "Mostly Clear",
    "precip_pct": 0,
-   "wind": "W 0 to 5 mph"
+   "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-11-17T09:07:30+00:00",
+ "forecast_updated": "2026-11-17T17:43:46+00:00",
  "alerts": [
   {
    "event": "Tsunami Warning",
