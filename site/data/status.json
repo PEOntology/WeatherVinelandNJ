@@ -1,8 +1,8 @@
 {
  "current": {
-  "last_run": "2026-11-17T16:09:50+00:00",
+  "last_run": "2026-11-17T16:17:25+00:00",
   "last_result": "error",
-  "detail": "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;c2aa3717&#46;1794931774&#46;12dc9034\n<P>https&#58;&#47;&#47;errors&#46;edge; alerts: GE",
+  "detail": "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;b4aa3717&#46;1794932229&#46;ba365fc\n<P>https&#58;&#47;&#47;errors&#46;edges; alerts: GE",
   "last_success": "2026-11-17T16:02:08+00:00"
  },
  "backfill": {
@@ -12,10 +12,10 @@
   "last_success": "2026-09-22T21:10:04+00:00"
  },
  "lightning_live": {
-  "last_run": "2026-11-17T16:09:19+00:00",
+  "last_run": "2026-11-17T16:16:54+00:00",
   "last_result": "ok",
   "detail": "3 polls, 0 errors",
-  "last_success": "2026-11-17T16:09:19+00:00"
+  "last_success": "2026-11-17T16:16:54+00:00"
  },
  "integrations": {
   "procore": {
