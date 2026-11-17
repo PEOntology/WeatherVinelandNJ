@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-17T19:19:18+00:00",
+ "retrieved_at": "2026-11-17T19:26:24+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -37,12 +37,12 @@
   },
   {
    "name": "Wednesday Night",
-   "temp_f": 32,
+   "temp_f": 33,
    "short": "Mostly Clear",
    "precip_pct": 0,
    "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-11-17T17:43:46+00:00",
+ "forecast_updated": "2026-11-17T18:54:31+00:00",
  "alerts": []
 }
