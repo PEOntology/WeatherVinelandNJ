@@ -1,11 +1,48 @@
 {
- "retrieved_at": "2026-11-17T16:40:38+00:00",
- "errors": [
-  "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;72d3e17&#46;1794933652&#46;31b197e6\n<P>https&#58;&#47;&#47;errors&#46;edges",
-  "forecast: GET https://api.weather.gov/gridpoints/PHI/58,59/forecast -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;1a2d3e17&#46;1794933666&#46;4c37cac3\n<P>https&#58;&#47;&#47;errors&#46;edge",
-  "alerts: GET https://api.weather.gov/alerts/active -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;122d3e17&#46;1794933681&#46;4a1fffff\n<P>https&#58;&#47;&#47;errors&#46;edge"
+ "retrieved_at": "2026-11-17T16:48:27+00:00",
+ "errors": [],
+ "observation": {
+  "station": "KMIV",
+  "station_name": "Millville Municipal Airport",
+  "observed_at": "2026-11-17T15:10:00+00:00",
+  "description": "Clear",
+  "temp_f": 48.2,
+  "dewpoint_f": 35.6,
+  "humidity_pct": 61.5,
+  "wind_mph": 5.7,
+  "wind_gust_mph": null,
+  "wind_dir_deg": 20
+ },
+ "forecast": [
+  {
+   "name": "Today",
+   "temp_f": 57,
+   "short": "Sunny",
+   "precip_pct": 0,
+   "wind": "NW 5 mph"
+  },
+  {
+   "name": "Tonight",
+   "temp_f": 31,
+   "short": "Mostly Clear",
+   "precip_pct": 0,
+   "wind": "W 0 to 5 mph"
+  },
+  {
+   "name": "Wednesday",
+   "temp_f": 61,
+   "short": "Sunny",
+   "precip_pct": 0,
+   "wind": "W 5 mph"
+  },
+  {
+   "name": "Wednesday Night",
+   "temp_f": 32,
+   "short": "Mostly Clear",
+   "precip_pct": 0,
+   "wind": "W 0 to 5 mph"
+  }
  ],
- "observation": null,
- "forecast": null,
- "alerts": null
+ "forecast_updated": "2026-11-17T09:07:30+00:00",
+ "alerts": []
 }
