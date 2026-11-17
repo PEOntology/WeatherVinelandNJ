@@ -1,40 +1,11 @@
 {
- "retrieved_at": "2026-11-17T16:16:54+00:00",
+ "retrieved_at": "2026-11-17T16:17:53+00:00",
  "errors": [
-  "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;b4aa3717&#46;1794932229&#46;ba365fc\n<P>https&#58;&#47;&#47;errors&#46;edges",
-  "alerts: GET https://api.weather.gov/alerts/active -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;a9aa3717&#46;1794932245&#46;15149256\n<P>https&#58;&#47;&#47;errors&#46;edge"
+  "observation: GET https://api.weather.gov/stations/KMIV/observations/latest -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;b0973017&#46;1794932288&#46;8db64b8\n<P>https&#58;&#47;&#47;errors&#46;edges",
+  "forecast: GET https://api.weather.gov/gridpoints/PHI/58,59/forecast -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;ae973017&#46;1794932303&#46;d9eb599\n<P>https&#58;&#47;&#47;errors&#46;edges",
+  "alerts: GET https://api.weather.gov/alerts/active -> HTTP 503: <HTML><HEAD><TITLE>Error</TITLE></HEAD><BODY>\nAn error occurred while processing your request.<p>\nReference&#32;&#35;102&#46;ab973017&#46;1794932318&#46;9470f59\n<P>https&#58;&#47;&#47;errors&#46;edges"
  ],
  "observation": null,
- "forecast": [
-  {
-   "name": "Today",
-   "temp_f": 57,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "NW 5 mph"
-  },
-  {
-   "name": "Tonight",
-   "temp_f": 31,
-   "short": "Mostly Clear",
-   "precip_pct": 0,
-   "wind": "W 0 to 5 mph"
-  },
-  {
-   "name": "Wednesday",
-   "temp_f": 61,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "W 5 mph"
-  },
-  {
-   "name": "Wednesday Night",
-   "temp_f": 32,
-   "short": "Mostly Clear",
-   "precip_pct": 0,
-   "wind": "W 0 to 5 mph"
-  }
- ],
- "forecast_updated": "2026-11-17T09:07:30+00:00",
+ "forecast": null,
  "alerts": null
 }
