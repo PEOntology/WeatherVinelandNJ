@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-19T12:59:32+00:00",
+ "retrieved_at": "2026-11-19T13:06:37+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,7 +17,7 @@
   {
    "name": "Today",
    "temp_f": 66,
-   "short": "Patchy Fog then Sunny",
+   "short": "Sunny",
    "precip_pct": 0,
    "wind": "W 0 to 5 mph"
   },
@@ -43,6 +43,6 @@
    "wind": "0 mph"
   }
  ],
- "forecast_updated": "2026-11-19T09:07:31+00:00",
+ "forecast_updated": "2026-11-19T12:33:24+00:00",
  "alerts": []
 }
