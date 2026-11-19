@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-19T05:50:27+00:00",
+ "retrieved_at": "2026-11-19T05:50:53+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 29,
-   "short": "Clear then Areas Of Fog",
+   "short": "Areas Of Fog",
    "precip_pct": 0,
    "wind": "0 mph"
   },
