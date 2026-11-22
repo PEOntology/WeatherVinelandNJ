@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-22T23:00:57+00:00",
+ "retrieved_at": "2026-11-22T23:07:55+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,6 +14,13 @@
   "wind_dir_deg": 360
  },
  "forecast": [
+  {
+   "name": "This Afternoon",
+   "temp_f": 67,
+   "short": "Light Rain Likely",
+   "precip_pct": 63,
+   "wind": "NE 5 mph"
+  },
   {
    "name": "Tonight",
    "temp_f": 54,
