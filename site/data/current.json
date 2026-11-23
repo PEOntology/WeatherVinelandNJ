@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-23T06:02:25+00:00",
+ "retrieved_at": "2026-11-23T06:09:30+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,7 +18,7 @@
    "name": "Overnight",
    "temp_f": 54,
    "short": "Patchy Fog",
-   "precip_pct": 21,
+   "precip_pct": 19,
    "wind": "0 mph"
   },
   {
