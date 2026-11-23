@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-11-23T22:21:44+00:00",
+ "generated_at": "2026-11-23T22:47:25+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -10305,7 +10305,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-23T13:11:47+00:00"
+   "retrieved_at": "2026-11-23T22:47:22+00:00"
   },
   {
    "date": "2026-11-21",
@@ -10359,7 +10359,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-23T13:11:48+00:00"
+   "retrieved_at": "2026-11-23T22:47:24+00:00"
   },
   {
    "date": "2026-11-22",
@@ -10413,7 +10413,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-23T13:11:48+00:00"
+   "retrieved_at": "2026-11-23T22:47:24+00:00"
   },
   {
    "date": "2026-11-23",
