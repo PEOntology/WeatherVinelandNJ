@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-23T05:41:18+00:00",
+ "retrieved_at": "2026-11-23T05:48:14+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,9 +15,9 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
+   "name": "Overnight",
    "temp_f": 54,
-   "short": "Slight Chance Light Rain then Patchy Fog",
+   "short": "Patchy Fog",
    "precip_pct": 21,
    "wind": "0 mph"
   },
