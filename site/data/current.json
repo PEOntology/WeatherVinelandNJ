@@ -1,39 +1,39 @@
 {
- "retrieved_at": "2026-11-23T21:59:34+00:00",
+ "retrieved_at": "2026-11-23T22:06:39+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-23T21:30:00+00:00",
+  "observed_at": "2026-11-23T21:55:00+00:00",
   "description": "Cloudy",
   "temp_f": 64.4,
-  "dewpoint_f": 50.0,
-  "humidity_pct": 59.5,
-  "wind_mph": 6.9,
+  "dewpoint_f": 51.8,
+  "humidity_pct": 63.6,
+  "wind_mph": 11.5,
   "wind_gust_mph": null,
   "wind_dir_deg": 320
  },
  "forecast": [
   {
-   "name": "Today",
-   "temp_f": 69,
-   "short": "Patchy Fog then Mostly Sunny",
-   "precip_pct": 5,
-   "wind": "W 5 to 10 mph"
+   "name": "This Afternoon",
+   "temp_f": 70,
+   "short": "Mostly Sunny",
+   "precip_pct": 3,
+   "wind": "NW 5 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 36,
    "short": "Mostly Cloudy",
-   "precip_pct": 13,
-   "wind": "NW 5 to 10 mph"
+   "precip_pct": 9,
+   "wind": "NW 5 mph"
   },
   {
    "name": "Tuesday",
-   "temp_f": 51,
+   "temp_f": 50,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "N 5 to 15 mph"
+   "wind": "N 5 to 10 mph"
   },
   {
    "name": "Tuesday Night",
@@ -43,7 +43,7 @@
    "wind": "N 0 to 5 mph"
   }
  ],
- "forecast_updated": "2026-11-23T09:07:43+00:00",
+ "forecast_updated": "2026-11-23T21:07:56+00:00",
  "alerts": [
   {
    "event": "Coastal Flood Watch",
