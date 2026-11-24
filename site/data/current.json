@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-24T09:11:17+00:00",
+ "retrieved_at": "2026-11-24T09:18:14+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,9 +17,9 @@
   {
    "name": "Overnight",
    "temp_f": 40,
-   "short": "Chance Rain Showers",
-   "precip_pct": 29,
-   "wind": "NW 10 mph"
+   "short": "Partly Cloudy",
+   "precip_pct": 10,
+   "wind": "N 10 mph"
   },
   {
    "name": "Tuesday",
@@ -43,7 +43,7 @@
    "wind": "NE 5 to 10 mph"
   }
  ],
- "forecast_updated": "2026-11-24T05:11:59+00:00",
+ "forecast_updated": "2026-11-24T09:07:37+00:00",
  "alerts": [
   {
    "event": "Coastal Flood Watch",
