@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-24T23:20:41+00:00",
+ "retrieved_at": "2026-11-24T23:21:08+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -14,13 +14,6 @@
   "wind_dir_deg": 350
  },
  "forecast": [
-  {
-   "name": "This Afternoon",
-   "temp_f": 52,
-   "short": "Sunny",
-   "precip_pct": 0,
-   "wind": "N 5 mph"
-  },
   {
    "name": "Tonight",
    "temp_f": 26,
@@ -41,6 +34,13 @@
    "short": "Cloudy then Light Rain Likely",
    "precip_pct": 59,
    "wind": "NE 10 to 20 mph"
+  },
+  {
+   "name": "Thanksgiving Day",
+   "temp_f": 61,
+   "short": "Rain",
+   "precip_pct": 99,
+   "wind": "E 25 to 30 mph"
   }
  ],
  "forecast_updated": "2026-11-24T21:07:57+00:00",
