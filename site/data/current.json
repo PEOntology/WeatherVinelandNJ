@@ -1,17 +1,17 @@
 {
- "retrieved_at": "2026-11-24T19:32:33+00:00",
+ "retrieved_at": "2026-11-24T19:39:38+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-24T19:05:00+00:00",
+  "observed_at": "2026-11-24T19:20:00+00:00",
   "description": "Clear",
-  "temp_f": 50.0,
+  "temp_f": 51.8,
   "dewpoint_f": 19.4,
-  "humidity_pct": 29.5,
+  "humidity_pct": 27.6,
   "wind_mph": 10.4,
   "wind_gust_mph": null,
-  "wind_dir_deg": 310
+  "wind_dir_deg": 340
  },
  "forecast": [
   {
@@ -19,7 +19,7 @@
    "temp_f": 50,
    "short": "Sunny",
    "precip_pct": 0,
-   "wind": "N 5 to 15 mph"
+   "wind": "N 5 to 10 mph"
   },
   {
    "name": "Tonight",
@@ -46,16 +46,16 @@
  "forecast_updated": "2026-11-24T09:07:37+00:00",
  "alerts": [
   {
+   "event": "Coastal Flood Warning",
+   "headline": "Coastal Flood Warning issued November 24 at 2:30PM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
+   "severity": "Severe",
+   "ends": "2026-11-27T03:00:00-05:00"
+  },
+  {
    "event": "High Wind Warning",
    "headline": "High Wind Warning issued November 24 at 1:51PM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-11-26T22:00:00-05:00"
-  },
-  {
-   "event": "Coastal Flood Watch",
-   "headline": "Coastal Flood Watch issued November 24 at 4:49AM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
-   "severity": "Moderate",
-   "ends": "2026-11-27T03:00:00-05:00"
   }
  ]
 }
