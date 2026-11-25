@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-25T08:16:36+00:00",
+ "retrieved_at": "2026-11-25T08:23:44+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -46,16 +46,16 @@
  "forecast_updated": "2026-11-25T07:02:08+00:00",
  "alerts": [
   {
+   "event": "Coastal Flood Warning",
+   "headline": "Coastal Flood Warning issued November 25 at 3:20AM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
+   "severity": "Severe",
+   "ends": "2026-11-27T03:00:00-05:00"
+  },
+  {
    "event": "High Wind Warning",
    "headline": "High Wind Warning issued November 25 at 1:34AM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-11-26T22:00:00-05:00"
-  },
-  {
-   "event": "Coastal Flood Warning",
-   "headline": "Coastal Flood Warning issued November 24 at 2:30PM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
-   "severity": "Severe",
-   "ends": "2026-11-27T03:00:00-05:00"
   }
  ]
 }
