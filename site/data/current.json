@@ -1,22 +1,22 @@
 {
- "retrieved_at": "2026-11-25T16:00:34+00:00",
+ "retrieved_at": "2026-11-25T21:32:40+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-25T15:40:00+00:00",
-  "description": "Cloudy",
-  "temp_f": 42.8,
-  "dewpoint_f": 30.2,
-  "humidity_pct": 60.8,
-  "wind_mph": 11.5,
+  "observed_at": "2026-11-25T20:55:00+00:00",
+  "description": "Mostly Clear",
+  "temp_f": 46.4,
+  "dewpoint_f": 35.6,
+  "humidity_pct": 65.8,
+  "wind_mph": 16.1,
   "wind_gust_mph": null,
   "wind_dir_deg": 30
  },
  "forecast": [
   {
-   "name": "Today",
-   "temp_f": 53,
+   "name": "This Afternoon",
+   "temp_f": 49,
    "short": "Cloudy",
    "precip_pct": 0,
    "wind": "NE 10 mph"
@@ -24,9 +24,9 @@
   {
    "name": "Tonight",
    "temp_f": 45,
-   "short": "Cloudy then Chance Light Rain",
-   "precip_pct": 50,
-   "wind": "NE 10 to 25 mph"
+   "short": "Cloudy then Light Rain Likely",
+   "precip_pct": 56,
+   "wind": "NE 10 to 20 mph"
   },
   {
    "name": "Thanksgiving Day",
@@ -37,25 +37,25 @@
   },
   {
    "name": "Thursday Night",
-   "temp_f": 50,
-   "short": "Rain",
-   "precip_pct": 79,
-   "wind": "SE 10 to 25 mph"
+   "temp_f": 51,
+   "short": "Heavy Rain then Mostly Cloudy",
+   "precip_pct": 82,
+   "wind": "SE 15 to 25 mph"
   }
  ],
- "forecast_updated": "2026-11-25T14:19:08+00:00",
+ "forecast_updated": "2026-11-25T21:07:49+00:00",
  "alerts": [
   {
-   "event": "Coastal Flood Warning",
-   "headline": "Coastal Flood Warning issued November 25 at 5:14AM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
-   "severity": "Severe",
-   "ends": "2026-11-27T03:00:00-05:00"
-  },
-  {
    "event": "High Wind Warning",
-   "headline": "High Wind Warning issued November 25 at 1:34AM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
+   "headline": "High Wind Warning issued November 25 at 1:56PM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-11-26T22:00:00-05:00"
+  },
+  {
+   "event": "Coastal Flood Warning",
+   "headline": "Coastal Flood Warning issued November 25 at 1:54PM EST until November 27 at 3:00AM EST by NWS Mount Holly NJ",
+   "severity": "Severe",
+   "ends": "2026-11-27T03:00:00-05:00"
   }
  ]
 }
