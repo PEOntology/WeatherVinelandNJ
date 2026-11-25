@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-25T07:40:41+00:00",
+ "retrieved_at": "2026-11-25T07:41:07+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -16,7 +16,7 @@
  "forecast": [
   {
    "name": "Overnight",
-   "temp_f": 26,
+   "temp_f": 28,
    "short": "Mostly Clear",
    "precip_pct": 0,
    "wind": "NE 5 mph"
@@ -24,26 +24,26 @@
   {
    "name": "Wednesday",
    "temp_f": 53,
-   "short": "Partly Sunny",
+   "short": "Mostly Cloudy",
    "precip_pct": 0,
    "wind": "NE 5 to 10 mph"
   },
   {
    "name": "Wednesday Night",
    "temp_f": 45,
-   "short": "Cloudy then Light Rain Likely",
-   "precip_pct": 59,
-   "wind": "NE 10 to 20 mph"
+   "short": "Cloudy then Chance Light Rain",
+   "precip_pct": 50,
+   "wind": "NE 10 to 25 mph"
   },
   {
    "name": "Thanksgiving Day",
-   "temp_f": 61,
-   "short": "Rain",
-   "precip_pct": 99,
+   "temp_f": 59,
+   "short": "Heavy Rain",
+   "precip_pct": 100,
    "wind": "E 25 to 30 mph"
   }
  ],
- "forecast_updated": "2026-11-24T21:07:57+00:00",
+ "forecast_updated": "2026-11-25T07:02:08+00:00",
  "alerts": [
   {
    "event": "High Wind Warning",
