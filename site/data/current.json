@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-25T09:28:06+00:00",
+ "retrieved_at": "2026-11-25T09:35:12+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -43,7 +43,7 @@
    "wind": "E 25 to 30 mph"
   }
  ],
- "forecast_updated": "2026-11-25T09:07:47+00:00",
+ "forecast_updated": "2026-11-25T07:02:08+00:00",
  "alerts": [
   {
    "event": "Coastal Flood Warning",
