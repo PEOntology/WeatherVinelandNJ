@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-26T07:26:06+00:00",
+ "retrieved_at": "2026-11-26T07:26:30+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,15 +15,15 @@
  },
  "forecast": [
   {
-   "name": "Tonight",
-   "temp_f": 45,
-   "short": "Cloudy then Light Rain Likely",
-   "precip_pct": 56,
-   "wind": "NE 15 to 20 mph"
+   "name": "Overnight",
+   "temp_f": 44,
+   "short": "Light Rain Likely",
+   "precip_pct": 65,
+   "wind": "NE 20 to 25 mph"
   },
   {
    "name": "Thanksgiving Day",
-   "temp_f": 59,
+   "temp_f": 60,
    "short": "Heavy Rain",
    "precip_pct": 100,
    "wind": "E 25 to 30 mph"
@@ -31,19 +31,19 @@
   {
    "name": "Thursday Night",
    "temp_f": 51,
-   "short": "Heavy Rain then Mostly Cloudy",
+   "short": "Heavy Rain then Slight Chance Rain Showers",
    "precip_pct": 82,
-   "wind": "SE 15 to 25 mph"
+   "wind": "S 5 to 20 mph"
   },
   {
    "name": "Friday",
-   "temp_f": 56,
-   "short": "Mostly Cloudy then Slight Chance Light Rain",
-   "precip_pct": 15,
+   "temp_f": 54,
+   "short": "Mostly Cloudy",
+   "precip_pct": 10,
    "wind": "SW 15 to 20 mph"
   }
  ],
- "forecast_updated": "2026-11-25T21:07:49+00:00",
+ "forecast_updated": "2026-11-26T06:48:38+00:00",
  "alerts": [
   {
    "event": "High Wind Warning",
