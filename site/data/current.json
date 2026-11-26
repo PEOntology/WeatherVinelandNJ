@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-26T06:36:24+00:00",
+ "retrieved_at": "2026-11-26T06:43:33+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -47,7 +47,7 @@
  "alerts": [
   {
    "event": "High Wind Warning",
-   "headline": "High Wind Warning issued November 26 at 1:35AM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
+   "headline": "High Wind Warning issued November 26 at 1:40AM EST until November 26 at 10:00PM EST by NWS Mount Holly NJ",
    "severity": "Severe",
    "ends": "2026-11-26T22:00:00-05:00"
   },
