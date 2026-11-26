@@ -1,16 +1,16 @@
 {
- "retrieved_at": "2026-11-26T03:51:52+00:00",
+ "retrieved_at": "2026-11-26T03:58:57+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
   "station_name": "Millville Municipal Airport",
-  "observed_at": "2026-11-26T03:30:00+00:00",
-  "description": "Cloudy",
+  "observed_at": "2026-11-26T03:40:00+00:00",
+  "description": "Cloudy and Windy",
   "temp_f": 50.0,
   "dewpoint_f": 41.0,
   "humidity_pct": 71.1,
-  "wind_mph": 18.4,
-  "wind_gust_mph": 24.2,
+  "wind_mph": 19.6,
+  "wind_gust_mph": 26.5,
   "wind_dir_deg": 60
  },
  "forecast": [
@@ -19,7 +19,7 @@
    "temp_f": 45,
    "short": "Cloudy then Light Rain Likely",
    "precip_pct": 56,
-   "wind": "NE 10 to 20 mph"
+   "wind": "NE 15 to 20 mph"
   },
   {
    "name": "Thanksgiving Day",
