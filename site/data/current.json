@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-26T22:26:58+00:00",
+ "retrieved_at": "2026-11-26T22:33:54+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -18,8 +18,8 @@
    "name": "Thanksgiving Day",
    "temp_f": 57,
    "short": "Heavy Rain",
-   "precip_pct": 97,
-   "wind": "E 25 to 30 mph"
+   "precip_pct": 94,
+   "wind": "E 25 mph"
   },
   {
    "name": "Tonight",
