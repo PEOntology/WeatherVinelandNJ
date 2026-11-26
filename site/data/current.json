@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-26T05:53:10+00:00",
+ "retrieved_at": "2026-11-26T06:00:17+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -19,7 +19,7 @@
    "temp_f": 45,
    "short": "Cloudy then Light Rain Likely",
    "precip_pct": 56,
-   "wind": "NE 15 to 20 mph"
+   "wind": "NE 10 to 20 mph"
   },
   {
    "name": "Thanksgiving Day",
