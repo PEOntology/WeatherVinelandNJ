@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-27T00:56:42+00:00",
+ "retrieved_at": "2026-11-27T01:03:38+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,9 +17,9 @@
   {
    "name": "Tonight",
    "temp_f": 50,
-   "short": "Heavy Rain",
-   "precip_pct": 82,
-   "wind": "SE 10 to 25 mph"
+   "short": "Heavy Rain Likely",
+   "precip_pct": 68,
+   "wind": "S 10 to 20 mph"
   },
   {
    "name": "Friday",
