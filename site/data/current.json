@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-27T08:04:45+00:00",
+ "retrieved_at": "2026-11-27T08:08:34+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -17,33 +17,33 @@
   {
    "name": "Overnight",
    "temp_f": 50,
-   "short": "Slight Chance Light Rain",
-   "precip_pct": 15,
-   "wind": "S 15 to 20 mph"
+   "short": "Scattered Rain Showers",
+   "precip_pct": 27,
+   "wind": "SW 15 mph"
   },
   {
    "name": "Friday",
-   "temp_f": 55,
-   "short": "Mostly Cloudy",
-   "precip_pct": 12,
+   "temp_f": 54,
+   "short": "Cloudy then Isolated Rain Showers",
+   "precip_pct": 17,
    "wind": "SW 15 to 20 mph"
   },
   {
    "name": "Friday Night",
    "temp_f": 41,
-   "short": "Mostly Cloudy",
-   "precip_pct": 2,
+   "short": "Partly Cloudy",
+   "precip_pct": 6,
    "wind": "SW 15 mph"
   },
   {
    "name": "Saturday",
    "temp_f": 55,
-   "short": "Mostly Sunny",
-   "precip_pct": 0,
+   "short": "Partly Sunny",
+   "precip_pct": 5,
    "wind": "W 10 to 15 mph"
   }
  ],
- "forecast_updated": "2026-11-26T21:08:24+00:00",
+ "forecast_updated": "2026-11-27T07:57:34+00:00",
  "alerts": [
   {
    "event": "Coastal Flood Advisory",
