@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-27T21:18:28+00:00",
+ "retrieved_at": "2026-11-27T21:25:35+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -10,39 +10,39 @@
   "dewpoint_f": 37.0,
   "humidity_pct": 68.3,
   "wind_mph": 15.0,
-  "wind_gust_mph": 31.1,
+  "wind_gust_mph": null,
   "wind_dir_deg": 240
  },
  "forecast": [
   {
    "name": "This Afternoon",
-   "temp_f": 54,
-   "short": "Isolated Rain Showers",
-   "precip_pct": 17,
+   "temp_f": 55,
+   "short": "Mostly Cloudy",
+   "precip_pct": 1,
    "wind": "SW 15 mph"
   },
   {
    "name": "Tonight",
    "temp_f": 41,
-   "short": "Partly Cloudy",
-   "precip_pct": 6,
-   "wind": "SW 15 mph"
+   "short": "Mostly Cloudy",
+   "precip_pct": 2,
+   "wind": "SW 10 mph"
   },
   {
    "name": "Saturday",
-   "temp_f": 55,
-   "short": "Partly Sunny",
+   "temp_f": 52,
+   "short": "Mostly Sunny",
    "precip_pct": 5,
    "wind": "W 10 to 15 mph"
   },
   {
    "name": "Saturday Night",
-   "temp_f": 33,
-   "short": "Partly Cloudy",
-   "precip_pct": 0,
-   "wind": "W 5 to 10 mph"
+   "temp_f": 32,
+   "short": "Mostly Clear",
+   "precip_pct": 1,
+   "wind": "W 0 to 10 mph"
   }
  ],
- "forecast_updated": "2026-11-27T09:07:36+00:00",
+ "forecast_updated": "2026-11-27T21:08:04+00:00",
  "alerts": []
 }
