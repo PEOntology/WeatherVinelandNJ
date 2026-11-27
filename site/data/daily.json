@@ -5,7 +5,7 @@
  "boundary_approximate": false,
  "timezone": "America/New_York",
  "start_date": "2026-05-01",
- "generated_at": "2026-11-27T12:41:21+00:00",
+ "generated_at": "2026-11-27T13:27:30+00:00",
  "lightning_events_published": false,
  "records": [
   {
@@ -8136,7 +8136,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-10-14T16:03:38+00:00"
+   "retrieved_at": "2026-11-27T13:27:05+00:00"
   },
   {
    "date": "2026-10-12",
@@ -10464,7 +10464,7 @@
    "date": "2026-11-24",
    "area": "Vineland, NJ",
    "coverage": "City of Vineland municipal boundary (Census place 3476070)",
-   "status": "incomplete",
+   "status": "complete",
    "day_ended": true,
    "rain_estimated": {
     "value_in": 0.02,
@@ -10476,10 +10476,13 @@
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
-    "value_in": null,
-    "status": "unavailable",
-    "reason": "GET https://mesonet.agron.iastate.edu/api/1/daily.json -> HTTP 429: {\"detail\":\"Too many concurrent requests, try again later.\"}",
-    "station": "KMIV"
+    "station": "KMIV",
+    "name": "Millville Municipal Airport",
+    "label": "Nearby station precipitation, Millville Municipal Airport",
+    "source": "Iowa Environmental Mesonet ASOS daily summary",
+    "value_in": 0.01,
+    "trace": false,
+    "status": "complete"
    },
    "lightning": {
     "source": "Xweather detected lightning (Lightning Enterprise)",
@@ -10509,7 +10512,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-27T12:40:05+00:00"
+   "retrieved_at": "2026-11-27T13:27:12+00:00"
   },
   {
    "date": "2026-11-25",
@@ -10629,16 +10632,19 @@
     "value_in": null,
     "partial_in": 0.03,
     "hours_expected": 24,
-    "hours_found": 7,
+    "hours_found": 8,
     "status": "provisional",
     "source": "NOAA MRMS MultiSensor QPE, 1-hour (Pass 2 gauge-corrected; some hours Pass 1)",
     "label": "Estimated precipitation, Vineland area average"
    },
    "rain_station": {
-    "value_in": null,
-    "status": "unavailable",
-    "reason": "GET https://mesonet.agron.iastate.edu/api/1/daily.json -> HTTP 502: An error occurred, please try again later.",
-    "station": "KMIV"
+    "station": "KMIV",
+    "name": "Millville Municipal Airport",
+    "label": "Nearby station precipitation, Millville Municipal Airport",
+    "source": "Iowa Environmental Mesonet ASOS daily summary",
+    "value_in": 0.02,
+    "trace": false,
+    "status": "complete"
    },
    "lightning": {
     "source": "Xweather detected lightning (Lightning Enterprise)",
@@ -10652,9 +10658,9 @@
     "partial_flashes": 0,
     "first_local": null,
     "last_local": null,
-    "files_found": 1376,
+    "files_found": 1518,
     "files_expected": 4320,
-    "missing_seconds": 58880,
+    "missing_seconds": 56040,
     "source": "NOAA GOES-19 Geostationary Lightning Mapper (GLM L2)",
     "label": "Satellite-detected lightning flashes within Vineland (total lightning; no ground-strike split)"
    },
@@ -10668,7 +10674,7 @@
     "first_local": null,
     "last_local": null
    },
-   "retrieved_at": "2026-11-27T12:39:32+00:00"
+   "retrieved_at": "2026-11-27T13:27:12+00:00"
   }
  ]
 }
