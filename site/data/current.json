@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-27T20:35:31+00:00",
+ "retrieved_at": "2026-11-27T20:42:42+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -15,11 +15,11 @@
  },
  "forecast": [
   {
-   "name": "This Afternoon",
+   "name": "Today",
    "temp_f": 54,
-   "short": "Isolated Rain Showers",
+   "short": "Cloudy then Isolated Rain Showers",
    "precip_pct": 17,
-   "wind": "SW 15 mph"
+   "wind": "SW 15 to 20 mph"
   },
   {
    "name": "Tonight",
