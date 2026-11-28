@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-11-28T00:24:43+00:00",
+ "retrieved_at": "2026-11-28T00:31:50+00:00",
  "errors": [],
  "observation": {
   "station": "KMIV",
@@ -10,7 +10,7 @@
   "dewpoint_f": 36.0,
   "humidity_pct": 67.7,
   "wind_mph": 10.3,
-  "wind_gust_mph": null,
+  "wind_gust_mph": 20.8,
   "wind_dir_deg": 250
  },
  "forecast": [
